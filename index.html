@@ -1,222 +1,1115 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Intech Biobío SpA | Infraestructura y Automatización de Procesos</title>
-    <link rel="icon" type="image/png" href="favicon.png">
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --brand-primary: #4f46e5;
-            --brand-dark: #1e293b;
-            --brand-accent: #818cf8;
-            --bg-light: #f8fafc;
-            --white: #ffffff;
-            --success: #10b981;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Intech Biobío SpA | Soluciones Tecnológicas y Automatización</title>
+  <meta name="description" content="Intech Biobío SpA ofrece automatización de procesos, infraestructura tecnológica, business intelligence y desarrollo de soluciones digitales para organizaciones públicas y privadas." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #06111f;
+      --bg-soft: #0b1728;
+      --card: rgba(11, 23, 40, 0.78);
+      --card-strong: #0f1d31;
+      --stroke: rgba(255, 255, 255, 0.08);
+      --text: #e5eefb;
+      --muted: #9fb3cc;
+      --primary: #2f7df6;
+      --primary-2: #14b8ff;
+      --accent: #82d947;
+      --accent-2: #38bdf8;
+      --white: #ffffff;
+      --shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+      --radius: 22px;
+      --radius-sm: 16px;
+      --max: 1200px;
+    }
 
-        body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            margin: 0;
-            background-color: var(--bg-light);
-            color: var(--brand-dark);
-            line-height: 1.6;
-        }
+    * { box-sizing: border-box; }
 
-        nav {
-            padding: 1.5rem 10%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: var(--white);
-            border-bottom: 1px solid #e2e8f0;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
+    html { scroll-behavior: smooth; }
 
-        .logo { font-weight: 800; font-size: 1.4rem; color: var(--brand-primary); }
-        .logo span { color: var(--brand-dark); }
+    body {
+      margin: 0;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(20, 184, 255, 0.15), transparent 28%),
+        radial-gradient(circle at top right, rgba(130, 217, 71, 0.14), transparent 26%),
+        linear-gradient(180deg, #071221 0%, #06111f 100%);
+      color: var(--text);
+      line-height: 1.6;
+    }
 
-        header {
-            padding: 100px 10%;
-            background: linear-gradient(135deg, #1e293b 0%, #312e81 100%);
-            color: var(--white);
-            text-align: center;
-        }
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px);
+      background-size: 36px 36px;
+      mask-image: linear-gradient(to bottom, rgba(0,0,0,0.5), transparent 85%);
+      pointer-events: none;
+      z-index: 0;
+    }
 
-        h1 { font-size: 3rem; margin-bottom: 1.5rem; letter-spacing: -1px; line-height: 1.1; }
-        .lead { font-size: 1.2rem; opacity: 0.9; max-width: 850px; margin: 0 auto 2rem; }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
 
-        /* Dashboard Section */
-        .dashboard-preview { padding: 60px 10%; background: var(--bg-light); }
-        .dashboard-container {
-            background: #1e293b;
-            border-radius: 20px;
-            padding: 30px;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-        }
+    .container {
+      width: min(var(--max), calc(100% - 40px));
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
 
-        .kpi-card {
-            background: rgba(255,255,255,0.05);
-            padding: 20px;
-            border-radius: 12px;
-            border: 1px solid rgba(255,255,255,0.1);
-            text-align: center;
-        }
-        .kpi-card span { color: var(--brand-accent); font-size: 0.75rem; font-weight: 700; display: block; margin-bottom: 10px; text-transform: uppercase; }
-        .kpi-card b { color: white; font-size: 2rem; }
+    .section {
+      padding: 100px 0;
+      position: relative;
+      z-index: 1;
+    }
 
-        .chart-sim { height: 60px; display: flex; align-items: flex-end; gap: 6px; justify-content: center; margin-top: 15px; }
-        .bar { width: 12px; background: var(--brand-accent); border-radius: 2px 2px 0 0; }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.04);
+      color: var(--accent);
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+      backdrop-filter: blur(10px);
+    }
 
-        /* Services Grid */
-        .services { padding: 80px 10%; background: var(--white); }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 25px; margin-top: 40px; }
-        .card {
-            padding: 35px;
-            border: 1px solid #f1f5f9;
-            border-radius: 16px;
-            background: var(--bg-light);
-            transition: 0.3s;
-        }
-        .card:hover { transform: translateY(-5px); border-color: var(--brand-primary); }
-        .card h3 { color: var(--brand-primary); margin-top: 0; font-size: 1.2rem; }
-        .card p { font-size: 0.95rem; color: #475569; }
+    .section-title {
+      font-size: clamp(2rem, 4vw, 3rem);
+      line-height: 1.08;
+      letter-spacing: -0.03em;
+      margin: 0 0 16px;
+    }
 
-        /* Integrity Block */
-        .integrity-banner {
-            margin: 40px 10% 80px;
-            padding: 30px;
-            background: #f1f5f9;
-            border-left: 6px solid var(--success);
-            border-radius: 8px;
-        }
+    .section-copy {
+      max-width: 760px;
+      color: var(--muted);
+      font-size: 1.05rem;
+      margin: 0;
+    }
 
-        /* Footer */
-        footer { padding: 60px 10% 30px; background: var(--brand-dark); color: white; }
-        .footer-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-            padding-bottom: 40px;
-        }
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(18px);
+      background: rgba(6, 17, 31, 0.72);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
 
-        .footer-left { max-width: 450px; text-align: left; }
-        .footer-right { text-align: right; }
+    .navbar-inner {
+      min-height: 84px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
 
-        .footer-left h2, .footer-right h2 {
-            font-size: 1.1rem;
-            font-weight: 800;
-            margin-bottom: 15px;
-            text-transform: uppercase;
-        }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      font-weight: 800;
+    }
 
-        .footer-left p, .footer-right p { color: #94a3b8; font-size: 0.9rem; margin: 5px 0; }
-        .footer-right a { color: var(--brand-accent); text-decoration: none; font-weight: 600; }
+    .brand-mark {
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, rgba(20,184,255,0.22), rgba(130,217,71,0.18));
+      border: 1px solid rgba(255,255,255,0.08);
+      display: grid;
+      place-items: center;
+      color: var(--white);
+      box-shadow: inset 0 0 24px rgba(20,184,255,0.15);
+      font-size: 1rem;
+    }
 
-        .copyright { text-align: center; padding-top: 30px; font-size: 0.75rem; color: #475569; }
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.05;
+    }
 
-        @media (max-width: 768px) {
-            .footer-container { flex-direction: column; text-align: center; }
-            .footer-right { text-align: center; margin-top: 30px; }
-            h1 { font-size: 2.2rem; }
-        }
-    </style>
+    .brand-text strong {
+      font-size: 1rem;
+      letter-spacing: 0.06em;
+    }
+
+    .brand-text span {
+      color: var(--muted);
+      font-size: 0.74rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 26px;
+      color: var(--muted);
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+
+    .nav-links a:hover { color: var(--white); }
+
+    .nav-cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 12px 18px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--primary), var(--primary-2));
+      color: var(--white);
+      font-weight: 700;
+      box-shadow: 0 14px 32px rgba(47,125,246,0.28);
+    }
+
+    .hero {
+      padding: 72px 0 44px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 42px;
+      align-items: center;
+    }
+
+    .hero-copy h1 {
+      font-size: clamp(2.8rem, 5vw, 5rem);
+      line-height: 0.98;
+      margin: 0 0 22px;
+      letter-spacing: -0.05em;
+      max-width: 760px;
+    }
+
+    .hero-copy p {
+      font-size: 1.12rem;
+      color: var(--muted);
+      max-width: 680px;
+      margin: 0 0 30px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-bottom: 28px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 22px;
+      border-radius: 14px;
+      border: 1px solid transparent;
+      font-weight: 700;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+    }
+
+    .btn:hover { transform: translateY(-2px); }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary), var(--primary-2));
+      color: var(--white);
+      box-shadow: 0 16px 34px rgba(47,125,246,0.28);
+    }
+
+    .btn-secondary {
+      color: var(--white);
+      border-color: rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.03);
+    }
+
+    .hero-metrics {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      max-width: 720px;
+    }
+
+    .hero-metric {
+      padding: 18px 18px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      backdrop-filter: blur(10px);
+    }
+
+    .hero-metric strong {
+      display: block;
+      font-size: 1.6rem;
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+
+    .hero-metric span {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .hero-panel {
+      position: relative;
+      padding: 22px;
+      border-radius: 28px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03));
+      border: 1px solid rgba(255,255,255,0.09);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .hero-panel::before {
+      content: "";
+      position: absolute;
+      inset: auto -80px -80px auto;
+      width: 220px;
+      height: 220px;
+      background: radial-gradient(circle, rgba(130,217,71,0.35) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .mock-window {
+      border-radius: 24px;
+      background: linear-gradient(180deg, rgba(3, 10, 20, 0.96), rgba(8, 18, 34, 0.92));
+      border: 1px solid rgba(255,255,255,0.08);
+      overflow: hidden;
+    }
+
+    .mock-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 20px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+
+    .dots {
+      display: flex;
+      gap: 8px;
+    }
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.18);
+    }
+
+    .mock-body {
+      padding: 20px;
+      display: grid;
+      gap: 16px;
+    }
+
+    .mock-kpis {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+
+    .mini-card {
+      padding: 14px;
+      border-radius: 16px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .mini-card span {
+      display: block;
+      color: var(--muted);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 10px;
+    }
+
+    .mini-card strong {
+      font-size: 1.5rem;
+    }
+
+    .mock-chart,
+    .mock-table {
+      border-radius: 18px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.05);
+      padding: 18px;
+    }
+
+    .chart-lines {
+      display: flex;
+      align-items: end;
+      gap: 10px;
+      height: 180px;
+      padding-top: 10px;
+    }
+
+    .chart-lines div {
+      flex: 1;
+      border-radius: 10px 10px 4px 4px;
+      background: linear-gradient(180deg, var(--primary-2), var(--primary));
+      opacity: 0.92;
+    }
+
+    .chart-lines div:nth-child(2n) {
+      background: linear-gradient(180deg, #38bdf8, #1d4ed8);
+    }
+
+    .chart-lines div:nth-child(3n) {
+      background: linear-gradient(180deg, #a3e635, #22c55e);
+    }
+
+    .table-row {
+      display: grid;
+      grid-template-columns: 1.2fr 0.9fr 0.9fr;
+      gap: 10px;
+      padding: 10px 0;
+      color: var(--muted);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      font-size: 0.92rem;
+    }
+
+    .table-row:last-child { border-bottom: none; }
+    .table-row strong { color: var(--text); font-weight: 700; }
+
+    .trust-strip {
+      padding: 26px 0 10px;
+    }
+
+    .trust-box {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 22px;
+      align-items: center;
+      padding: 24px 28px;
+      border-radius: 24px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .trust-copy {
+      color: var(--muted);
+      font-weight: 500;
+    }
+
+    .trust-items {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .trust-item {
+      padding: 16px;
+      text-align: center;
+      border-radius: 16px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.06);
+      color: var(--muted);
+      font-size: 0.9rem;
+      font-weight: 700;
+    }
+
+    .services-grid,
+    .value-grid,
+    .process-grid,
+    .insights-grid,
+    .contact-grid,
+    .footer-grid {
+      display: grid;
+      gap: 22px;
+    }
+
+    .services-grid {
+      margin-top: 38px;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .card {
+      position: relative;
+      padding: 28px;
+      border-radius: var(--radius);
+      background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.025));
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .card::after {
+      content: "";
+      position: absolute;
+      inset: auto -40px -40px auto;
+      width: 120px;
+      height: 120px;
+      background: radial-gradient(circle, rgba(47,125,246,0.14), transparent 70%);
+      pointer-events: none;
+    }
+
+    .card-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 20px;
+      font-weight: 800;
+      color: var(--white);
+      background: linear-gradient(135deg, rgba(47,125,246,0.35), rgba(20,184,255,0.2));
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .card h3 {
+      margin: 0 0 12px;
+      font-size: 1.2rem;
+      letter-spacing: -0.02em;
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.98rem;
+    }
+
+    .value-grid {
+      margin-top: 38px;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .value-item {
+      padding: 24px;
+      border-radius: 20px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .value-item strong {
+      display: block;
+      font-size: 2rem;
+      color: var(--white);
+      margin-bottom: 8px;
+      line-height: 1;
+    }
+
+    .value-item span {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .process-wrap {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 26px;
+      align-items: start;
+      margin-top: 38px;
+    }
+
+    .process-panel {
+      padding: 28px;
+      border-radius: 26px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: var(--shadow);
+    }
+
+    .process-panel h3 {
+      margin-top: 0;
+      margin-bottom: 14px;
+      font-size: 1.35rem;
+    }
+
+    .process-panel p {
+      color: var(--muted);
+      margin-bottom: 0;
+    }
+
+    .process-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .step {
+      padding: 24px;
+      border-radius: 22px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .step .num {
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, var(--primary), var(--primary-2));
+      color: var(--white);
+      font-weight: 800;
+      margin-bottom: 18px;
+      box-shadow: 0 12px 24px rgba(47,125,246,0.26);
+    }
+
+    .step h4 {
+      margin: 0 0 10px;
+      font-size: 1.05rem;
+    }
+
+    .step p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.96rem;
+    }
+
+    .insights-grid {
+      margin-top: 38px;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .insight-card {
+      padding: 28px;
+      border-radius: 22px;
+      background: rgba(255,255,255,0.035);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .insight-card strong {
+      display: inline-flex;
+      margin-bottom: 14px;
+      padding: 7px 12px;
+      border-radius: 999px;
+      background: rgba(130,217,71,0.12);
+      color: var(--accent);
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .insight-card h3 {
+      margin: 0 0 10px;
+      font-size: 1.15rem;
+    }
+
+    .insight-card p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .integrity {
+      padding: 28px;
+      margin-top: 36px;
+      border-radius: 24px;
+      border: 1px solid rgba(130,217,71,0.25);
+      background: linear-gradient(135deg, rgba(130,217,71,0.1), rgba(255,255,255,0.03));
+      box-shadow: var(--shadow);
+    }
+
+    .integrity h3 {
+      margin: 0 0 10px;
+      font-size: 1.2rem;
+    }
+
+    .integrity p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .contact-box {
+      padding: 36px;
+      border-radius: 28px;
+      background: linear-gradient(135deg, rgba(11,23,40,0.92), rgba(15,29,49,0.96));
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .contact-grid {
+      grid-template-columns: 1.15fr 0.85fr;
+      align-items: start;
+    }
+
+    .contact-box h2 {
+      margin: 0 0 14px;
+      font-size: clamp(2rem, 4vw, 3rem);
+      letter-spacing: -0.04em;
+      line-height: 1.05;
+    }
+
+    .contact-box p {
+      margin: 0 0 26px;
+      color: var(--muted);
+      max-width: 640px;
+    }
+
+    .contact-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .contact-side {
+      display: grid;
+      gap: 14px;
+    }
+
+    .contact-item {
+      padding: 20px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.07);
+    }
+
+    .contact-item span {
+      display: block;
+      color: var(--muted);
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 8px;
+    }
+
+    .contact-item strong,
+    .contact-item a {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--white);
+      word-break: break-word;
+    }
+
+    .footer {
+      padding: 32px 0 46px;
+      color: var(--muted);
+    }
+
+    .footer-grid {
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      padding-top: 24px;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .footer-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 700;
+      color: var(--white);
+    }
+
+    .footer-meta {
+      text-align: right;
+      font-size: 0.92rem;
+    }
+
+    @media (max-width: 1100px) {
+      .hero-grid,
+      .trust-box,
+      .process-wrap,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .services-grid,
+      .value-grid,
+      .insights-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 780px) {
+      .navbar-inner {
+        min-height: 76px;
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 14px 0;
+      }
+
+      .nav-links {
+        width: 100%;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 14px;
+        font-size: 0.9rem;
+      }
+
+      .hero {
+        padding-top: 40px;
+      }
+
+      .hero-metrics,
+      .mock-kpis,
+      .trust-items,
+      .services-grid,
+      .value-grid,
+      .process-grid,
+      .insights-grid,
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .section {
+        padding: 76px 0;
+      }
+
+      .hero-copy h1 {
+        font-size: 2.55rem;
+      }
+
+      .contact-box,
+      .process-panel,
+      .card,
+      .insight-card,
+      .step,
+      .value-item {
+        padding: 22px;
+      }
+
+      .footer-meta {
+        text-align: left;
+      }
+    }
+  </style>
 </head>
 <body>
-
-    <nav>
-        <div class="logo">INTECH <span>BIOBÍO</span></div>
-        <div style="font-weight: 600; font-size: 0.8rem; color: var(--brand-dark);">WWW.INTECHPRO.CL</div>
-    </nav>
-
-    <header>
-        <h1>Infraestructura y Automatización de Procesos</h1>
-        <p class="lead">Soluciones integrales en suministro de servidores, tótems de autoatención y optimización de flujos de datos para la modernización institucional.</p>
-    </header>
-
-    <section class="dashboard-preview">
-        <h2 style="text-align: center; margin-bottom: 40px;">Indicadores de Impacto y Eficiencia</h2>
-        <div class="dashboard-container">
-            <div class="kpi-card">
-                <span>Eficiencia Operativa</span>
-                <b>+30%</b>
-                <div class="chart-sim">
-                    <div class="bar" style="height: 40%;"></div><div class="bar" style="height: 60%;"></div><div class="bar" style="height: 80%;"></div><div class="bar" style="height: 100%;"></div>
-                </div>
-            </div>
-            <div class="kpi-card">
-                <span>Reducción de Tiempos</span>
-                <b>25%</b>
-                <div class="chart-sim">
-                    <div class="bar" style="height: 90%;"></div><div class="bar" style="height: 70%;"></div><div class="bar" style="height: 40%;"></div><div class="bar" style="height: 25%;"></div>
-                </div>
-            </div>
-            <div class="kpi-card">
-                <span>Continuidad Operativa</span>
-                <b>100%</b>
-                <div class="chart-sim">
-                    <div class="bar" style="height: 100%; background: var(--success);"></div><div class="bar" style="height: 100%; background: var(--success);"></div><div class="bar" style="height: 100%; background: var(--success);"></div>
-                </div>
-            </div>
+  <nav class="navbar">
+    <div class="container navbar-inner">
+      <a href="#inicio" class="brand">
+        <div class="brand-mark">IT</div>
+        <div class="brand-text">
+          <strong>INTECH</strong>
+          <span>Biobío SpA</span>
         </div>
+      </a>
+
+      <div class="nav-links">
+        <a href="#servicios">Servicios</a>
+        <a href="#metodologia">Metodología</a>
+        <a href="#impacto">Impacto</a>
+        <a href="#contacto">Contacto</a>
+      </div>
+
+      <a href="mailto:contacto@intechpro.cl" class="nav-cta">Solicitar asesoría</a>
+    </div>
+  </nav>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <div class="eyebrow">Tecnología aplicada a resultados</div>
+          <h1>Transformamos procesos críticos en eficiencia medible.</h1>
+          <p>
+            Intech Biobío SpA integra infraestructura, automatización, analítica y desarrollo para organizaciones que necesitan operar con mayor control, continuidad y trazabilidad.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#contacto">Solicitar asesoría</a>
+            <a class="btn btn-secondary" href="#servicios">Ver servicios</a>
+          </div>
+
+          <div class="hero-metrics">
+            <div class="hero-metric">
+              <strong>+30%</strong>
+              <span>mejora operacional estimada en automatización y analítica</span>
+            </div>
+            <div class="hero-metric">
+              <strong>25%</strong>
+              <span>reducción referencial en tiempos de atención y ejecución</span>
+            </div>
+            <div class="hero-metric">
+              <strong>24/7</strong>
+              <span>foco en continuidad, disponibilidad y soporte tecnológico</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-panel">
+          <div class="mock-window">
+            <div class="mock-top">
+              <div class="dots">
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+              </div>
+              <div>Panel de control operacional</div>
+            </div>
+            <div class="mock-body">
+              <div class="mock-kpis">
+                <div class="mini-card">
+                  <span>Tickets resueltos</span>
+                  <strong>1.248</strong>
+                </div>
+                <div class="mini-card">
+                  <span>Disponibilidad</span>
+                  <strong>99,9%</strong>
+                </div>
+                <div class="mini-card">
+                  <span>Procesos activos</span>
+                  <strong>42</strong>
+                </div>
+              </div>
+
+              <div class="mock-chart">
+                <div class="chart-lines">
+                  <div style="height: 42%;"></div>
+                  <div style="height: 58%;"></div>
+                  <div style="height: 64%;"></div>
+                  <div style="height: 74%;"></div>
+                  <div style="height: 60%;"></div>
+                  <div style="height: 82%;"></div>
+                  <div style="height: 100%;"></div>
+                </div>
+              </div>
+
+              <div class="mock-table">
+                <div class="table-row"><strong>Automatización documental</strong><span>Activo</span><span>98% SLA</span></div>
+                <div class="table-row"><strong>Monitoreo SQL</strong><span>Operativo</span><span>24/7</span></div>
+                <div class="table-row"><strong>Totem autoservicio</strong><span>Producción</span><span>-25% espera</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <section class="services">
-        <div class="grid">
-            <div class="card" style="border-top: 4px solid var(--brand-primary);">
-                <h3>Suministro de Servidores</h3>
-                <p>Equipamiento de alto rendimiento configurado para sistemas críticos financieros, con logística de entrega y soporte técnico especializado.</p>
-            </div>
-            <div class="card" style="border-top: 4px solid var(--brand-accent);">
-                <h3>Tótems de Autoatención</h3>
-                <p>Implementación de terminales inteligentes de autogestión, diseñados para optimizar la atención ciudadana y reducir tiempos de espera.</p>
-            </div>
-            <div class="card">
-                <h3>Automatización de Procesos</h3>
-                <p>Optimización inteligente de flujos de trabajo y tareas repetitivas mediante ingeniería de software para eliminar errores manuales.</p>
-            </div>
-            <div class="card">
-                <h3>Business Intelligence</h3>
-                <p>Análisis avanzado de datos y creación de dashboards dinámicos para el monitoreo en tiempo real de indicadores estratégicos.</p>
-            </div>
-            <div class="card">
-                <h3>Arquitectura SQL & Web</h3>
-                <p>Desarrollo de portales institucionales y sistemas robustos basados en bases de datos relacionales de alta disponibilidad.</p>
-            </div>
-            <div class="card">
-                <h3>Consultoría de Gestión</h3>
-                <p>Asesoría experta en trazabilidad de información y cumplimiento de reportes normativos para sectores públicos y privados.</p>
-            </div>
+    <section class="trust-strip">
+      <div class="container">
+        <div class="trust-box">
+          <div class="trust-copy">
+            Diseñamos soluciones tecnológicas con enfoque práctico, trazabilidad operativa y criterio de implementación para instituciones públicas y privadas.
+          </div>
+          <div class="trust-items">
+            <div class="trust-item">Automatización</div>
+            <div class="trust-item">Infraestructura</div>
+            <div class="trust-item">BI & Datos</div>
+          </div>
         </div>
-
-        <div class="integrity-banner">
-            <h3 style="margin-top:0; color: var(--brand-dark);">Compromiso con la Probidad</h3>
-            <p style="margin-bottom:0; color: #475569;">Intech Biobío SpA opera bajo estrictos estándares de ética profesional, garantizando transparencia, veracidad y competencia leal en cada proceso de licitación pública.</p>
-        </div>
+      </div>
     </section>
 
-    <footer>
-        <div class="footer-container">
-            <div class="footer-left">
-                <h2>INTECH BIOBÍO</h2>
-                <p>Especialistas en la integración de tecnologías de información con amplia trayectoria en los sectores financiero y logístico de la Región del Biobío.</p>
-            </div>
-            <div class="footer-right">
-                <h2>Contacto:</h2>
-                <p>Email: <a href="mailto:contacto@intechpro.cl">contacto@intechpro.cl</a></p>
-                <p>Concepción, Región del Biobío, Chile</p>
-            </div>
-        </div>
-        <div class="copyright">
-            &copy; 2026 Intech Biobío SpA. Todos los derechos reservados.
-        </div>
-    </footer>
+    <section class="section" id="servicios">
+      <div class="container">
+        <div class="eyebrow">Servicios</div>
+        <h2 class="section-title">Capacidades tecnológicas para entornos exigentes.</h2>
+        <p class="section-copy">
+          Integramos infraestructura, software y explotación de datos para construir soluciones robustas, escalables y alineadas con objetivos operacionales reales.
+        </p>
 
+        <div class="services-grid">
+          <article class="card">
+            <div class="card-icon">SV</div>
+            <h3>Suministro de servidores</h3>
+            <p>Equipamiento de alto rendimiento para plataformas críticas, con criterios de continuidad, disponibilidad y soporte técnico especializado.</p>
+          </article>
+
+          <article class="card">
+            <div class="card-icon">TA</div>
+            <h3>Tótems de autoatención</h3>
+            <p>Implementación de terminales de autoservicio orientados a mejorar experiencia usuaria, reducir tiempos de espera y ordenar procesos de atención.</p>
+          </article>
+
+          <article class="card">
+            <div class="card-icon">AP</div>
+            <h3>Automatización de procesos</h3>
+            <p>Diseño de flujos digitales para eliminar tareas manuales, disminuir errores operativos y acelerar ciclos críticos de negocio.</p>
+          </article>
+
+          <article class="card">
+            <div class="card-icon">BI</div>
+            <h3>Business Intelligence</h3>
+            <p>Dashboards, indicadores y modelos de visualización para monitoreo continuo, análisis ejecutivo y apoyo a la toma de decisiones.</p>
+          </article>
+
+          <article class="card">
+            <div class="card-icon">DB</div>
+            <h3>Arquitectura SQL & Web</h3>
+            <p>Desarrollo de soluciones web y estructuras de datos de alta disponibilidad para portales, procesos internos y trazabilidad institucional.</p>
+          </article>
+
+          <article class="card">
+            <div class="card-icon">CG</div>
+            <h3>Consultoría tecnológica</h3>
+            <p>Asesoría en optimización, reportabilidad, integración y ordenamiento de información para proyectos públicos y privados.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="impacto">
+      <div class="container">
+        <div class="eyebrow">Valor</div>
+        <h2 class="section-title">Más control, mejor visibilidad, menor fricción operacional.</h2>
+        <p class="section-copy">
+          Una implementación bien diseñada no solo digitaliza: reduce cuellos de botella, ordena la información y entrega capacidad real de gestión.
+        </p>
+
+        <div class="value-grid">
+          <div class="value-item">
+            <strong>01</strong>
+            <span>Procesos más estables y trazables</span>
+          </div>
+          <div class="value-item">
+            <strong>02</strong>
+            <span>Indicadores visibles en tiempo real</span>
+          </div>
+          <div class="value-item">
+            <strong>03</strong>
+            <span>Menor dependencia de tareas manuales</span>
+          </div>
+          <div class="value-item">
+            <strong>04</strong>
+            <span>Soporte para decisiones basadas en datos</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="metodologia">
+      <div class="container">
+        <div class="eyebrow">Metodología</div>
+        <h2 class="section-title">Una ejecución ordenada reduce riesgo y acelera resultados.</h2>
+        <p class="section-copy">
+          Nuestra metodología combina diagnóstico técnico, diseño funcional, implementación controlada y seguimiento para asegurar una adopción efectiva.
+        </p>
+
+        <div class="process-wrap">
+          <div class="process-panel">
+            <h3>Cómo abordamos un proyecto</h3>
+            <p>
+              Trabajamos desde la necesidad operativa real, priorizando trazabilidad, continuidad, factibilidad técnica y resultados visibles desde etapas tempranas.
+            </p>
+          </div>
+
+          <div class="process-grid">
+            <div class="step">
+              <div class="num">1</div>
+              <h4>Diagnóstico</h4>
+              <p>Levantamiento de procesos, actores, brechas, tiempos críticos e infraestructura existente.</p>
+            </div>
+            <div class="step">
+              <div class="num">2</div>
+              <h4>Diseño</h4>
+              <p>Definición de arquitectura, flujos, integraciones, indicadores y criterios de operación.</p>
+            </div>
+            <div class="step">
+              <div class="num">3</div>
+              <h4>Implementación</h4>
+              <p>Puesta en marcha controlada, validación funcional y habilitación técnica del entorno.</p>
+            </div>
+            <div class="step">
+              <div class="num">4</div>
+              <h4>Optimización</h4>
+              <p>Monitoreo, ajustes, soporte y mejora continua según uso real y objetivos del cliente.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="eyebrow">Enfoque</div>
+        <h2 class="section-title">Contenido que comunica seriedad técnica y capacidad de ejecución.</h2>
+        <p class="section-copy">
+          Una página corporativa efectiva debe explicar qué haces, cómo lo haces y por qué eso importa para quien te evalúa, te contrata o te licita.
+        </p>
+
+        <div class="insights-grid">
+          <article class="insight-card">
+            <strong>Infraestructura</strong>
+            <h3>Base tecnológica sólida</h3>
+            <p>Capacidad para desplegar soluciones sobre plataformas confiables, seguras y preparadas para crecimiento.</p>
+          </article>
+
+          <article class="insight-card">
+            <strong>Automatización</strong>
+            <h3>Menos fricción operativa</h3>
+            <p>Digitalización de actividades repetitivas para mejorar velocidad, consistencia y control de ejecución.</p>
+          </article>
+
+          <article class="insight-card">
+            <strong>Analítica</strong>
+            <h3>Información útil para decidir</h3>
+            <p>Visualización ejecutiva y seguimiento de indicadores para una gestión basada en evidencia y oportunidad.</p>
+          </article>
+        </div>
+
+        <div class="integrity">
+          <h3>Compromiso con la probidad y la ejecución responsable</h3>
+          <p>
+            Intech Biobío SpA promueve prácticas de trabajo transparentes, información verificable y un estándar de cumplimiento compatible con entornos de compra pública y exigencias corporativas.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contacto">
+      <div class="container">
+        <div class="contact-box">
+          <div class="contact-grid">
+            <div>
+              <div class="eyebrow">Contacto</div>
+              <h2>Conversemos sobre tu próximo proyecto tecnológico.</h2>
+              <p>
+                Si necesitas automatizar un proceso, fortalecer tu infraestructura o convertir datos en control operativo, podemos evaluar tu caso y proponerte una ruta de implementación.
+              </p>
+              <div class="contact-actions">
+                <a class="btn btn-primary" href="mailto:contacto@intechpro.cl">Escribir a contacto@intechpro.cl</a>
+                <a class="btn btn-secondary" href="https://www.intechpro.cl" target="_blank" rel="noopener">Visitar sitio</a>
+              </div>
+            </div>
+
+            <div class="contact-side">
+              <div class="contact-item">
+                <span>Email</span>
+                <a href="mailto:contacto@intechpro.cl">contacto@intechpro.cl</a>
+              </div>
+              <div class="contact-item">
+                <span>Ubicación</span>
+                <strong>Concepción, Región del Biobío, Chile</strong>
+              </div>
+              <div class="contact-item">
+                <span>Enfoque</span>
+                <strong>Infraestructura, automatización, BI y desarrollo tecnológico</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <div class="brand-mark">IT</div>
+        <div>
+          <div>INTECH Biobío SpA</div>
+          <div style="color: var(--muted); font-size: 0.9rem; font-weight: 500;">Tecnología aplicada a procesos críticos</div>
+        </div>
+      </div>
+      <div class="footer-meta">
+        © 2026 Intech Biobío SpA. Todos los derechos reservados.
+      </div>
+    </div>
+  </footer>
 </body>
 </html>
