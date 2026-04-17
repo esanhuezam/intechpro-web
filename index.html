@@ -3,29 +3,33 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Intech | Soluciones Tecnológicas</title>
-  <link rel="icon" type="image/png" href="favicon.png" />
-  <meta name="description" content="Intech Biobío ofrece automatización, infraestructura, business intelligence y desarrollo de soluciones tecnológicas para organizaciones públicas y privadas." />
+  <title>Intech | Soluciones Tecnológicas y Automatización</title>
+  <meta name="description" content="Intech Biobío SpA ofrece automatización de procesos, infraestructura tecnológica, business intelligence y desarrollo de soluciones digitales para organizaciones públicas y privadas." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root {
       --bg: #06111f;
+      --bg-soft: #0b1728;
       --card: rgba(11, 23, 40, 0.78);
+      --card-strong: #0f1d31;
       --stroke: rgba(255, 255, 255, 0.08);
       --text: #e5eefb;
       --muted: #9fb3cc;
       --primary: #2f7df6;
       --primary-2: #14b8ff;
       --accent: #82d947;
+      --accent-2: #38bdf8;
       --white: #ffffff;
       --shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
       --radius: 22px;
+      --radius-sm: 16px;
       --max: 1200px;
     }
 
     * { box-sizing: border-box; }
+
     html { scroll-behavior: smooth; }
 
     body {
@@ -39,15 +43,33 @@
       line-height: 1.6;
     }
 
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px);
+      background-size: 36px 36px;
+      mask-image: linear-gradient(to bottom, rgba(0,0,0,0.5), transparent 85%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
     a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
 
     .container {
       width: min(var(--max), calc(100% - 40px));
       margin: 0 auto;
+      position: relative;
+      z-index: 1;
     }
 
     .section {
-      padding: 88px 0;
+      padding: 100px 0;
+      position: relative;
+      z-index: 1;
     }
 
     .eyebrow {
@@ -75,9 +97,9 @@
     }
 
     .section-copy {
-      max-width: 720px;
+      max-width: 760px;
       color: var(--muted);
-      font-size: 1.02rem;
+      font-size: 1.05rem;
       margin: 0;
     }
 
@@ -86,12 +108,12 @@
       top: 0;
       z-index: 10;
       backdrop-filter: blur(18px);
-      background: rgba(6, 17, 31, 0.78);
+      background: rgba(6, 17, 31, 0.72);
       border-bottom: 1px solid rgba(255,255,255,0.05);
     }
 
     .navbar-inner {
-      min-height: 82px;
+      min-height: 84px;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -114,6 +136,7 @@
       display: grid;
       place-items: center;
       color: var(--white);
+      box-shadow: inset 0 0 24px rgba(20,184,255,0.15);
       font-size: 1rem;
     }
 
@@ -139,7 +162,7 @@
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 24px;
+      gap: 26px;
       color: var(--muted);
       font-weight: 600;
       font-size: 0.95rem;
@@ -147,91 +170,124 @@
 
     .nav-links a:hover { color: var(--white); }
 
-    .nav-cta,
-    .btn {
+    .nav-cta {
       display: inline-flex;
       align-items: center;
       justify-content: center;
       gap: 8px;
-      padding: 13px 20px;
-      border-radius: 14px;
-      font-weight: 700;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-
-    .nav-cta,
-    .btn-primary {
+      padding: 12px 18px;
+      border-radius: 12px;
       background: linear-gradient(135deg, var(--primary), var(--primary-2));
       color: var(--white);
+      font-weight: 700;
       box-shadow: 0 14px 32px rgba(47,125,246,0.28);
     }
 
-    .btn-secondary {
-      color: var(--white);
-      border: 1px solid rgba(255,255,255,0.12);
-      background: rgba(255,255,255,0.03);
-    }
-
-    .btn:hover,
-    .nav-cta:hover { transform: translateY(-2px); }
-
     .hero {
-      padding: 80px 0 50px;
+      padding: 72px 0 44px;
+      position: relative;
+      overflow: hidden;
     }
 
     .hero-grid {
       display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 40px;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 42px;
       align-items: center;
     }
 
     .hero-copy h1 {
-      font-size: clamp(2.7rem, 5vw, 4.8rem);
+      font-size: clamp(2.8rem, 5vw, 5rem);
       line-height: 0.98;
-      margin: 0 0 20px;
+      margin: 0 0 22px;
       letter-spacing: -0.05em;
-      max-width: 720px;
+      max-width: 760px;
     }
 
     .hero-copy p {
-      font-size: 1.08rem;
+      font-size: 1.12rem;
       color: var(--muted);
-      max-width: 650px;
-      margin: 0 0 28px;
+      max-width: 680px;
+      margin: 0 0 30px;
     }
 
     .hero-actions {
       display: flex;
       flex-wrap: wrap;
       gap: 14px;
-      margin-bottom: 24px;
+      margin-bottom: 28px;
     }
 
-    .hero-points {
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 22px;
+      border-radius: 14px;
+      border: 1px solid transparent;
+      font-weight: 700;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+    }
+
+    .btn:hover { transform: translateY(-2px); }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary), var(--primary-2));
+      color: var(--white);
+      box-shadow: 0 16px 34px rgba(47,125,246,0.28);
+    }
+
+    .btn-secondary {
+      color: var(--white);
+      border-color: rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.03);
+    }
+
+    .hero-metrics {
       display: grid;
-      gap: 12px;
-      max-width: 560px;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      max-width: 720px;
     }
 
-    .hero-points div {
-      padding: 14px 16px;
-      border-radius: 16px;
+    .hero-metric {
+      padding: 18px 18px;
+      border-radius: 18px;
       background: rgba(255,255,255,0.04);
       border: 1px solid rgba(255,255,255,0.08);
-      color: var(--muted);
+      backdrop-filter: blur(10px);
     }
 
-    .hero-points strong {
-      color: var(--white);
+    .hero-metric strong {
+      display: block;
+      font-size: 1.6rem;
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+
+    .hero-metric span {
+      color: var(--muted);
+      font-size: 0.9rem;
     }
 
     .hero-panel {
+      position: relative;
       padding: 22px;
       border-radius: 28px;
       background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03));
       border: 1px solid rgba(255,255,255,0.09);
       box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .hero-panel::before {
+      content: "";
+      position: absolute;
+      inset: auto -80px -80px auto;
+      width: 220px;
+      height: 220px;
+      background: radial-gradient(circle, rgba(130,217,71,0.35) 0%, transparent 70%);
+      pointer-events: none;
     }
 
     .mock-window {
@@ -275,30 +331,28 @@
       gap: 14px;
     }
 
-    .mini-card,
-    .simple-card,
-    .contact-item {
-      padding: 18px;
-      border-radius: 18px;
+    .mini-card {
+      padding: 14px;
+      border-radius: 16px;
       background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.05);
     }
 
-    .mini-card span,
-    .contact-item span {
+    .mini-card span {
       display: block;
       color: var(--muted);
-      font-size: 0.78rem;
+      font-size: 0.75rem;
       text-transform: uppercase;
       letter-spacing: 0.08em;
-      margin-bottom: 8px;
+      margin-bottom: 10px;
     }
 
     .mini-card strong {
-      font-size: 1.35rem;
+      font-size: 1.5rem;
     }
 
-    .mock-chart {
+    .mock-chart,
+    .mock-table {
       border-radius: 18px;
       background: rgba(255,255,255,0.03);
       border: 1px solid rgba(255,255,255,0.05);
@@ -309,7 +363,7 @@
       display: flex;
       align-items: end;
       gap: 10px;
-      height: 170px;
+      height: 180px;
       padding-top: 10px;
     }
 
@@ -320,196 +374,550 @@
       opacity: 0.92;
     }
 
+    .chart-lines div:nth-child(2n) {
+      background: linear-gradient(180deg, #38bdf8, #1d4ed8);
+    }
+
+    .chart-lines div:nth-child(3n) {
+      background: linear-gradient(180deg, #a3e635, #22c55e);
+    }
+
+    .table-row {
+      display: grid;
+      grid-template-columns: 1.2fr 0.9fr 0.9fr;
+      gap: 10px;
+      padding: 10px 0;
+      color: var(--muted);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      font-size: 0.92rem;
+    }
+
+    .table-row:last-child { border-bottom: none; }
+    .table-row strong { color: var(--text); font-weight: 700; }
+
+    .trust-strip {
+      padding: 26px 0 10px;
+    }
+
+    .trust-box {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 22px;
+      align-items: center;
+      padding: 24px 28px;
+      border-radius: 24px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .trust-copy {
+      color: var(--muted);
+      font-weight: 500;
+    }
+
+    .trust-items {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .trust-item {
+      padding: 16px;
+      text-align: center;
+      border-radius: 16px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.06);
+      color: var(--muted);
+      font-size: 0.9rem;
+      font-weight: 700;
+    }
+
     .services-grid,
-    .contact-grid {
+    .value-grid,
+    .process-grid,
+    .insights-grid,
+    .contact-grid,
+    .footer-grid {
       display: grid;
       gap: 22px;
     }
 
     .services-grid {
-      margin-top: 34px;
+      margin-top: 38px;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .card {
+      position: relative;
+      padding: 28px;
+      border-radius: var(--radius);
+      background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.025));
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .card::after {
+      content: "";
+      position: absolute;
+      inset: auto -40px -40px auto;
+      width: 120px;
+      height: 120px;
+      background: radial-gradient(circle, rgba(47,125,246,0.14), transparent 70%);
+      pointer-events: none;
+    }
+
+    .card-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 20px;
+      font-weight: 800;
+      color: var(--white);
+      background: linear-gradient(135deg, rgba(47,125,246,0.35), rgba(20,184,255,0.2));
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .card h3 {
+      margin: 0 0 12px;
+      font-size: 1.2rem;
+      letter-spacing: -0.02em;
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.98rem;
+    }
+
+    .value-grid {
+      margin-top: 38px;
       grid-template-columns: repeat(4, minmax(0, 1fr));
     }
 
-    .simple-card h3 {
-      margin: 0 0 10px;
-      font-size: 1.08rem;
+    .value-item {
+      padding: 24px;
+      border-radius: 20px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
     }
 
-    .simple-card p {
+    .value-item strong {
+      display: block;
+      font-size: 2rem;
+      color: var(--white);
+      margin-bottom: 8px;
+      line-height: 1;
+    }
+
+    .value-item span {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .process-wrap {
+      margin-top: 38px;
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 22px;
+      align-items: start;
+    }
+
+    .process-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .process-step {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 16px;
+      align-items: start;
+      padding: 24px;
+      border-radius: 20px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .process-step strong {
+      width: 46px;
+      height: 46px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, rgba(130,217,71,0.22), rgba(20,184,255,0.18));
+      color: var(--white);
+      font-size: 1rem;
+    }
+
+    .process-step h3 {
+      margin: 0 0 8px;
+      font-size: 1.05rem;
+    }
+
+    .process-step p {
       margin: 0;
       color: var(--muted);
-      font-size: 0.96rem;
+      font-size: 0.95rem;
     }
 
-    .about-box,
-    .contact-box {
-      padding: 34px;
-      border-radius: 28px;
-      background: linear-gradient(135deg, rgba(11,23,40,0.92), rgba(15,29,49,0.96));
+    .insight-card {
+      padding: 28px;
+      border-radius: 24px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.025));
       border: 1px solid rgba(255,255,255,0.08);
       box-shadow: var(--shadow);
     }
 
-    .about-box p,
-    .contact-box p {
+    .insight-card h3 {
+      margin: 0 0 10px;
+      font-size: 1.3rem;
+    }
+
+    .insight-card p {
+      margin: 0 0 18px;
       color: var(--muted);
-      margin: 0;
-      max-width: 760px;
+    }
+
+    .tabs {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 18px;
+      flex-wrap: wrap;
+    }
+
+    .tab-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.2);
+      cursor: pointer;
+      transition: transform 0.2s ease, background 0.2s ease;
+    }
+
+    .tab-dot.active {
+      transform: scale(1.2);
+      background: var(--accent);
+    }
+
+    .dashboard-view {
+      display: none;
+      animation: fadeIn 0.25s ease;
+    }
+
+    .dashboard-view.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .zone-grid,
+    .branch-grid,
+    .summary-grid {
+      display: grid;
+      gap: 14px;
+    }
+
+    .zone-grid {
+      grid-template-columns: 1.2fr 0.8fr;
+    }
+
+    .summary-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      margin-bottom: 16px;
+    }
+
+    .summary-box {
+      padding: 16px;
+      border-radius: 16px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .summary-box span {
+      display: block;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+
+    .summary-box strong {
+      font-size: 1.55rem;
+    }
+
+    .bar-card,
+    .list-card,
+    .branch-card {
+      padding: 18px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .bar-card h4,
+    .list-card h4,
+    .branch-card h4 {
+      margin: 0 0 14px;
+      font-size: 0.95rem;
+      letter-spacing: -0.01em;
+    }
+
+    .bars {
+      display: grid;
+      gap: 12px;
+    }
+
+    .bar-row {
+      display: grid;
+      grid-template-columns: 120px 1fr auto;
+      gap: 12px;
+      align-items: center;
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    .bar-track {
+      width: 100%;
+      height: 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.06);
+      overflow: hidden;
+    }
+
+    .bar-fill {
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--primary-2), var(--primary));
+    }
+
+    .bar-fill.green {
+      background: linear-gradient(90deg, #7ddc50, #22c55e);
+    }
+
+    .branch-list {
+      display: grid;
+      gap: 12px;
+    }
+
+    .branch-item {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 10px;
+      padding: 12px 14px;
+      border-radius: 14px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.06);
+      color: var(--muted);
+    }
+
+    .branch-item strong,
+    .bar-row strong {
+      color: var(--text);
     }
 
     .contact-grid {
-      grid-template-columns: 1.1fr 0.9fr;
-      align-items: start;
+      margin-top: 38px;
+      grid-template-columns: 1fr 1fr;
+      align-items: stretch;
     }
 
-    .contact-box h2 {
-      margin: 0 0 14px;
-      font-size: clamp(2rem, 4vw, 3rem);
-      letter-spacing: -0.04em;
-      line-height: 1.05;
+    .contact-card {
+      padding: 30px;
+      border-radius: 24px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.025));
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: var(--shadow);
+    }
+
+    .contact-card h3 {
+      margin: 0 0 10px;
+      font-size: 1.4rem;
+    }
+
+    .contact-card p {
+      margin: 0 0 22px;
+      color: var(--muted);
+    }
+
+    .contact-list {
+      display: grid;
+      gap: 14px;
+    }
+
+    .contact-item {
+      display: grid;
+      grid-template-columns: 44px 1fr;
+      gap: 14px;
+      align-items: center;
+      padding: 14px 16px;
+      border-radius: 16px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .contact-item-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, rgba(47,125,246,0.25), rgba(20,184,255,0.18));
+      border: 1px solid rgba(255,255,255,0.08);
+      font-weight: 800;
+    }
+
+    .contact-item strong {
+      display: block;
+      margin-bottom: 2px;
+      font-size: 0.96rem;
+    }
+
+    .contact-item span,
+    .contact-item a {
+      color: var(--muted);
+      font-size: 0.94rem;
     }
 
     .contact-actions {
       display: flex;
+      gap: 12px;
+      margin-top: 22px;
       flex-wrap: wrap;
-      gap: 14px;
-      margin-top: 24px;
-    }
-
-    .contact-side {
-      display: grid;
-      gap: 14px;
-    }
-
-    .contact-item strong,
-    .contact-item a {
-      font-size: 1rem;
-      font-weight: 700;
-      color: var(--white);
-      word-break: break-word;
     }
 
     .footer {
-      padding: 32px 0 46px;
+      padding: 28px 0 50px;
       color: var(--muted);
     }
 
     .footer-grid {
-      display: grid;
-      grid-template-columns: 1fr auto;
+      grid-template-columns: 1.3fr 0.7fr;
       align-items: center;
-      gap: 16px;
-      padding-top: 24px;
-      border-top: 1px solid rgba(255,255,255,0.06);
     }
 
-    .footer-brand {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      font-weight: 700;
-      color: var(--white);
+    .footer small {
+      color: var(--muted);
     }
 
-    .footer-meta {
-      text-align: right;
-      font-size: 0.92rem;
-    }
-
-    @media (max-width: 1100px) {
+    @media (max-width: 1080px) {
       .hero-grid,
+      .trust-box,
+      .process-wrap,
       .contact-grid,
-      .services-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-
-      .hero-grid,
-      .contact-grid {
+      .footer-grid,
+      .zone-grid {
         grid-template-columns: 1fr;
       }
-    }
 
-    @media (max-width: 780px) {
+      .services-grid,
+      .value-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
       .navbar-inner {
-        min-height: 76px;
         flex-wrap: wrap;
-        justify-content: center;
-        padding: 14px 0;
+        padding: 18px 0;
       }
 
       .nav-links {
         width: 100%;
         justify-content: center;
         flex-wrap: wrap;
-        gap: 14px;
-        font-size: 0.9rem;
       }
+    }
 
-      .hero,
+    @media (max-width: 720px) {
       .section {
-        padding-top: 60px;
+        padding: 76px 0;
       }
 
-      .mock-kpis,
+      .hero {
+        padding-top: 42px;
+      }
+
       .services-grid,
-      .footer-grid {
+      .value-grid,
+      .hero-metrics,
+      .mock-kpis,
+      .summary-grid {
         grid-template-columns: 1fr;
       }
 
-      .about-box,
-      .contact-box {
-        padding: 24px;
+      .container {
+        width: min(var(--max), calc(100% - 24px));
       }
 
-      .footer-meta {
-        text-align: left;
+      .card,
+      .insight-card,
+      .contact-card,
+      .hero-panel {
+        padding: 22px;
+      }
+
+      .bar-row {
+        grid-template-columns: 90px 1fr auto;
+        font-size: 0.85rem;
       }
     }
   </style>
 </head>
 <body>
-  <nav class="navbar">
+  <header class="navbar">
     <div class="container navbar-inner">
       <a href="#inicio" class="brand">
         <div class="brand-mark">IT</div>
         <div class="brand-text">
           <strong>INTECH</strong>
-          <span>Biobío</span>
+          <span>Soluciones Tecnológicas</span>
         </div>
       </a>
 
-      <div class="nav-links">
+      <nav class="nav-links">
         <a href="#servicios">Servicios</a>
-        <a href="#nosotros">Nosotros</a>
+        <a href="#valor">Valor</a>
+        <a href="#demo">Dashboard Demo</a>
         <a href="#contacto">Contacto</a>
-        <a href="dashboard-demo.html">Dashboard demo</a>
-      </div>
+      </nav>
 
-      <a href="#contacto" class="nav-cta">Contactar</a>
+      <a class="nav-cta" href="#contacto">Hablemos</a>
     </div>
-  </nav>
+  </header>
 
   <main>
     <section class="hero" id="inicio">
       <div class="container hero-grid">
         <div class="hero-copy">
-          <div class="eyebrow">Soluciones tecnológicas</div>
-          <h1>Tecnología simple para mejorar procesos reales.</h1>
+          <div class="eyebrow">Tecnología aplicada a operación, gestión y atención</div>
+          <h1>Infraestructura, analítica y soluciones digitales para empresas que necesitan resultados.</h1>
           <p>
-            En Intech ayudamos a organizaciones a ordenar operaciones, automatizar tareas y visualizar información crítica con soluciones claras y aplicables.
+            Diseñamos soluciones simples y efectivas en automatización, business intelligence, servidores,
+            desarrollo de software y tótems de autoatención para distintos tipos de operación.
           </p>
 
           <div class="hero-actions">
-            <a class="btn btn-primary" href="#contacto">Hablemos</a>
-            <a class="btn btn-secondary" href="#servicios">Ver servicios</a>
-            <a class="btn btn-secondary" href="dashboard-demo.html">Ver dashboard demo</a>
+            <a class="btn btn-primary" href="#contacto">Solicitar contacto</a>
+            <a class="btn btn-secondary" href="#demo">Ver dashboard demo</a>
           </div>
 
-          <div class="hero-points">
-            <div><strong>Automatización:</strong> menos trabajo manual y menos errores.</div>
-            <div><strong>Infraestructura:</strong> soporte para plataformas y operación continua.</div>
-            <div><strong>Datos:</strong> dashboards e indicadores para tomar decisiones.</div>
+          <div class="hero-metrics">
+            <div class="hero-metric">
+              <strong>BI</strong>
+              <span>Visualización y seguimiento operacional</span>
+            </div>
+            <div class="hero-metric">
+              <strong>Infraestructura</strong>
+              <span>Servidores y continuidad tecnológica</span>
+            </div>
+            <div class="hero-metric">
+              <strong>Autoatención</strong>
+              <span>Tótems y experiencias de compra más ágiles</span>
+            </div>
           </div>
         </div>
 
@@ -521,37 +929,55 @@
                 <div class="dot"></div>
                 <div class="dot"></div>
               </div>
-              <div>Vista de control</div>
+              <span>Dashboard comercial · vista ejecutiva</span>
             </div>
             <div class="mock-body">
               <div class="mock-kpis">
                 <div class="mini-card">
-                  <span>Procesos</span>
-                  <strong>42</strong>
+                  <span>Ventas mes</span>
+                  <strong>$186M</strong>
                 </div>
                 <div class="mini-card">
-                  <span>Disponibilidad</span>
-                  <strong>99,9%</strong>
+                  <span>Cumplimiento</span>
+                  <strong>94%</strong>
                 </div>
                 <div class="mini-card">
-                  <span>Tickets</span>
-                  <strong>1.248</strong>
+                  <span>Sucursales</span>
+                  <strong>18</strong>
                 </div>
               </div>
 
               <div class="mock-chart">
                 <div class="chart-lines">
-                  <div style="height: 42%;"></div>
-                  <div style="height: 58%;"></div>
+                  <div style="height: 52%;"></div>
+                  <div style="height: 70%;"></div>
                   <div style="height: 64%;"></div>
-                  <div style="height: 74%;"></div>
-                  <div style="height: 60%;"></div>
                   <div style="height: 82%;"></div>
-                  <div style="height: 100%;"></div>
+                  <div style="height: 68%;"></div>
+                  <div style="height: 92%;"></div>
                 </div>
+              </div>
+
+              <div class="mock-table">
+                <div class="table-row"><strong>Zona Sur</strong><span>$54M</span><span>97%</span></div>
+                <div class="table-row"><strong>Zona Centro</strong><span>$71M</span><span>94%</span></div>
+                <div class="table-row"><strong>Zona Norte</strong><span>$61M</span><span>91%</span></div>
               </div>
             </div>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="trust-strip">
+      <div class="container trust-box">
+        <div class="trust-copy">
+          Soluciones pensadas para empresas que necesitan ordenar su información, mejorar procesos y ofrecer una atención más moderna.
+        </div>
+        <div class="trust-items">
+          <div class="trust-item">Dashboards</div>
+          <div class="trust-item">Servidores</div>
+          <div class="trust-item">Autoatención</div>
         </div>
       </div>
     </section>
@@ -559,104 +985,161 @@
     <section class="section" id="servicios">
       <div class="container">
         <div class="eyebrow">Servicios</div>
-        <h2 class="section-title">Qué hacemos</h2>
+        <h2 class="section-title">Servicios claros, enfocados en implementación y utilidad real.</h2>
         <p class="section-copy">
-          Nos enfocamos en cuatro líneas principales, sin texto de relleno y con un mensaje más claro.
+          Nos enfocamos en soluciones tecnológicas concretas, evitando sobrecargar con discursos innecesarios.
         </p>
 
         <div class="services-grid">
-          <article class="simple-card">
-            <h3>Automatización de procesos</h3>
-            <p>Digitalización de tareas repetitivas para ganar tiempo, control y trazabilidad.</p>
-          </article>
-
-          <article class="simple-card">
-            <h3>Venta de servidores</h3>
-            <p>Suministro de servidores y equipamiento tecnológico para operación continua y plataformas críticas.</p>
-          </article>
-
-          <article class="simple-card">
+          <article class="card">
+            <div class="card-icon">BI</div>
             <h3>Business Intelligence</h3>
-            <p>Dashboards e indicadores para monitorear operación y facilitar decisiones.</p>
+            <p>Dashboards, indicadores y seguimiento de ventas, cumplimiento, sucursales y operación para una toma de decisiones más rápida.</p>
           </article>
 
-          <article class="simple-card">
+          <article class="card">
+            <div class="card-icon">SV</div>
+            <h3>Venta de servidores</h3>
+            <p>Apoyo en infraestructura tecnológica, equipos servidor y soluciones orientadas a continuidad operativa y escalabilidad.</p>
+          </article>
+
+          <article class="card">
+            <div class="card-icon">DX</div>
+            <h3>Desarrollo de software</h3>
+            <p>Aplicaciones internas, soluciones web y herramientas digitales que resuelven necesidades reales de gestión y operación.</p>
+          </article>
+
+          <article class="card">
+            <div class="card-icon">AT</div>
             <h3>Tótems de autoatención</h3>
-            <p>Implementación de tótems para mejorar la atención, ordenar flujos y reducir tiempos de espera.</p>
+            <p>Soluciones pensadas para cafeterías, restobares, heladerías y otros negocios que quieran agilizar la atención y el cobro.</p>
+          </article>
+
+          <article class="card">
+            <div class="card-icon">AU</div>
+            <h3>Automatización</h3>
+            <p>Digitalización de procesos, integración de datos y reducción de tareas manuales para mejorar productividad.</p>
+          </article>
+
+          <article class="card">
+            <div class="card-icon">IT</div>
+            <h3>Soporte tecnológico</h3>
+            <p>Acompañamiento para implementación, mejora y evolución de soluciones tecnológicas según el contexto del cliente.</p>
           </article>
         </div>
       </div>
     </section>
 
-    <section class="section" id="nosotros">
+    <section class="section" id="valor">
       <div class="container">
-        <div class="about-box">
-          <div class="eyebrow">Nosotros</div>
-          <h2 class="section-title">Tecnología aplicada con enfoque práctico.</h2>
-          <p>
-            Trabajamos con organizaciones públicas y privadas que necesitan soluciones claras, bien implementadas y orientadas a resultados. Nuestro foco está en resolver problemas operativos con tecnología útil, no en llenar la página con promesas repetidas.
-          </p>
+        <div class="eyebrow">Propuesta de valor</div>
+        <h2 class="section-title">Menos discurso, más utilidad.</h2>
+        <p class="section-copy">
+          La propuesta está orientada a mostrar valor concreto: visualizar mejor, atender más rápido y operar con una base tecnológica sólida.
+        </p>
+
+        <div class="value-grid">
+          <div class="value-item">
+            <strong>01</strong>
+            <span>Soluciones simples de entender y vender.</span>
+          </div>
+          <div class="value-item">
+            <strong>02</strong>
+            <span>Diseño enfocado en uso real y no solo presentación.</span>
+          </div>
+          <div class="value-item">
+            <strong>03</strong>
+            <span>Orientación a ventas, operación y experiencia cliente.</span>
+          </div>
+          <div class="value-item">
+            <strong>04</strong>
+            <span>Implementación adaptable según rubro y tamaño.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="demo">
+      <div class="container">
+        <div class="eyebrow">Dashboard demo</div>
+        <h2 class="section-title">Visualización ejecutiva con foco comercial.</h2>
+        <p class="section-copy">
+          Un ejemplo de dashboard para mostrar ventas por zona, rendimiento por sucursal y cumplimiento general. Los puntos permiten cambiar la vista del demo.
+        </p>
+
+        <div class="insight-card">
+          <div class="tabs">
+            <div class="tab-dot active" data-view="view-1"></div>
+            <div class="tab-dot" data-view="view-2"></div>
+            <div class="tab-dot" data-view="view-3"></div>
+          </div>
+
+          <div class="dashboard-view active" id="view-1">
+            <div class="summary-grid">
+              <div class="summary-box"><span>Ventas totales</span><strong>$186M</strong></div>
+              <div class="summary-box"><span>Cumplimiento global</span><strong>94%</strong></div>
+            </div>
+            <div class="zone-grid">
+              <div class="bar-card">
+                <h4>Ventas por zona</h4>
+                <div class="bars">
+                  <div class="bar-row"><strong>Zona Centro</strong><div class="bar-track"><div class="bar-fill" style="width: 78%;"></div></div><span>$71M</span></div>
+                  <div class="bar-row"><strong>Zona Norte</strong><div class="bar-track"><div class="bar-fill" style="width: 67%;"></div></div><span>$61M</span></div>
+                  <div class="bar-row"><strong>Zona Sur</strong><div class="bar-track"><div class="bar-fill green" style="width: 74%;"></div></div><span>$54M</span></div>
+                </div>
+              </div>
+              <div class="list-card">
+                <h4>Indicadores clave</h4>
+                <div class="branch-list">
+                  <div class="branch-item"><strong>Sucursales activas</strong><span>18</span></div>
+                  <div class="branch-item"><strong>Ticket promedio</strong><span>$28.400</span></div>
+                  <div class="branch-item"><strong>Meta mensual</strong><span>198M</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="dashboard-view" id="view-2">
+            <div class="branch-card">
+              <h4>Top sucursales por cumplimiento</h4>
+              <div class="branch-list">
+                <div class="branch-item"><strong>Concepción Centro</strong><span>102%</span></div>
+                <div class="branch-item"><strong>Santiago Providencia</strong><span>100%</span></div>
+                <div class="branch-item"><strong>Viña del Mar</strong><span>98%</span></div>
+                <div class="branch-item"><strong>Puerto Montt</strong><span>97%</span></div>
+                <div class="branch-item"><strong>Antofagasta</strong><span>95%</span></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="dashboard-view" id="view-3">
+            <div class="zone-grid">
+              <div class="bar-card">
+                <h4>Ventas por sucursal</h4>
+                <div class="bars">
+                  <div class="bar-row"><strong>Santiago Centro</strong><div class="bar-track"><div class="bar-fill" style="width: 88%;"></div></div><span>$24M</span></div>
+                  <div class="bar-row"><strong>Concepción</strong><div class="bar-track"><div class="bar-fill green" style="width: 81%;"></div></div><span>$21M</span></div>
+                  <div class="bar-row"><strong>La Serena</strong><div class="bar-track"><div class="bar-fill" style="width: 73%;"></div></div><span>$18M</span></div>
+                  <div class="bar-row"><strong>Temuco</strong><div class="bar-track"><div class="bar-fill" style="width: 69%;"></div></div><span>$16M</span></div>
+                </div>
+              </div>
+              <div class="list-card">
+                <h4>Resumen comercial</h4>
+                <div class="branch-list">
+                  <div class="branch-item"><strong>Mejor zona</strong><span>Centro</span></div>
+                  <div class="branch-item"><strong>Mayor crecimiento</strong><span>Sur</span></div>
+                  <div class="branch-item"><strong>Desviación meta</strong><span>-6%</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
     <section class="section" id="contacto">
       <div class="container">
-        <div class="contact-box">
-          <div class="contact-grid">
-            <div>
-              <div class="eyebrow">Contacto</div>
-              <h2>Conversemos sobre tu proyecto.</h2>
-              <p>
-                Si buscas automatizar procesos, ordenar información o implementar una solución tecnológica, podemos revisar tu caso.
-              </p>
-              <div class="contact-actions">
-                <a class="btn btn-primary" href="mailto:contacto@intechpro.cl">Escribir a contacto@intechpro.cl</a>
-                <a class="btn btn-secondary" href="https://wa.me/56979801949" target="_blank" rel="noopener" aria-label="WhatsApp" title="WhatsApp">
-                  <span style="font-size: 1.1rem; line-height: 1;">💬</span>
-                  <span>WhatsApp</span>
-                </a>
-              </div>
-            </div>
-
-            <div class="contact-side">
-              <div class="contact-item">
-                <span>Email</span>
-                <a href="mailto:contacto@intechpro.cl">contacto@intechpro.cl</a>
-              </div>
-              <div class="contact-item">
-                <span>WhatsApp</span>
-                <a href="https://wa.me/56979801949" target="_blank" rel="noopener">+56 9 7980 1949</a>
-              </div>
-              <div class="contact-item">
-                <span>Ubicación</span>
-                <strong>Concepción, Región del Biobío, Chile</strong>
-              </div>
-              <div class="contact-item">
-                <span>Enfoque</span>
-                <strong>Automatización, infraestructura, BI y desarrollo tecnológico</strong>
-              </div>
-            </div>
-          </div>
-        </div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer class="footer">
-    <div class="container footer-grid">
-      <div class="footer-brand">
-        <div class="brand-mark">IT</div>
-        <div>
-          <div>INTECH Biobío</div>
-          <div style="color: var(--muted); font-size: 0.9rem; font-weight: 500;">Soluciones tecnológicas para operación y gestión</div>
-        </div>
-      </div>
-      <div class="footer-meta">
-        © 2026 Intech Biobío. Todos los derechos reservados.
-      </div>
-    </div>
-  </footer>
-</body>
-</html>
+        <div class="eyebrow">Contacto</div>
+        <h2 class="section-title">Conversemos sobre tu proyecto.</h2>
+        <p class="section-copy">
+          Si necesitas una página, un dashboard, infraestructura tecnológica o una solución de autoatención, podemo
