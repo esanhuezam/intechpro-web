@@ -52,6 +52,14 @@
       margin: 0 auto;
     }
 
+    .hero-copy,
+    .hero-copy h1,
+    .hero-copy p,
+    .section-title,
+    .contact-box h2 {
+      min-width: 0;
+    }
+
     .section {
       padding: 88px 0;
     }
@@ -643,39 +651,150 @@
     }
 
     @media (max-width: 780px) {
+      .container {
+        width: min(var(--max), calc(100% - 24px));
+      }
+
       .navbar-inner {
-        min-height: 76px;
-        flex-wrap: wrap;
+        min-height: auto;
+        flex-direction: column;
+        align-items: center;
         justify-content: center;
-        padding: 14px 0;
+        gap: 12px;
+        padding: 14px 0 16px;
+      }
+
+      .brand {
+        width: 100%;
+        justify-content: center;
       }
 
       .nav-links {
         width: 100%;
         justify-content: center;
         flex-wrap: wrap;
-        gap: 14px;
-        font-size: 0.9rem;
+        gap: 12px 18px;
+        font-size: 0.95rem;
+      }
+
+      .nav-cta {
+        width: auto;
+        max-width: 180px;
+        padding: 10px 16px;
+        font-size: 0.95rem;
+        align-self: center;
       }
 
       .hero,
       .section {
-        padding-top: 60px;
+        padding: 52px 0;
+      }
+
+      .hero-grid {
+        gap: 26px;
+      }
+
+      .hero-copy h1 {
+        font-size: clamp(2.2rem, 10vw, 3.2rem);
+        line-height: 1.02;
+        letter-spacing: -0.045em;
+        max-width: 100%;
+        overflow-wrap: anywhere;
+      }
+
+      .hero-copy p {
+        font-size: 1rem;
+        max-width: 100%;
+      }
+
+      .hero-actions {
+        display: grid;
+        grid-template-columns: 1fr;
+      }
+
+      .hero-actions .btn {
+        width: 100%;
       }
 
       .mock-kpis,
       .services-grid,
-      .footer-grid {
+      .footer-grid,
+      .branch-grid,
+      .summary-grid {
         grid-template-columns: 1fr;
+      }
+
+      .zone-chart {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 8px;
+        height: 160px;
+      }
+
+      .zone-bar {
+        max-width: 42px;
+      }
+
+      .ranking-row {
+        grid-template-columns: 30px 1fr auto;
+        gap: 10px;
+        padding: 10px 12px;
+      }
+
+      .ranking-num {
+        width: 30px;
+        height: 30px;
+      }
+
+      .mock-body,
+      .hero-panel {
+        padding: 16px;
       }
 
       .about-box,
       .contact-box {
-        padding: 24px;
+        padding: 22px;
+      }
+
+      .contact-actions {
+        display: grid;
+        grid-template-columns: 1fr;
+      }
+
+      .contact-actions .btn {
+        width: 100%;
       }
 
       .footer-meta {
         text-align: left;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .brand-text strong {
+        font-size: 0.92rem;
+      }
+
+      .brand-text span {
+        font-size: 0.68rem;
+      }
+
+      .hero-copy h1 {
+        font-size: clamp(2rem, 11vw, 2.7rem);
+      }
+
+      .eyebrow {
+        font-size: 0.74rem;
+        padding: 7px 12px;
+      }
+
+      .btn,
+      .nav-cta {
+        padding: 11px 14px;
+      }
+
+      .nav-cta {
+        max-width: 160px;
+        font-size: 0.9rem;
       }
     }
   </style>
@@ -905,17 +1024,10 @@
                 </div>
               </div>
             </div>
-                  <div style="height: 58%;"></div>
-                  <div style="height: 64%;"></div>
-                  <div style="height: 74%;"></div>
-                  <div style="height: 60%;"></div>
-                  <div style="height: 82%;"></div>
-                  <div style="height: 100%;"></div>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
+      </div>
+    </section>
       </div>
     </section>
 
