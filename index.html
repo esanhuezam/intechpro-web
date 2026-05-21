@@ -1,436 +1,393 @@
-<style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{
-  --bg:#07090F;--bg2:#0D1117;--bg3:#131924;--card:#111827;
-  --accent:#00D4AA;--accent2:#3B82F6;--text:#E8EDF5;--muted:#6B7A8F;
-  --border:rgba(255,255,255,0.07);--up:#22C55E;--down:#EF4444;
-}
-.page{background:var(--bg);color:var(--text);font-family:'Segoe UI',system-ui,sans-serif}
-nav{display:flex;align-items:center;justify-content:space-between;padding:1rem 2.5rem;border-bottom:1px solid var(--border);background:var(--bg)}
-.logo{font-size:1.1rem;font-weight:700;letter-spacing:-0.02em;color:var(--text)}
-.logo span{color:var(--accent)}
-.nav-links{display:flex;gap:1.75rem}
-.nav-links a{color:var(--muted);text-decoration:none;font-size:0.85rem;font-weight:500;transition:color 0.2s;cursor:pointer}
-.nav-links a:hover{color:var(--text)}
-.nav-cta{background:transparent;color:var(--text);padding:0.45rem 1.1rem;border-radius:6px;font-size:0.82rem;font-weight:600;cursor:pointer;border:1px solid var(--border);transition:background 0.2s,border-color 0.2s}
-.nav-cta:hover{background:rgba(255,255,255,0.05);border-color:rgba(255,255,255,0.15)}
-.hero{padding:4rem 2.5rem 3rem;text-align:center;border-bottom:1px solid var(--border)}
-.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(0,212,170,0.1);border:1px solid rgba(0,212,170,0.2);color:var(--accent);font-size:0.75rem;font-weight:600;padding:0.3rem 0.9rem;border-radius:100px;margin-bottom:1.5rem}
-.pulse{width:6px;height:6px;border-radius:50%;background:var(--accent);animation:pulse 2s infinite}
-@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.4}}
-.hero h1{font-size:clamp(1.8rem,4vw,3rem);font-weight:800;letter-spacing:-0.03em;line-height:1.1;margin-bottom:1rem}
-.hero h1 em{font-style:normal;color:var(--accent)}
-.hero p{color:var(--muted);font-size:0.95rem;max-width:520px;margin:0 auto 2rem;line-height:1.7;font-weight:400}
-.hero-btns{display:flex;gap:0.75rem;justify-content:center;flex-wrap:wrap}
-.btn-p{background:var(--accent);color:#07090F;padding:0.7rem 1.5rem;border-radius:7px;font-size:0.875rem;font-weight:700;border:none;cursor:pointer;transition:opacity 0.2s}
-.btn-p:hover{opacity:0.85}
-.btn-o{background:transparent;color:var(--text);padding:0.7rem 1.5rem;border-radius:7px;border:1px solid var(--border);font-size:0.875rem;font-weight:500;cursor:pointer;transition:background 0.2s,border-color 0.2s}
-.btn-o:hover{background:rgba(255,255,255,0.05);border-color:rgba(255,255,255,0.15)}
-.trust-bar{display:flex;justify-content:center;gap:2.5rem;margin-top:2.5rem;padding-top:2.5rem;border-top:1px solid var(--border);flex-wrap:wrap}
-.trust-item{text-align:center}
-.trust-num{font-size:1.6rem;font-weight:800;letter-spacing:-0.03em;color:var(--text)}
-.trust-num span{color:var(--accent)}
-.trust-label{font-size:0.72rem;color:var(--muted);margin-top:3px}
-.section-label{font-size:0.7rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent);margin-bottom:0.5rem}
-.industries{padding:2.5rem 2.5rem;border-bottom:1px solid var(--border);background:var(--bg2)}
-.industries h2{font-size:1.35rem;font-weight:700;letter-spacing:-0.02em;margin-bottom:0.5rem}
-.industries>p{color:var(--muted);font-size:0.875rem;margin-bottom:1.75rem}
-.ind-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:1px;background:var(--border);border:1px solid var(--border);border-radius:12px;overflow:hidden}
-.ind-card{background:var(--bg2);padding:1.25rem 1rem;display:flex;align-items:center;gap:10px;transition:background 0.2s}
-.ind-card:hover{background:var(--bg3)}
-.ind-card span{font-size:0.82rem;font-weight:500;color:var(--text)}
-.srv-ic{width:32px;height:32px;border-radius:7px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:0.9rem}
-.ic-t{background:rgba(0,212,170,0.12);color:var(--accent)}
-.ic-b{background:rgba(59,130,246,0.12);color:var(--accent2)}
-.ic-p{background:rgba(139,92,246,0.12);color:#a78bfa}
-.ic-o{background:rgba(249,115,22,0.12);color:#fb923c}
-.services{padding:3rem 2.5rem;border-bottom:1px solid var(--border)}
-.services h2{font-size:1.35rem;font-weight:700;letter-spacing:-0.02em;margin-bottom:0.5rem}
-.services>p{color:var(--muted);font-size:0.875rem;margin-bottom:2rem}
-.srv-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1px;background:var(--border);border:1px solid var(--border);border-radius:12px;overflow:hidden}
-.srv-card{background:var(--bg2);padding:1.5rem;transition:background 0.2s}
-.srv-card:hover{background:var(--bg3)}
-.srv-icon{width:36px;height:36px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1rem;margin-bottom:1rem}
-.srv-card h3{font-size:0.875rem;font-weight:600;margin-bottom:0.4rem;color:var(--text)}
-.srv-card p{font-size:0.78rem;color:var(--muted);line-height:1.6}
-.results{padding:3rem 2.5rem;border-bottom:1px solid var(--border);background:var(--bg2)}
-.results h2{font-size:1.35rem;font-weight:700;letter-spacing:-0.02em;margin-bottom:0.5rem}
-.results>p{color:var(--muted);font-size:0.875rem;margin-bottom:2rem}
-.res-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
-.res-card{background:var(--bg3);border:1px solid var(--border);border-radius:12px;padding:1.5rem}
-.res-num{font-size:2rem;font-weight:800;letter-spacing:-0.03em;color:var(--accent);line-height:1;margin-bottom:0.4rem}
-.res-desc{font-size:0.82rem;font-weight:600;color:var(--text);margin-bottom:0.3rem}
-.res-context{font-size:0.75rem;color:var(--muted);line-height:1.5}
-.demo-section{padding:3rem 2.5rem;border-bottom:1px solid var(--border)}
-.demo-header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:1.5rem;flex-wrap:wrap;gap:1rem}
-.demo-header-left h2{font-size:1.35rem;font-weight:700;letter-spacing:-0.02em;margin-bottom:0.25rem}
-.demo-header-left p{color:var(--muted);font-size:0.82rem}
-.live-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(34,197,94,0.1);border:1px solid rgba(34,197,94,0.2);color:#22C55E;font-size:0.72rem;font-weight:600;padding:0.3rem 0.75rem;border-radius:100px}
-.live-dot{width:6px;height:6px;border-radius:50%;background:#22C55E;animation:pulse 1.5s infinite}
-.kpi-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:12px;margin-bottom:1.5rem}
-.kpi{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:1rem}
-.kpi-label{font-size:0.7rem;color:var(--muted);font-weight:500;letter-spacing:0.04em;text-transform:uppercase;margin-bottom:6px}
-.kpi-val{font-size:1.5rem;font-weight:800;letter-spacing:-0.03em;line-height:1}
-.kpi-delta{font-size:0.72rem;font-weight:600;margin-top:6px}
-.delta-up{color:var(--up)}.delta-dn{color:var(--down)}
-.charts-row{display:grid;grid-template-columns:2fr 1fr;gap:12px;margin-bottom:12px}
-.chart-card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:1.25rem}
-.chart-title{font-size:0.72rem;font-weight:600;color:var(--muted);margin-bottom:1rem;text-transform:uppercase;letter-spacing:0.05em}
-.bottom-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.tbl{width:100%;border-collapse:collapse;font-size:0.78rem}
-.tbl th{color:var(--muted);font-weight:500;text-align:left;padding:0 0 8px;border-bottom:1px solid var(--border);font-size:0.7rem;text-transform:uppercase;letter-spacing:0.05em}
-.tbl td{padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.04);color:var(--text)}
-.tbl tr:last-child td{border-bottom:none}
-.pill{font-size:0.65rem;font-weight:600;padding:2px 8px;border-radius:100px;display:inline-block}
-.pill-up{background:rgba(34,197,94,0.15);color:#22C55E}
-.pill-dn{background:rgba(239,68,68,0.15);color:#EF4444}
-.pill-mid{background:rgba(234,179,8,0.15);color:#EAB308}
-.funnel-step{display:flex;align-items:center;gap:8px;margin-bottom:8px}
-.funnel-label{font-size:0.72rem;color:var(--muted);width:70px;flex-shrink:0}
-.funnel-bar-bg{flex:1;background:rgba(255,255,255,0.05);border-radius:4px;height:22px;overflow:hidden}
-.funnel-bar-fill{height:100%;border-radius:4px;display:flex;align-items:center;padding-left:8px;font-size:0.68rem;font-weight:700;color:var(--bg)}
-.funnel-pct{font-size:0.72rem;color:var(--muted);width:36px;text-align:right;flex-shrink:0}
-.cta-section{padding:4rem 2.5rem;text-align:center}
-.cta-section h2{font-size:1.6rem;font-weight:800;letter-spacing:-0.02em;margin-bottom:0.75rem}
-.cta-section>p{color:var(--muted);font-size:0.9rem;margin-bottom:2rem}
-.cta-card{max-width:480px;margin:0 auto;background:var(--bg3);border:1px solid var(--border);border-radius:14px;padding:2rem}
-.form-row{margin-bottom:1rem;text-align:left}
-.form-row label{display:block;font-size:0.72rem;color:var(--muted);font-weight:600;letter-spacing:0.05em;text-transform:uppercase;margin-bottom:5px}
-.form-row input,.form-row select,.form-row textarea{width:100%;background:rgba(255,255,255,0.05);border:1px solid var(--border);border-radius:7px;padding:0.6rem 0.9rem;color:var(--text);font-size:0.875rem;outline:none;transition:border-color 0.2s;font-family:inherit}
-.form-row input:focus,.form-row textarea:focus{border-color:rgba(0,212,170,0.4)}
-.form-row select{background:var(--bg3);cursor:pointer}
-.form-row textarea{resize:vertical;min-height:80px}
-.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.submit{width:100%;background:var(--accent);color:#07090F;border:none;border-radius:7px;padding:0.8rem;font-size:0.9rem;font-weight:700;cursor:pointer;transition:opacity 0.2s;font-family:inherit;margin-top:0.25rem}
-.submit:hover{opacity:0.85}
-.form-note{font-size:0.72rem;color:var(--muted);margin-top:0.75rem}
-footer{border-top:1px solid var(--border);padding:1.5rem 2.5rem;display:flex;justify-content:space-between;align-items:center;font-size:0.78rem;color:var(--muted);flex-wrap:wrap;gap:0.5rem}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Intech</title>
+  
+  <link rel="icon" type="image/png" href="favicon.png?v=3">
 
-/* Estilos nuevos para el logo central alargado */
-.hero-central-logo {
-  display: flex;
-  justify-content: center;
-  margin: 0 auto 3rem;
-  max-width: 800px;
-  text-align: center;
-  padding: 1.5rem 0;
-}
-.hcl-inner {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1.25rem;
-}
-.hcl-upper {
-  display: flex;
-  align-items: center;
-  gap: 1.5rem;
-}
-.hcl-icon {
-  width: 55px;
-  height: 55px;
-  background-color: var(--accent); /* Turquesa */
-  color: #07090F; /* Color de fondo */
-  border-radius: 9px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 2rem;
-  font-weight: 800;
-  position: relative;
-}
-.hcl-i-dot {
-   position: absolute;
-   bottom: 14px;
-   right: 14px;
-   width: 6px;
-   height: 6px;
-   background-color: #07090F;
-   border-radius: 50%;
-}
-.hcl-text {
-  font-size: 2.5rem;
-  font-weight: 700;
-  letter-spacing: -0.02em;
-  color: var(--text);
-}
-.hcl-text span {
-  color: var(--accent);
-}
-.hcl-lower {
-  font-size: 1.1rem;
-  font-weight: 500;
-  color: var(--muted);
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  border-top: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
-  padding: 0.6rem 1.5rem;
-}
-
-@media(max-width:640px){
-  .charts-row,.bottom-row,.form-grid{grid-template-columns:1fr}
-  .hero,.services,.demo-section,.cta-section,.industries,.results{padding:2rem 1.25rem}
-  nav{padding:1rem 1.25rem}.nav-links{display:none}
-  .hcl-upper { flex-direction: column; gap: 0.75rem; }
-  .hcl-text { font-size: 2rem; }
-  .hcl-lower { font-size: 0.9rem; padding: 0.5rem 1rem; }
-}
-</style>
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{
+      --bg:#07090F;--bg2:#0D1117;--bg3:#131924;--card:#111827;
+      --accent:#00D4AA;--accent2:#3B82F6;--text:#E8EDF5;--muted:#6B7A8F;
+      --border:rgba(255,255,255,0.07);--up:#22C55E;--down:#EF4444;
+    }
+    body{background:var(--bg);color:var(--text);font-family:'Segoe UI',system-ui,sans-serif}
+    .page{width: 100%; min-height: 100vh;}
+    nav{display:flex;align-items:center;justify-content:space-between;padding:1rem 2.5rem;border-bottom:1px solid var(--border);background:var(--bg)}
+    .logo{font-size:1.1rem;font-weight:700;letter-spacing:-0.02em;color:var(--text)}
+    .logo span{color:var(--accent)}
+    .nav-links{display:flex;gap:1.75rem}
+    .nav-links a{color:var(--muted);text-decoration:none;font-size:0.85rem;font-weight:500;transition:color 0.2s;cursor:pointer}
+    .nav-links a:hover{color:var(--text)}
+    .nav-cta{background:transparent;color:var(--text);padding:0.45rem 1.1rem;border-radius:6px;font-size:0.82rem;font-weight:600;cursor:pointer;border:1px solid var(--border);transition:background 0.2s,border-color 0.2s}
+    .nav-cta:hover{background:rgba(255,255,255,0.05);border-color:rgba(255,255,255,0.15)}
+    .hero{padding:4rem 2.5rem 3rem;text-align:center;border-bottom:1px solid var(--border)}
+    .hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(0,212,170,0.1);border:1px solid rgba(0,212,170,0.2);color:var(--accent);font-size:0.75rem;font-weight:600;padding:0.3rem 0.9rem;border-radius:100px;margin-bottom:1.5rem}
+    .pulse{width:6px;height:6px;border-radius:50%;background:var(--accent);animation:pulse 2s infinite}
+    @keyframes pulse{0%,100%{opacity:1}50%{opacity:0.4}}
+    .hero h1{font-size:clamp(1.8rem,4vw,3rem);font-weight:800;letter-spacing:-0.03em;line-height:1.1;margin-bottom:1rem}
+    .hero h1 em{font-style:normal;color:var(--accent)}
+    .hero p{color:var(--muted);font-size:0.95rem;max-width:520px;margin:0 auto 2rem;line-height:1.7;font-weight:400}
+    .hero-btns{display:flex;gap:0.75rem;justify-content:center;flex-wrap:wrap}
+    .btn-p{background:var(--accent);color:#07090F;padding:0.7rem 1.5rem;border-radius:7px;font-size:0.875rem;font-weight:700;border:none;cursor:pointer;transition:opacity 0.2s}
+    .btn-p:hover{opacity:0.85}
+    .btn-o{background:transparent;color:var(--text);padding:0.7rem 1.5rem;border-radius:7px;border:1px solid var(--border);font-size:0.875rem;font-weight:500;cursor:pointer;transition:background 0.2s,border-color 0.2s}
+    .btn-o:hover{background:rgba(255,255,255,0.05);border-color:rgba(255,255,255,0.15)}
+    .trust-bar{display:flex;justify-content:center;gap:2.5rem;margin-top:2.5rem;padding-top:2.5rem;border-top:1px solid var(--border);flex-wrap:wrap}
+    .trust-item{text-align:center}
+    .trust-num{font-size:1.6rem;font-weight:800;letter-spacing:-0.03em;color:var(--text)}
+    .trust-num span{color:var(--accent)}
+    .trust-label{font-size:0.72rem;color:var(--muted);margin-top:3px}
+    .section-label{font-size:0.7rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent);margin-bottom:0.5rem}
+    .industries{padding:2.5rem 2.5rem;border-bottom:1px solid var(--border);background:var(--bg2)}
+    .industries h2{font-size:1.35rem;font-weight:700;letter-spacing:-0.02em;margin-bottom:0.5rem}
+    .industries>p{color:var(--muted);font-size:0.875rem;margin-bottom:1.75rem}
+    .ind-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:1px;background:var(--border);border:1px solid var(--border);border-radius:12px;overflow:hidden}
+    .ind-card{background:var(--bg2);padding:1.25rem 1rem;display:flex;align-items:center;gap:10px;transition:background 0.2s}
+    .ind-card:hover{background:var(--bg3)}
+    .ind-card span{font-size:0.82rem;font-weight:500;color:var(--text)}
+    .srv-ic{width:32px;height:32px;border-radius:7px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:0.9rem}
+    .ic-t{background:rgba(0,212,170,0.12);color:var(--accent)}
+    .ic-b{background:rgba(59,130,246,0.12);color:var(--accent2)}
+    .ic-p{background:rgba(139,92,246,0.12);color:#a78bfa}
+    .ic-o{background:rgba(249,115,22,0.12);color:#fb923c}
+    .services{padding:3rem 2.5rem;border-bottom:1px solid var(--border)}
+    .services h2{font-size:1.35rem;font-weight:700;letter-spacing:-0.02em;margin-bottom:0.5rem}
+    .services>p{color:var(--muted);font-size:0.875rem;margin-bottom:2rem}
+    .srv-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1px;background:var(--border);border:1px solid var(--border);border-radius:12px;overflow:hidden}
+    .srv-card{background:var(--bg2);padding:1.5rem;transition:background 0.2s}
+    .srv-card:hover{background:var(--bg3)}
+    .srv-icon{width:36px;height:36px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1rem;margin-bottom:1rem}
+    .srv-card h3{font-size:0.875rem;font-weight:600;margin-bottom:0.4rem;color:var(--text)}
+    .srv-card p{font-size:0.78rem;color:var(--muted);line-height:1.6}
+    .results{padding:3rem 2.5rem;border-bottom:1px solid var(--border);background:var(--bg2)}
+    .results h2{font-size:1.35rem;font-weight:700;letter-spacing:-0.02em;margin-bottom:0.5rem}
+    .results>p{color:var(--muted);font-size:0.875rem;margin-bottom:2rem}
+    .res-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+    .res-card{background:var(--bg3);border:1px solid var(--border);border-radius:12px;padding:1.5rem}
+    .res-num{font-size:2rem;font-weight:800;letter-spacing:-0.03em;color:var(--accent);line-height:1;margin-bottom:0.4rem}
+    .res-desc{font-size:0.82rem;font-weight:600;color:var(--text);margin-bottom:0.3rem}
+    .res-context{font-size:0.75rem;color:var(--muted);line-height:1.5}
+    .demo-section{padding:3rem 2.5rem;border-bottom:1px solid var(--border)}
+    .demo-header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:1.5rem;flex-wrap:wrap;gap:1rem}
+    .demo-header-left h2{font-size:1.35rem;font-weight:700;letter-spacing:-0.02em;margin-bottom:0.25rem}
+    .demo-header-left p{color:var(--muted);font-size:0.82rem}
+    .live-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(34,197,94,0.1);border:1px solid rgba(34,197,94,0.2);color:#22C55E;font-size:0.72rem;font-weight:600;padding:0.3rem 0.75rem;border-radius:100px}
+    .live-dot{width:6px;height:6px;border-radius:50%;background:#22C55E;animation:pulse 1.5s infinite}
+    .kpi-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:12px;margin-bottom:1.5rem}
+    .kpi{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:1rem}
+    .kpi-label{font-size:0.7rem;color:var(--muted);font-weight:500;letter-spacing:0.04em;text-transform:uppercase;margin-bottom:6px}
+    .kpi-val{font-size:1.5rem;font-weight:800;letter-spacing:-0.03em;line-height:1}
+    .kpi-delta{font-size:0.72rem;font-weight:600;margin-top:6px}
+    .delta-up{color:var(--up)}.delta-dn{color:var(--down)}
+    .charts-row{display:grid;grid-template-columns:2fr 1fr;gap:12px;margin-bottom:12px}
+    .chart-card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:1.25rem}
+    .chart-title{font-size:0.72rem;font-weight:600;color:var(--muted);margin-bottom:1rem;text-transform:uppercase;letter-spacing:0.05em}
+    .bottom-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .tbl{width:100%;border-collapse:collapse;font-size:0.78rem}
+    .tbl th{color:var(--muted);font-weight:500;text-align:left;padding:0 0 8px;border-bottom:1px solid var(--border);font-size:0.7rem;text-transform:uppercase;letter-spacing:0.05em}
+    .tbl td{padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.04);color:var(--text)}
+    .tbl tr:last-child td{border-bottom:none}
+    .pill{font-size:0.65rem;font-weight:600;padding:2px 8px;border-radius:100px;display:inline-block}
+    .pill-up{background:rgba(34,197,94,0.15);color:#22C55E}
+    .pill-dn{background:rgba(239,68,68,0.15);color:#EF4444}
+    .pill-mid{background:rgba(234,179,8,0.15);color:#EAB308}
+    .funnel-step{display:flex;align-items:center;gap:8px;margin-bottom:8px}
+    .funnel-label{font-size:0.72rem;color:var(--muted);width:70px;flex-shrink:0}
+    .funnel-bar-bg{flex:1;background:rgba(255,255,255,0.05);border-radius:4px;height:22px;overflow:hidden}
+    .funnel-bar-fill{height:100%;border-radius:4px;display:flex;align-items:center;padding-left:8px;font-size:0.68rem;font-weight:700;color:var(--bg)}
+    .funnel-pct{font-size:0.72rem;color:var(--muted);width:36px;text-align:right;flex-shrink:0}
+    .cta-section{padding:4rem 2.5rem;text-align:center}
+    .cta-section h2{font-size:1.6rem;font-weight:800;letter-spacing:-0.02em;margin-bottom:0.75rem}
+    .cta-section>p{color:var(--muted);font-size:0.9rem;margin-bottom:2rem}
+    .cta-card{max-width:480px;margin:0 auto;background:var(--bg3);border:1px solid var(--border);border-radius:14px;padding:2rem}
+    .form-row{margin-bottom:1rem;text-align:left}
+    .form-row label{display:block;font-size:0.72rem;color:var(--muted);font-weight:600;letter-spacing:0.05em;text-transform:uppercase;margin-bottom:5px}
+    .form-row input,.form-row select,.form-row textarea{width:100%;background:rgba(255,255,255,0.05);border:1px solid var(--border);border-radius:7px;padding:0.6rem 0.9rem;color:var(--text);font-size:0.875rem;outline:none;transition:border-color 0.2s;font-family:inherit}
+    .form-row input:focus,.form-row textarea:focus{border-color:rgba(0,212,170,0.4)}
+    .form-row select{background:var(--bg3);cursor:pointer}
+    .form-row textarea{resize:vertical;min-height:80px}
+    .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .submit{width:100%;background:var(--accent);color:#07090F;border:none;border-radius:7px;padding:0.8rem;font-size:0.9rem;font-weight:700;cursor:pointer;transition:opacity 0.2s;font-family:inherit;margin-top:0.25rem}
+    .submit:hover{opacity:0.85}
+    .form-note{font-size:0.72rem;color:var(--muted);margin-top:0.75rem}
+    footer{border-top:1px solid var(--border);padding:1.5rem 2.5rem;display:flex;justify-content:space-between;align-items:center;font-size:0.78rem;color:var(--muted);flex-wrap:wrap;gap:0.5rem}
+    
+    /* Estilos para el logo central alargado */
+    .hero-central-logo {
+      display: flex;
+      justify-content: center;
+      margin: 0 auto 3rem;
+      max-width: 800px;
+      text-align: center;
+      padding: 1.5rem 0;
+    }
+    .hcl-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.25rem;
+    }
+    .hcl-upper {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
+    .hcl-icon {
+      width: 55px;
+      height: 55px;
+      background-color: var(--accent); /* Turquesa */
+      color: #07090F; /* Color de fondo */
+      border-radius: 9px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      font-weight: 800;
+      position: relative;
+    }
+    .hcl-i-dot {
+       position: absolute;
+       bottom: 14px;
+       right: 14px;
+       width: 6px;
+       height: 6px;
+       background-color: #07090F;
+       border-radius: 50%;
+    }
+    .hcl-text {
+      font-size: 2.5rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--text);
+    }
+    .hcl-text span {
+      color: var(--accent);
+    }
+    .hcl-lower {
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: var(--muted);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 0.6rem 1.5rem;
+    }
+    
+    @media(max-width:640px){
+      .charts-row,.bottom-row,.form-grid{grid-template-columns:1fr}
+      .hero,.services,.demo-section,.cta-section,.industries,.results{padding:2rem 1.25rem}
+      nav{padding:1rem 1.25rem}.nav-links{display:none}
+      .hcl-upper { flex-direction: column; gap: 0.75rem; }
+      .hcl-text { font-size: 2rem; }
+      .hcl-lower { font-size: 0.9rem; padding: 0.5rem 1rem; }
+    }
+  </style>
+</head>
+<body>
 
 <div class="page">
+  <nav>
+    <div class="logo">Intech<span>Pro</span></div>
+    <div class="nav-links">
+      <a onclick="document.getElementById('srv').scrollIntoView({behavior:'smooth'})">Servicios</a>
+      <a onclick="document.getElementById('ind').scrollIntoView({behavior:'smooth'})">Industrias</a>
+      <a onclick="document.getElementById('demo').scrollIntoView({behavior:'smooth'})">Demo en vivo</a>
+      <a onclick="document.getElementById('cta').scrollIntoView({behavior:'smooth'})">Contacto</a>
+    </div>
+    <button class="nav-cta" onclick="document.getElementById('cta').scrollIntoView({behavior:'smooth'})">Contacto</button>
+  </nav>
 
-<nav>
-  <div class="logo">Intech<span>Pro</span></div>
-  <div class="nav-links">
-    <a onclick="document.getElementById('srv').scrollIntoView({behavior:'smooth'})">Servicios</a>
-    <a onclick="document.getElementById('ind').scrollIntoView({behavior:'smooth'})">Industrias</a>
-    <a onclick="document.getElementById('demo').scrollIntoView({behavior:'smooth'})">Demo en vivo</a>
-    <a onclick="document.getElementById('cta').scrollIntoView({behavior:'smooth'})">Contacto</a>
+  <div class="hero">
+    <div class="hero-badge"><div class="pulse"></div>Soluciones de datos</div>
+  
+    <div class="hero-central-logo">
+        <div class="hcl-inner">
+            <div class="hcl-upper">
+                <div class="hcl-icon"><span class="hcl-i-char">I</span><span class="hcl-i-dot"></span></div>
+                <div class="hcl-text">Intech<span>Pro</span></div>
+            </div>
+            <div class="hcl-lower">Data · BI · Cloud · Automatización</div>
+        </div>
+    </div>
+  
+    <h1>Tus datos,<br>convertidos en <em>decisiones</em></h1>
+    <p>Diseñamos soluciones de Business Intelligence, automatización y analítica avanzada que transforman datos complejos en ventajas competitivas reales.</p>
+    <div class="hero-btns">
+      <button class="btn-p" onclick="document.getElementById('demo').scrollIntoView({behavior:'smooth'})">Ver demo en vivo</button>
+      <button class="btn-o" onclick="document.getElementById('cta').scrollIntoView({behavior:'smooth'})">Contacto</button>
+    </div>
+    <div class="trust-bar">
+      <div class="trust-item"><div class="trust-num">10<span>+</span></div><div class="trust-label">Años de experiencia en datos</div></div>
+      <div class="trust-item"><div class="trust-num">30<span>%</span></div><div class="trust-label">Reducción en tiempos de reporte</div></div>
+      <div class="trust-item"><div class="trust-num">25<span>%</span></div><div class="trust-label">Reducción en tiempos de procesamiento</div></div>
+      <div class="trust-item"><div class="trust-num">24<span>h</span></div><div class="trust-label">Tiempo máximo de respuesta</div></div>
+    </div>
   </div>
-  <button class="nav-cta" onclick="document.getElementById('cta').scrollIntoView({behavior:'smooth'})">Contacto</button>
-</nav>
 
-<div class="hero">
-  <div class="hero-badge"><div class="pulse"></div>Soluciones de datos</div>
+  <div class="industries" id="ind">
+    <div class="section-label">Experiencia sectorial</div>
+    <h2>Industrias que conocemos</h2>
+    <p>Experiencia real trabajando con datos en entornos exigentes y regulados.</p>
+    <div class="ind-grid">
+      <div class="ind-card"><div class="srv-ic ic-b"><i class="ti ti-building-bank" aria-hidden="true"></i></div><span>Banca & Finanzas</span></div>
+      <div class="ind-card"><div class="srv-ic ic-o"><i class="ti ti-truck" aria-hidden="true"></i></div><span>Logística</span></div>
+      <div class="ind-card"><div class="srv-ic ic-p"><i class="ti ti-device-desktop" aria-hidden="true"></i></div><span>Tecnología & SaaS</span></div>
+      <div class="ind-card"><div class="srv-ic ic-t"><i class="ti ti-building" aria-hidden="true"></i></div><span>Pymes & Startups</span></div>
+      <div class="ind-card"><div class="srv-ic ic-b"><i class="ti ti-clipboard-check" aria-hidden="true"></i></div><span>Cumplimiento regulatorio</span></div>
+      <div class="ind-card"><div class="srv-ic ic-t"><i class="ti ti-chart-line" aria-hidden="true"></i></div><span>Gestión comercial</span></div>
+    </div>
+  </div>
 
-  <div class="hero-central-logo">
-      <div class="hcl-inner">
-          <div class="hcl-upper">
-              <div class="hcl-icon"><span class="hcl-i-char">I</span><span class="hcl-i-dot"></span></div>
-              <div class="hcl-text">Intech<span>Pro</span></div>
-          </div>
-          <div class="hcl-lower">Data · BI · Cloud · Automatización</div>
+  <div class="services" id="srv">
+    <div class="section-label">Qué hacemos</div>
+    <h2>Soluciones a medida</h2>
+    <p>Desde el dato crudo hasta el dashboard ejecutivo — cubrimos todo el ciclo de vida de tus datos.</p>
+    <div class="srv-grid">
+      <div class="srv-card">
+        <div class="srv-icon ic-t"><i class="ti ti-chart-bar" aria-hidden="true"></i></div>
+        <h3>Business Intelligence</h3>
+        <p>Dashboards ejecutivos y operativos en Power BI y Tableau. KPIs claros conectados a tus fuentes de datos en tiempo real.</p>
       </div>
-  </div>
-
-  <h1>Tus datos,<br>convertidos en <em>decisiones</em></h1>
-  <p>Diseñamos soluciones de Business Intelligence, automatización y analítica avanzada que transforman datos complejos en ventajas competitivas reales.</p>
-  <div class="hero-btns">
-    <button class="btn-p" onclick="document.getElementById('demo').scrollIntoView({behavior:'smooth'})">Ver demo en vivo</button>
-    <button class="btn-o" onclick="document.getElementById('cta').scrollIntoView({behavior:'smooth'})">Contacto</button>
-  </div>
-  <div class="trust-bar">
-    <div class="trust-item"><div class="trust-num">10<span>+</span></div><div class="trust-label">Años de experiencia en datos</div></div>
-    <div class="trust-item"><div class="trust-num">30<span>%</span></div><div class="trust-label">Reducción en tiempos de reporte</div></div>
-    <div class="trust-item"><div class="trust-num">25<span>%</span></div><div class="trust-label">Reducción en tiempos de procesamiento</div></div>
-    <div class="trust-item"><div class="trust-num">24<span>h</span></div><div class="trust-label">Tiempo máximo de respuesta</div></div>
-  </div>
-</div>
-
-<div class="industries" id="ind">
-  <div class="section-label">Experiencia sectorial</div>
-  <h2>Industrias que conocemos</h2>
-  <p>Experiencia real trabajando con datos en entornos exigentes y regulados.</p>
-  <div class="ind-grid">
-    <div class="ind-card"><div class="srv-ic ic-b"><i class="ti ti-building-bank" aria-hidden="true"></i></div><span>Banca & Finanzas</span></div>
-    <div class="ind-card"><div class="srv-ic ic-o"><i class="ti ti-truck" aria-hidden="true"></i></div><span>Logística</span></div>
-    <div class="ind-card"><div class="srv-ic ic-p"><i class="ti ti-device-desktop" aria-hidden="true"></i></div><span>Tecnología & SaaS</span></div>
-    <div class="ind-card"><div class="srv-ic ic-t"><i class="ti ti-building" aria-hidden="true"></i></div><span>Pymes & Startups</span></div>
-    <div class="ind-card"><div class="srv-ic ic-b"><i class="ti ti-clipboard-check" aria-hidden="true"></i></div><span>Cumplimiento regulatorio</span></div>
-    <div class="ind-card"><div class="srv-ic ic-t"><i class="ti ti-chart-line" aria-hidden="true"></i></div><span>Gestión comercial</span></div>
-  </div>
-</div>
-
-<div class="services" id="srv">
-  <div class="section-label">Qué hacemos</div>
-  <h2>Soluciones a medida</h2>
-  <p>Desde el dato crudo hasta el dashboard ejecutivo — cubrimos todo el ciclo de vida de tus datos.</p>
-  <div class="srv-grid">
-    <div class="srv-card">
-      <div class="srv-icon ic-t"><i class="ti ti-chart-bar" aria-hidden="true"></i></div>
-      <h3>Business Intelligence</h3>
-      <p>Dashboards ejecutivos y operativos en Power BI y Tableau. KPIs claros conectados a tus fuentes de datos en tiempo real.</p>
-    </div>
-    <div class="srv-card">
-      <div class="srv-icon ic-b"><i class="ti ti-database" aria-hidden="true"></i></div>
-      <h3>Ingeniería de datos & ETL</h3>
-      <p>Pipelines, Data Warehouses y modelamiento relacional y NoSQL integrados a tus sistemas con SQL Server, SSIS y Pentaho.</p>
-    </div>
-    <div class="srv-card">
-      <div class="srv-icon ic-p"><i class="ti ti-bolt" aria-hidden="true"></i></div>
-      <h3>Automatización de reportes</h3>
-      <p>Eliminamos procesos manuales en reportería operativa, regulatoria y comercial. Menos tiempo, cero errores humanos.</p>
-    </div>
-    <div class="srv-card">
-      <div class="srv-icon ic-o"><i class="ti ti-cloud" aria-hidden="true"></i></div>
-      <h3>Cloud & plataformas IA</h3>
-      <p>Arquitecturas sobre GCP con Firebase e integración de APIs de inteligencia artificial para potenciar tus procesos.</p>
-    </div>
-  </div>
-</div>
-
-<div class="results" id="resultados">
-  <div class="section-label">Resultados concretos</div>
-  <h2>Impacto medible</h2>
-  <p>Números reales de proyectos implementados en entornos de alta exigencia.</p>
-  <div class="res-grid">
-    <div class="res-card">
-      <div class="res-num">−30%</div>
-      <div class="res-desc">Tiempo de generación de reportes</div>
-      <div class="res-context">Automatización de reportería normativa en entorno bancario regulado bajo estándar Basilea III.</div>
-    </div>
-    <div class="res-card">
-      <div class="res-num">−25%</div>
-      <div class="res-desc">Tiempos de procesamiento operativo</div>
-      <div class="res-context">Automatización de reportes de comisiones y procesos ETL con SQL Server en entorno financiero.</div>
-    </div>
-    <div class="res-card">
-      <div class="res-num">0</div>
-      <div class="res-desc">Errores manuales en reportes regulatorios</div>
-      <div class="res-context">Implementación de procesos de validación de datos con trazabilidad completa y cumplimiento CMF.</div>
-    </div>
-    <div class="res-card">
-      <div class="res-num">Real time</div>
-      <div class="res-desc">Visibilidad de KPIs de negocio</div>
-      <div class="res-context">Dashboards y modelos para monitoreo de funnels y métricas operativas actualizados en tiempo real.</div>
-    </div>
-  </div>
-</div>
-
-<div class="demo-section" id="demo">
-  <div class="demo-header">
-    <div class="demo-header-left">
-      <div class="section-label">Demo interactivo</div>
-      <h2>Dashboard de negocio en vivo</h2>
-      <p>Una muestra de lo que podemos construir para tu empresa — actualizándose cada 3 segundos.</p>
-    </div>
-    <div class="live-badge"><div class="live-dot"></div>LIVE · simulado</div>
-  </div>
-  <div class="kpi-row">
-    <div class="kpi"><div class="kpi-label">Ventas mes</div><div class="kpi-val" id="kpi-ventas">$0</div><div class="kpi-delta delta-up" id="kpi-ventas-d">↑ 0%</div></div>
-    <div class="kpi"><div class="kpi-label">Transacciones</div><div class="kpi-val" id="kpi-tx">0</div><div class="kpi-delta delta-up" id="kpi-tx-d">↑ 0%</div></div>
-    <div class="kpi"><div class="kpi-label">Ticket promedio</div><div class="kpi-val" id="kpi-ticket">$0</div><div class="kpi-delta" id="kpi-ticket-d" style="color:var(--muted)">—</div></div>
-    <div class="kpi"><div class="kpi-label">Tasa conversión</div><div class="kpi-val" id="kpi-conv">0%</div><div class="kpi-delta" id="kpi-conv-d">—</div></div>
-  </div>
-  <div class="charts-row">
-    <div class="chart-card">
-      <div class="chart-title">Ventas diarias — últimos 14 días</div>
-      <div style="position:relative;width:100%;height:160px"><canvas id="lineChart" role="img" aria-label="Gráfico de ventas diarias últimos 14 días"></canvas></div>
-    </div>
-    <div class="chart-card">
-      <div class="chart-title">Ventas por canal</div>
-      <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px;font-size:0.68rem;color:var(--muted)">
-        <span style="display:flex;align-items:center;gap:4px"><span style="width:8px;height:8px;border-radius:2px;background:#00D4AA;display:inline-block"></span>Web</span>
-        <span style="display:flex;align-items:center;gap:4px"><span style="width:8px;height:8px;border-radius:2px;background:#3B82F6;display:inline-block"></span>App</span>
-        <span style="display:flex;align-items:center;gap:4px"><span style="width:8px;height:8px;border-radius:2px;background:#a78bfa;display:inline-block"></span>Presencial</span>
+      <div class="srv-card">
+        <div class="srv-icon ic-b"><i class="ti ti-database" aria-hidden="true"></i></div>
+        <h3>Ingeniería de datos & ETL</h3>
+        <p>Pipelines, Data Warehouses y modelamiento relacional y NoSQL integrados a tus sistemas con SQL Server, SSIS y Pentaho.</p>
       </div>
-      <div style="position:relative;width:100%;height:140px"><canvas id="donutChart" role="img" aria-label="Distribución de ventas por canal"></canvas></div>
-    </div>
-  </div>
-  <div class="bottom-row">
-    <div class="chart-card">
-      <div class="chart-title">Top productos</div>
-      <table class="tbl"><thead><tr><th>Producto</th><th style="text-align:right">Ventas</th><th style="text-align:right">Var.</th></tr></thead><tbody id="prod-table"></tbody></table>
-    </div>
-    <div class="chart-card">
-      <div class="chart-title">Embudo de conversión</div>
-      <div id="funnel"></div>
-    </div>
-  </div>
-</div>
-
-<div class="cta-section" id="cta">
-  <div class="section-label">Contacto</div>
-  <h2>¿Listo para decidir con datos?</h2>
-  <p>Cuéntanos tu desafío y diseñamos una solución a tu medida. Respondemos en menos de 24 horas.</p>
-  <div class="cta-card">
-    <div class="form-grid">
-      <div class="form-row"><label>Nombre</label><input type="text" placeholder="Tu nombre"></div>
-      <div class="form-row"><label>Empresa</label><input type="text" placeholder="Nombre de la empresa"></div>
-    </div>
-    <div class="form-row"><label>Correo electrónico</label><input type="email" placeholder="tu@empresa.cl"></div>
-    <div class="form-grid">
-      <div class="form-row">
-        <label>Industria / Rubro</label>
-        <select>
-          <option value="">Seleccionar...</option>
-          <option>Banca & Finanzas</option>
-          <option>Retail & Comercio</option>
-          <option>Logística</option>
-          <option>Tecnología & SaaS</option>
-          <option>Pyme / Startup</option>
-          <option>Otro</option>
-        </select>
+      <div class="srv-card">
+        <div class="srv-icon ic-p"><i class="ti ti-bolt" aria-hidden="true"></i></div>
+        <h3>Automatización de reportes</h3>
+        <p>Eliminamos procesos manuales en reportería operativa, regulatoria y comercial. Menos tiempo, cero errores humanos.</p>
       </div>
-      <div class="form-row">
-        <label>¿Qué necesitas?</label>
-        <select>
-          <option value="">Seleccionar...</option>
-          <option>Dashboard & BI</option>
-          <option>Automatización de reportes</option>
-          <option>Ingeniería de datos / ETL</option>
-          <option>Cloud & plataformas IA</option>
-          <option>No sé, necesito orientación</option>
-        </select>
+      <div class="srv-card">
+        <div class="srv-icon ic-o"><i class="ti ti-cloud" aria-hidden="true"></i></div>
+        <h3>Cloud & plataformas IA</h3>
+        <p>Arquitecturas sobre GCP con Firebase e integración de APIs de inteligencia artificial para potenciar tus procesos.</p>
       </div>
     </div>
-    <div class="form-row"><label>Cuéntanos más</label><textarea placeholder="Describe tu situación actual o el problema que quieres resolver..."></textarea></div>
-    <button class="submit" id="submitBtn">Enviar solicitud →</button>
-    <div class="form-note">contacto@intechpro.cl · Respondemos en menos de 24 horas</div>
   </div>
+
+  <div class="results" id="resultados">
+    <div class="section-label">Resultados concretos</div>
+    <h2>Impacto medible</h2>
+    <p>Números reales de proyectos implementados en entornos de alta exigencia.</p>
+    <div class="res-grid">
+      <div class="res-card">
+        <div class="res-num">−30%</div>
+        <div class="res-desc">Tiempo de generación de reportes</div>
+        <div class="res-context">Automatización de reportería normativa en entorno bancario regulado bajo estándar Basilea III.</div>
+      </div>
+      <div class="res-card">
+        <div class="res-num">−25%</div>
+        <div class="res-desc">Tiempos de procesamiento operativo</div>
+        <div class="res-context">Automatización de reportes de comisiones y procesos ETL con SQL Server en entorno financiero.</div>
+      </div>
+      <div class="res-card">
+        <div class="res-num">0</div>
+        <div class="res-desc">Errores manuales en reportes regulatorios</div>
+        <div class="res-context">Implementación de procesos de validación de datos con trazabilidad completa y cumplimiento CMF.</div>
+      </div>
+      <div class="res-card">
+        <div class="res-num">Real time</div>
+        <div class="res-desc">Visibilidad de KPIs de negocio</div>
+        <div class="res-context">Dashboards y modelos para monitoreo de funnels y métricas operativas actualizados en tiempo real.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="demo-section" id="demo">
+    <div class="demo-header">
+      <div class="demo-header-left">
+        <div class="section-label">Demo interactivo</div>
+        <h2>Dashboard de negocio en vivo</h2>
+        <p>Una muestra de lo que podemos construir para tu empresa — actualizándose cada 3 segundos.</p>
+      </div>
+      <div class="live-badge"><div class="live-dot"></div>LIVE · simulado</div>
+    </div>
+    <div class="kpi-row">
+      <div class="kpi"><div class="kpi-label">Ventas mes</div><div class="kpi-val" id="kpi-ventas">$0</div><div class="kpi-delta delta-up" id="kpi-ventas-d">↑ 0%</div></div>
+      <div class="kpi"><div class="kpi-label">Transacciones</div><div class="kpi-val" id="kpi-tx">0</div><div class="kpi-delta delta-up" id="kpi-tx-d">↑ 0%</div></div>
+      <div class="kpi"><div class="kpi-label">Ticket promedio</div><div class="kpi-val" id="kpi-ticket">$0</div><div class="kpi-delta" id="kpi-ticket-d" style="color:var(--muted)">—</div></div>
+      <div class="kpi"><div class="kpi-label">Tasa conversión</div><div class="kpi-val" id="kpi-conv">0%</div><div class="kpi-delta" id="kpi-conv-d">—</div></div>
+    </div>
+    <div class="charts-row">
+      <div class="chart-card">
+        <div class="chart-title">Ventas diarias — últimos 14 días</div>
+        <div style="position:relative;width:100%;height:160px"><canvas id="lineChart" role="img" aria-label="Gráfico de ventas diarias últimos 14 días"></canvas></div>
+      </div>
+      <div class="chart-card">
+        <div class="chart-title">Ventas por canal</div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px;font-size:0.68rem;color:var(--muted)">
+          <span style="display:flex;align-items:center;gap:4px"><span style="width:8px;height:8px;border-radius:2px;background:#00D4AA;display:inline-block"></span>Web</span>
+          <span style="display:flex;align-items:center;gap:4px"><span style="width:8px;height:8px;border-radius:2px;background:#3B82F6;display:inline-block"></span>App</span>
+          <span style="display:flex;align-items:center;gap:4px"><span style="width:8px;height:8px;border-radius:2px;background:#a78bfa;display:inline-block"></span>Presencial</span>
+        </div>
+        <div style="position:relative;width:100%;height:140px"><canvas id="donutChart" role="img" aria-label="Distribución de ventas por canal"></canvas></div>
+      </div>
+    </div>
+    <div class="bottom-row">
+      <div class="chart-card">
+        <div class="chart-title">Top productos</div>
+        <table class="tbl"><thead><tr><th>Producto</th><th style="text-align:right">Ventas</th><th style="text-align:right">Var.</th></tr></thead><tbody id="prod-table"></tbody></table>
+      </div>
+      <div class="chart-card">
+        <div class="chart-title">Embudo de conversión</div>
+        <div id="funnel"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cta-section" id="cta">
+    <div class="section-label">Contacto</div>
+    <h2>¿Listo para decidir con datos?</h2>
+    <p>Cuéntanos tu desafío y diseñamos una solución a tu medida. Respondemos en menos de 24 horas.</p>
+    <div class="cta-card">
+      <div class="form-grid">
+        <div class="form-row"><label>Nombre</label><input type="text" placeholder="Tu nombre"></div>
+        <div class="form-row"><label>Empresa</label><input type="text" placeholder="Nombre de la empresa"></div>
+      </div>
+      <div class="form-row"><label>Correo electrónico</label><input type="email" placeholder="tu@empresa.cl"></div>
+      <div class="form-grid">
+        <div class="form-row">
+          <label>Industria / Rubro</label>
+          <select>
+            <option value="">Seleccionar...</option>
+            <option>Banca & Finanzas</option>
+            <option>Retail & Comercio</option>
+            <option>Logística</option>
+            <option>Tecnología & SaaS</option>
+            <option>Pyme / Startup</option>
+            <option>Otro</option>
+          </select>
+        </div>
+        <div class="form-row">
+          <label>¿Qué necesitas?</label>
+          <select>
+            <option value="">Seleccionar...</option>
+            <option>Dashboard & BI</option>
+            <option>Automatización de reportes</option>
+            <option>Ingeniería de datos / ETL</option>
+            <option>Cloud & plataformas IA</option>
+            <option>No sé, necesito orientación</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-row"><label>Cuéntanos más</label><textarea placeholder="Describe tu situación actual o el problema que quieres resolver..."></textarea></div>
+      <button class="submit" id="submitBtn">Enviar solicitud →</button>
+      <div class="form-note">contacto@intechpro.cl · Respondemos en menos de 24 horas</div>
+    </div>
+  </div>
+
+  <footer>
+    <span>© 2025 Intech Biobío SpA</span>
+    <span>contacto@intechpro.cl</span>
+    <span>Chile</span>
+  </footer>
 </div>
 
-<footer>
-  <span>© 2025 Intech Biobío SpA</span>
-  <span>contacto@intechpro.cl</span>
-  <span>Chile</span>
-</footer>
-
-</div>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
-<script>
-const rnd=(a,b)=>Math.round(a+Math.random()*(b-a));
-const fmt=n=>n>=1000000?'$'+(n/1000000).toFixed(1)+'M':n>=1000?'$'+(n/1000).toFixed(0)+'K':'$'+n;
-let lineChart,donutChart;
-let hist=[];
-for(let i=0;i<14;i++) hist.push(rnd(2800000,5200000));
-const labels=[];
-for(let i=13;i>=0;i--){const d=new Date();d.setDate(d.getDate()-i);labels.push(d.getDate()+'/'+(d.getMonth()+1));}
-const lCtx=document.getElementById('lineChart').getContext('2d');
-lineChart=new Chart(lCtx,{type:'line',data:{labels,datasets:[{data:hist,borderColor:'#00D4AA',borderWidth:2,pointRadius:2,pointBackgroundColor:'#00D4AA',fill:true,backgroundColor:ctx=>{const g=ctx.chart.ctx.createLinearGradient(0,0,0,160);g.addColorStop(0,'rgba(0,212,170,0.18)');g.addColorStop(1,'rgba(0,212,170,0)');return g;},tension:0.4}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{x:{ticks:{color:'#6B7A8F',font:{size:10},maxTicksLimit:7},grid:{color:'rgba(255,255,255,0.04)'},border:{color:'transparent'}},y:{ticks:{color:'#6B7A8F',font:{size:10},callback:v=>fmt(v)},grid:{color:'rgba(255,255,255,0.04)'},border:{color:'transparent'}}}}});
-const dCtx=document.getElementById('donutChart').getContext('2d');
-donutChart=new Chart(dCtx,{type:'doughnut',data:{labels:['Web','App','Presencial'],datasets:[{data:[42,35,23],backgroundColor:['#00D4AA','#3B82F6','#a78bfa'],borderWidth:0,hoverOffset:4}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},cutout:'68%'}});
-const products=[{name:'Categoría A',base:4820000},{name:'Categoría B',base:3640000},{name:'Categoría C',base:2910000},{name:'Categoría D',base:1780000},{name:'Categoría E',base:980000}];
-const funnelSteps=[{label:'Visitas',color:'#3B82F6',base:10000},{label:'Interés',color:'#00D4AA',base:4200},{label:'Cotización',color:'#a78bfa',base:1800},{label:'Cierre',color:'#22C55E',base:620}];
-function updateKPIs(){
-  const v=rnd(38000000,52000000),vp=rnd(35000000,48000000);
-  const tx=rnd(2800,3400),txp=rnd(2600,3200);
-  const ticket=Math.round(v/tx);
-  const conv=+(rnd(58,74)/10).toFixed(1),convp=+(rnd(55,70)/10).toFixed(1);
-  document.getElementById('kpi-ventas').textContent=fmt(v);
-  const vd=Math.round((v-vp)/vp*100);
-  const ve=document.getElementById('kpi-ventas-d');ve.textContent=(vd>=0?'↑ ':'↓ ')+Math.abs(vd)+'% vs mes anterior';ve.className='kpi-delta '+(vd>=0?'delta-up':'delta-dn');
-  document.getElementById('kpi-tx').textContent=tx.toLocaleString();
-  const td=Math.round((tx-txp)/txp*100);
-  const te=document.getElementById('kpi-tx-d');te.textContent=(td>=0?'↑ ':'↓ ')+Math.abs(td)+'% vs mes anterior';te.className='kpi-delta '+(td>=0?'delta-up':'delta-dn');
-  document.getElementById('kpi-ticket').textContent=fmt(ticket);
-  document.getElementById('kpi-ticket-d').textContent='Promedio del período';
-  const cd=+(conv-convp).toFixed(1);
-  const ce=document.getElementById('kpi-conv-d');
-  document.getElementById('kpi-conv').textContent=conv+'%';
-  ce.textContent=(cd>=0?'↑ ':'↓ ')+Math.abs(cd)+'pp vs mes anterior';ce.className='kpi-delta '+(cd>=0?'delta-up':'delta-dn');
-}
-function updateLine(){hist.shift();hist.push(rnd(2800000,5200000));lineChart.data.datasets[0].data=[...hist];lineChart.update('active');}
-function updateDonut(){const a=rnd(30,55),b=rnd(20,40),c=100-a-b;donutChart.data.datasets[0].data=[a,b,c];donutChart.update('active');}
-function updateTable(){
-  const tb=document.getElementById('prod-table');tb.innerHTML='';
-  const s=[...products].map(p=>({...p,val:rnd(Math.round(p.base*0.8),Math.round(p.base*1.2))})).sort((a,b)=>b.val-a.val);
-  s.forEach(p=>{const chg=rnd(-18,25);const tr=document.createElement('tr');tr.innerHTML=`<td>${p.name}</td><td style="text-align:right">${fmt(p.val)}</td><td style="text-align:right"><span class="pill ${chg>=0?'pill-up':chg>=-5?'pill-mid':'pill-dn'}">${chg>=0?'+':''}${chg}%</span></td>`;tb.appendChild(tr);});
-}
-function updateFunnel(){
-  const fn=document.getElementById('funnel');fn.innerHTML='';
-  const vals=funnelSteps.map(s=>({...s,val:Math.round(s.base*(0.85+Math.random()*0.3))}));
-  const max=vals[0].val;
-  vals.forEach((s,i)=>{const pct=Math.round(s.val/max*100);const cp=i>0?Math.round(s.val/vals[i-1].val*100):100;const d=document.createElement('div');d.className='funnel-step';d.innerHTML=`<span class="funnel-label">${s.label}</span><div class="funnel-bar-bg"><div class="funnel-bar-fill" style="width:${pct}%;background:${s.color}">${s.val.toLocaleString()}</div></div><span class="funnel-pct">${cp}%</span>`;fn.appendChild(d);});
-}
-function tick(){updateKPIs();updateLine();updateDonut();updateTable();updateFunnel();}
-tick();setInterval(tick,3000);
-document.getElementById('submitBtn').addEventListener('click',function(){
-  const email=document.querySelector('input[type="email"]').value;
-  if(!email){alert('Por favor ingresa tu correo electrónico.');return;}
-  this.textContent='¡Solicitud enviada! Te contactaremos pronto.';
-  this.style.opacity='0.7';this.disabled=true;
-});
-</script>
+<script src="
