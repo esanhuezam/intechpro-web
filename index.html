@@ -1,11 +1,3 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>IntechPro — Soluciones de datos para empresas en Chile</title>
-<link rel="icon" type="image/png" href="favicon.png">
-<link rel="apple-touch-icon" href="favicon.png">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
@@ -113,15 +105,79 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:1rem 2
 .submit:hover{opacity:0.85}
 .form-note{font-size:0.72rem;color:var(--muted);margin-top:0.75rem}
 footer{border-top:1px solid var(--border);padding:1.5rem 2.5rem;display:flex;justify-content:space-between;align-items:center;font-size:0.78rem;color:var(--muted);flex-wrap:wrap;gap:0.5rem}
+
+/* Estilos nuevos para el logo central alargado */
+.hero-central-logo {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto 3rem;
+  max-width: 800px;
+  text-align: center;
+  padding: 1.5rem 0;
+}
+.hcl-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+}
+.hcl-upper {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+.hcl-icon {
+  width: 55px;
+  height: 55px;
+  background-color: var(--accent); /* Turquesa */
+  color: #07090F; /* Color de fondo */
+  border-radius: 9px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  font-weight: 800;
+  position: relative;
+}
+.hcl-i-dot {
+   position: absolute;
+   bottom: 14px;
+   right: 14px;
+   width: 6px;
+   height: 6px;
+   background-color: #07090F;
+   border-radius: 50%;
+}
+.hcl-text {
+  font-size: 2.5rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--text);
+}
+.hcl-text span {
+  color: var(--accent);
+}
+.hcl-lower {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--muted);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 0.6rem 1.5rem;
+}
+
 @media(max-width:640px){
   .charts-row,.bottom-row,.form-grid{grid-template-columns:1fr}
   .hero,.services,.demo-section,.cta-section,.industries,.results{padding:2rem 1.25rem}
   nav{padding:1rem 1.25rem}.nav-links{display:none}
+  .hcl-upper { flex-direction: column; gap: 0.75rem; }
+  .hcl-text { font-size: 2rem; }
+  .hcl-lower { font-size: 0.9rem; padding: 0.5rem 1rem; }
 }
 </style>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
-</head>
-<body>
+
 <div class="page">
 
 <nav>
@@ -136,7 +192,18 @@ footer{border-top:1px solid var(--border);padding:1.5rem 2.5rem;display:flex;jus
 </nav>
 
 <div class="hero">
-  <div class="hero-badge"><div class="pulse"></div>Soluciones de datos para empresas en todo Chile</div>
+  <div class="hero-badge"><div class="pulse"></div>Soluciones de datos</div>
+
+  <div class="hero-central-logo">
+      <div class="hcl-inner">
+          <div class="hcl-upper">
+              <div class="hcl-icon"><span class="hcl-i-char">I</span><span class="hcl-i-dot"></span></div>
+              <div class="hcl-text">Intech<span>Pro</span></div>
+          </div>
+          <div class="hcl-lower">Data · BI · Cloud · Automatización</div>
+      </div>
+  </div>
+
   <h1>Tus datos,<br>convertidos en <em>decisiones</em></h1>
   <p>Diseñamos soluciones de Business Intelligence, automatización y analítica avanzada que transforman datos complejos en ventajas competitivas reales.</p>
   <div class="hero-btns">
@@ -156,12 +223,12 @@ footer{border-top:1px solid var(--border);padding:1.5rem 2.5rem;display:flex;jus
   <h2>Industrias que conocemos</h2>
   <p>Experiencia real trabajando con datos en entornos exigentes y regulados.</p>
   <div class="ind-grid">
-    <div class="ind-card"><div class="srv-ic ic-b"><i class="ti ti-building-bank"></i></div><span>Banca & Finanzas</span></div>
-    <div class="ind-card"><div class="srv-ic ic-o"><i class="ti ti-truck"></i></div><span>Logística</span></div>
-    <div class="ind-card"><div class="srv-ic ic-p"><i class="ti ti-device-desktop"></i></div><span>Tecnología & SaaS</span></div>
-    <div class="ind-card"><div class="srv-ic ic-t"><i class="ti ti-building"></i></div><span>Pymes & Startups</span></div>
-    <div class="ind-card"><div class="srv-ic ic-b"><i class="ti ti-clipboard-check"></i></div><span>Cumplimiento regulatorio</span></div>
-    <div class="ind-card"><div class="srv-ic ic-t"><i class="ti ti-chart-line"></i></div><span>Gestión comercial</span></div>
+    <div class="ind-card"><div class="srv-ic ic-b"><i class="ti ti-building-bank" aria-hidden="true"></i></div><span>Banca & Finanzas</span></div>
+    <div class="ind-card"><div class="srv-ic ic-o"><i class="ti ti-truck" aria-hidden="true"></i></div><span>Logística</span></div>
+    <div class="ind-card"><div class="srv-ic ic-p"><i class="ti ti-device-desktop" aria-hidden="true"></i></div><span>Tecnología & SaaS</span></div>
+    <div class="ind-card"><div class="srv-ic ic-t"><i class="ti ti-building" aria-hidden="true"></i></div><span>Pymes & Startups</span></div>
+    <div class="ind-card"><div class="srv-ic ic-b"><i class="ti ti-clipboard-check" aria-hidden="true"></i></div><span>Cumplimiento regulatorio</span></div>
+    <div class="ind-card"><div class="srv-ic ic-t"><i class="ti ti-chart-line" aria-hidden="true"></i></div><span>Gestión comercial</span></div>
   </div>
 </div>
 
@@ -171,22 +238,22 @@ footer{border-top:1px solid var(--border);padding:1.5rem 2.5rem;display:flex;jus
   <p>Desde el dato crudo hasta el dashboard ejecutivo — cubrimos todo el ciclo de vida de tus datos.</p>
   <div class="srv-grid">
     <div class="srv-card">
-      <div class="srv-icon ic-t"><i class="ti ti-chart-bar"></i></div>
+      <div class="srv-icon ic-t"><i class="ti ti-chart-bar" aria-hidden="true"></i></div>
       <h3>Business Intelligence</h3>
       <p>Dashboards ejecutivos y operativos en Power BI y Tableau. KPIs claros conectados a tus fuentes de datos en tiempo real.</p>
     </div>
     <div class="srv-card">
-      <div class="srv-icon ic-b"><i class="ti ti-database"></i></div>
+      <div class="srv-icon ic-b"><i class="ti ti-database" aria-hidden="true"></i></div>
       <h3>Ingeniería de datos & ETL</h3>
       <p>Pipelines, Data Warehouses y modelamiento relacional y NoSQL integrados a tus sistemas con SQL Server, SSIS y Pentaho.</p>
     </div>
     <div class="srv-card">
-      <div class="srv-icon ic-p"><i class="ti ti-bolt"></i></div>
+      <div class="srv-icon ic-p"><i class="ti ti-bolt" aria-hidden="true"></i></div>
       <h3>Automatización de reportes</h3>
       <p>Eliminamos procesos manuales en reportería operativa, regulatoria y comercial. Menos tiempo, cero errores humanos.</p>
     </div>
     <div class="srv-card">
-      <div class="srv-icon ic-o"><i class="ti ti-cloud"></i></div>
+      <div class="srv-icon ic-o"><i class="ti ti-cloud" aria-hidden="true"></i></div>
       <h3>Cloud & plataformas IA</h3>
       <p>Arquitecturas sobre GCP con Firebase e integración de APIs de inteligencia artificial para potenciar tus procesos.</p>
     </div>
@@ -367,5 +434,3 @@ document.getElementById('submitBtn').addEventListener('click',function(){
   this.style.opacity='0.7';this.disabled=true;
 });
 </script>
-</body>
-</html>
