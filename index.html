@@ -367,4 +367,129 @@
         <div class="form-row">
           <label>¿Qué necesitas?</label>
           <select>
-            <option
+            <option value="">Seleccionar...</option>
+            <option>Dashboard & BI</option>
+            <option>Automatización de reportes</option>
+            <option>Ingeniería de datos / ETL</option>
+            <option>Cloud & plataformas IA</option>
+            <option>No sé, necesito orientación</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-row"><label>Cuéntanos más</label><textarea placeholder="Describe tu situación actual o el problema que quieres resolver..."></textarea></div>
+      <button class="submit" id="submitBtn">Enviar solicitud →</button>
+      <div class="form-note">contacto@intechpro.cl · Respondemos en menos de 24 horas</div>
+    </div>
+  </div>
+
+  <footer>
+    <span>© 2025 Intech Biobío SpA</span>
+    <span>contacto@intechpro.cl</span>
+    <span>Chile</span>
+  </footer>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const rnd=(a,b)=>Math.round(a+Math.random()*(b-a));
+  const fmt=n=>n>=1000000?'$'+(n/1000000).toFixed(1)+'M':n>=1000?'$'+(n/1000).toFixed(0)+'K':'$'+n;
+  
+  let lineChart,donutChart;
+  let hist=[];
+  for(let i=0;i<14;i++) hist.push(rnd(2800000,5200000));
+  
+  const products=[{name:'Categoría A',base:4820000},{name:'Categoría B',base:3640000},{name:'Categoría C',base:2910000},{name:'Categoría D',base:1780000},{name:'Categoría E',base:980000}];
+  const funnelSteps=[{label:'Visitas',color:'#3B82F6',base:10000},{label:'Interés',color:'#00D4AA',base:4200},{label:'Cotización',color:'#a78bfa',base:1800},{label:'Cierre',color:'#22C55E',base:620}];
+
+  // Intentamos crear los gráficos de Chart.js
+  try {
+    if (typeof Chart !== 'undefined') {
+      const labels=[];
+      for(let i=13;i>=0;i--){const d=new Date();d.setDate(d.getDate()-i);labels.push(d.getDate()+'/'+(d.getMonth()+1));}
+      
+      const lCtx=document.getElementById('lineChart').getContext('2d');
+      lineChart=new Chart(lCtx,{type:'line',data:{labels,datasets:[{data:hist,borderColor:'#00D4AA',borderWidth:2,pointRadius:2,pointBackgroundColor:'#00D4AA',fill:true,backgroundColor:ctx=>{const g=ctx.chart.ctx.createLinearGradient(0,0,0,160);g.addColorStop(0,'rgba(0,212,170,0.18)');g.addColorStop(1,'rgba(0,212,170,0)');return g;},tension:0.4}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{x:{ticks:{color:'#6B7A8F',font:{size:10},maxTicksLimit:7},grid:{color:'rgba(255,255,255,0.04)'},border:{color:'transparent'}},y:{ticks:{color:'#6B7A8F',font:{size:10},callback:v=>fmt(v)},grid:{color:'rgba(255,255,255,0.04)'},border:{color:'transparent'}}}}});
+      
+      const dCtx=document.getElementById('donutChart').getContext('2d');
+      donutChart=new Chart(dCtx,{type:'doughnut',data:{labels:['Web','App','Presencial'],datasets:[{data:[42,35,23],backgroundColor:['#00D4AA','#3B82F6','#a78bfa'],borderWidth:0,hoverOffset:4}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},cutout:'68%'}});
+    } else {
+      console.warn("Chart.js no cargó, pero el resto del dashboard funcionará.");
+    }
+  } catch(e) {
+    console.error("Error al renderizar los gráficos:", e);
+  }
+
+  // Funciones de actualización de datos
+  function updateKPIs(){
+    const v=rnd(38000000,52000000),vp=rnd(35000000,48000000);
+    const tx=rnd(2800,3400),txp=rnd(2600,3200);
+    const ticket=Math.round(v/tx);
+    const conv=+(rnd(58,74)/10).toFixed(1),convp=+(rnd(55,70)/10).toFixed(1);
+    document.getElementById('kpi-ventas').textContent=fmt(v);
+    const vd=Math.round((v-vp)/vp*100);
+    const ve=document.getElementById('kpi-ventas-d');ve.textContent=(vd>=0?'↑ ':'↓ ')+Math.abs(vd)+'% vs mes anterior';ve.className='kpi-delta '+(vd>=0?'delta-up':'delta-dn');
+    document.getElementById('kpi-tx').textContent=tx.toLocaleString();
+    const td=Math.round((tx-txp)/txp*100);
+    const te=document.getElementById('kpi-tx-d');te.textContent=(td>=0?'↑ ':'↓ ')+Math.abs(td)+'% vs mes anterior';te.className='kpi-delta '+(td>=0?'delta-up':'delta-dn');
+    document.getElementById('kpi-ticket').textContent=fmt(ticket);
+    document.getElementById('kpi-ticket-d').textContent='Promedio del período';
+    const cd=+(conv-convp).toFixed(1);
+    const ce=document.getElementById('kpi-conv-d');
+    document.getElementById('kpi-conv').textContent=conv+'%';
+    ce.textContent=(cd>=0?'↑ ':'↓ ')+Math.abs(cd)+'pp vs mes anterior';ce.className='kpi-delta '+(cd>=0?'delta-up':'delta-dn');
+  }
+  
+  function updateLine(){
+    if(lineChart) {
+      hist.shift();hist.push(rnd(2800000,5200000));
+      lineChart.data.datasets[0].data=[...hist];
+      lineChart.update('active');
+    }
+  }
+  
+  function updateDonut(){
+    if(donutChart) {
+      const a=rnd(30,55),b=rnd(20,40),c=100-a-b;
+      donutChart.data.datasets[0].data=[a,b,c];
+      donutChart.update('active');
+    }
+  }
+  
+  function updateTable(){
+    const tb=document.getElementById('prod-table');tb.innerHTML='';
+    const s=[...products].map(p=>({...p,val:rnd(Math.round(p.base*0.8),Math.round(p.base*1.2))})).sort((a,b)=>b.val-a.val);
+    s.forEach(p=>{const chg=rnd(-18,25);const tr=document.createElement('tr');tr.innerHTML=`<td>${p.name}</td><td style="text-align:right">${fmt(p.val)}</td><td style="text-align:right"><span class="pill ${chg>=0?'pill-up':chg>=-5?'pill-mid':'pill-dn'}">${chg>=0?'+':''}${chg}%</span></td>`;tb.appendChild(tr);});
+  }
+  
+  function updateFunnel(){
+    const fn=document.getElementById('funnel');fn.innerHTML='';
+    const vals=funnelSteps.map(s=>({...s,val:Math.round(s.base*(0.85+Math.random()*0.3))}));
+    const max=vals[0].val;
+    vals.forEach((s,i)=>{const pct=Math.round(s.val/max*100);const cp=i>0?Math.round(s.val/vals[i-1].val*100):100;const d=document.createElement('div');d.className='funnel-step';d.innerHTML=`<span class="funnel-label">${s.label}</span><div class="funnel-bar-bg"><div class="funnel-bar-fill" style="width:${pct}%;background:${s.color}">${s.val.toLocaleString()}</div></div><span class="funnel-pct">${cp}%</span>`;fn.appendChild(d);});
+  }
+
+  // Ciclo principal
+  function tick(){
+    updateKPIs();
+    updateLine();
+    updateDonut();
+    updateTable();
+    updateFunnel();
+  }
+  
+  tick(); // Ejecutar inmediatamente
+  setInterval(tick,3000); // Luego cada 3 segundos
+
+  document.getElementById('submitBtn').addEventListener('click',function(){
+    const email=document.querySelector('input[type="email"]').value;
+    if(!email){alert('Por favor ingresa tu correo electrónico.');return;}
+    this.textContent='¡Solicitud enviada! Te contactaremos pronto.';
+    this.style.opacity='0.7';this.disabled=true;
+  });
+});
+</script>
+
+</body>
+</html>
