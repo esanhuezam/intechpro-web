@@ -60,7 +60,7 @@
     .srv-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1px;background:var(--border);border:1px solid var(--border);border-radius:12px;overflow:hidden}
     .srv-card{background:var(--bg2);padding:1.5rem;transition:background 0.2s}
     .srv-card:hover{background:var(--bg3)}
-    .srv-icon{width:36px;height:36px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1rem;margin-bottom:1rem}
+    .srv-icon{width:36px;height:36px;border-radius:8px;display:flex;align-items:center;justify-content:font-size:1rem;margin-bottom:1rem}
     .srv-card h3{font-size:0.875rem;font-weight:600;margin-bottom:0.4rem;color:var(--text)}
     .srv-card p{font-size:0.78rem;color:var(--muted);line-height:1.6}
     .results{padding:3rem 2.5rem;border-bottom:1px solid var(--border);background:var(--bg2)}
@@ -71,6 +71,83 @@
     .res-num{font-size:2rem;font-weight:800;letter-spacing:-0.03em;color:var(--accent);line-height:1;margin-bottom:0.4rem}
     .res-desc{font-size:0.82rem;font-weight:600;color:var(--text);margin-bottom:0.3rem}
     .res-context{font-size:0.75rem;color:var(--muted);line-height:1.5}
+
+    /* ── PRODUCTOS / KIOSK·IQ ─────────────────────────────────────── */
+    .productos-section{padding:3rem 2.5rem;border-bottom:1px solid var(--border)}
+    .productos-section h2{font-size:1.35rem;font-weight:700;letter-spacing:-0.02em;margin-bottom:0.5rem}
+    .productos-section>p{color:var(--muted);font-size:0.875rem;margin-bottom:2rem}
+    .kiosk-card{
+      background:linear-gradient(135deg,#0D1117 0%,#131924 100%);
+      border:1px solid rgba(0,212,170,0.25);
+      border-radius:16px;
+      padding:2rem;
+      display:grid;
+      grid-template-columns:1fr auto;
+      gap:2rem;
+      align-items:center;
+      position:relative;
+      overflow:hidden;
+      transition:border-color 0.2s,box-shadow 0.2s;
+    }
+    .kiosk-card:hover{border-color:rgba(0,212,170,0.5);box-shadow:0 0 40px rgba(0,212,170,0.08)}
+    .kiosk-card::before{
+      content:'';position:absolute;top:-60px;right:-60px;
+      width:220px;height:220px;border-radius:50%;
+      background:radial-gradient(circle,rgba(0,212,170,0.08) 0%,transparent 70%);
+      pointer-events:none;
+    }
+    .kiosk-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(0,212,170,0.1);border:1px solid rgba(0,212,170,0.2);color:var(--accent);font-size:0.68rem;font-weight:700;padding:0.25rem 0.75rem;border-radius:100px;margin-bottom:1rem;letter-spacing:0.08em;text-transform:uppercase}
+    .kiosk-card h3{font-size:1.5rem;font-weight:800;letter-spacing:-0.02em;color:var(--text);margin-bottom:0.5rem}
+    .kiosk-card h3 span{color:var(--accent)}
+    .kiosk-card>div>p{color:var(--muted);font-size:0.875rem;line-height:1.7;margin-bottom:1.5rem;max-width:520px}
+    .kiosk-features{display:flex;flex-wrap:wrap;gap:0.5rem;margin-bottom:1.75rem}
+    .kiosk-feat{background:rgba(255,255,255,0.04);border:1px solid var(--border);border-radius:6px;padding:0.3rem 0.75rem;font-size:0.72rem;color:var(--muted);font-weight:500}
+    .kiosk-btns{display:flex;gap:0.75rem;flex-wrap:wrap}
+    .btn-kiosk-p{
+      background:var(--accent);color:#07090F;
+      padding:0.65rem 1.4rem;border-radius:7px;
+      font-size:0.85rem;font-weight:700;
+      border:none;cursor:pointer;
+      text-decoration:none;display:inline-flex;align-items:center;gap:6px;
+      transition:opacity 0.2s;
+    }
+    .btn-kiosk-p:hover{opacity:0.85}
+    .btn-kiosk-o{
+      background:transparent;color:var(--text);
+      padding:0.65rem 1.4rem;border-radius:7px;
+      border:1px solid var(--border);
+      font-size:0.85rem;font-weight:500;
+      cursor:pointer;text-decoration:none;
+      display:inline-flex;align-items:center;gap:6px;
+      transition:background 0.2s,border-color 0.2s;
+    }
+    .btn-kiosk-o:hover{background:rgba(255,255,255,0.05);border-color:rgba(255,255,255,0.15)}
+    .kiosk-visual{
+      width:180px;height:280px;
+      background:linear-gradient(160deg,#1a2233,#0f1720);
+      border:1px solid rgba(255,255,255,0.08);
+      border-radius:20px;
+      display:flex;flex-direction:column;
+      align-items:center;justify-content:center;
+      gap:8px;flex-shrink:0;
+      position:relative;overflow:hidden;
+      box-shadow:0 20px 60px rgba(0,0,0,0.4);
+    }
+    .kiosk-visual::before{
+      content:'';position:absolute;top:0;left:0;right:0;height:3px;
+      background:linear-gradient(90deg,var(--accent),var(--accent2));
+      border-radius:20px 20px 0 0;
+    }
+    .kiosk-screen-icon{font-size:2.5rem;margin-bottom:4px}
+    .kiosk-screen-line{width:70%;height:6px;background:rgba(255,255,255,0.08);border-radius:3px}
+    .kiosk-screen-line.short{width:45%}
+    .kiosk-screen-btn{
+      width:70%;height:28px;
+      background:rgba(0,212,170,0.2);border:1px solid rgba(0,212,170,0.3);
+      border-radius:6px;margin-top:8px;
+    }
+    /* ── FIN PRODUCTOS ────────────────────────────────────────────── */
+
     .demo-section{padding:3rem 2.5rem;border-bottom:1px solid var(--border)}
     .demo-header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:1.5rem;flex-wrap:wrap;gap:1rem}
     .demo-header-left h2{font-size:1.35rem;font-weight:700;letter-spacing:-0.02em;margin-bottom:0.25rem}
@@ -115,76 +192,24 @@
     .submit:hover{opacity:0.85}
     .form-note{font-size:0.72rem;color:var(--muted);margin-top:0.75rem}
     footer{border-top:1px solid var(--border);padding:1.5rem 2.5rem;display:flex;justify-content:space-between;align-items:center;font-size:0.78rem;color:var(--muted);flex-wrap:wrap;gap:0.5rem}
-
-    /* Estilos para el logo central alargado */
-    .hero-central-logo {
-      display: flex;
-      justify-content: center;
-      margin: 0 auto 3rem;
-      max-width: 800px;
-      text-align: center;
-      padding: 1.5rem 0;
-    }
-    .hcl-inner {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 1.25rem;
-    }
-    .hcl-upper {
-      display: flex;
-      align-items: center;
-      gap: 1.5rem;
-    }
-    .hcl-icon {
-      width: 55px;
-      height: 55px;
-      background-color: var(--accent); /* Turquesa */
-      color: #07090F; /* Color de fondo */
-      border-radius: 9px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 2rem;
-      font-weight: 800;
-      position: relative;
-    }
-    .hcl-i-dot {
-       position: absolute;
-       bottom: 14px;
-       right: 14px;
-       width: 6px;
-       height: 6px;
-       background-color: #07090F;
-       border-radius: 50%;
-    }
-    .hcl-text {
-      font-size: 2.5rem;
-      font-weight: 700;
-      letter-spacing: -0.02em;
-      color: var(--text);
-    }
-    .hcl-text span {
-      color: var(--accent);
-    }
-    .hcl-lower {
-      font-size: 1.1rem;
-      font-weight: 500;
-      color: var(--muted);
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-      padding: 0.6rem 1.5rem;
-    }
-
+    .hero-central-logo{display:flex;justify-content:center;margin:0 auto 3rem;max-width:800px;text-align:center;padding:1.5rem 0}
+    .hcl-inner{display:flex;flex-direction:column;align-items:center;gap:1.25rem}
+    .hcl-upper{display:flex;align-items:center;gap:1.5rem}
+    .hcl-icon{width:55px;height:55px;background-color:var(--accent);color:#07090F;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:2rem;font-weight:800;position:relative}
+    .hcl-i-dot{position:absolute;bottom:14px;right:14px;width:6px;height:6px;background-color:#07090F;border-radius:50%}
+    .hcl-text{font-size:2.5rem;font-weight:700;letter-spacing:-0.02em;color:var(--text)}
+    .hcl-text span{color:var(--accent)}
+    .hcl-lower{font-size:1.1rem;font-weight:500;color:var(--muted);letter-spacing:0.05em;text-transform:uppercase;border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:0.6rem 1.5rem}
+    .srv-icon{width:36px;height:36px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1rem;margin-bottom:1rem}
     @media(max-width:640px){
       .charts-row,.bottom-row,.form-grid{grid-template-columns:1fr}
-      .hero,.services,.demo-section,.cta-section,.industries,.results{padding:2rem 1.25rem}
+      .hero,.services,.demo-section,.cta-section,.industries,.results,.productos-section{padding:2rem 1.25rem}
       nav{padding:1rem 1.25rem}.nav-links{display:none}
-      .hcl-upper { flex-direction: column; gap: 0.75rem; }
-      .hcl-text { font-size: 2rem; }
-      .hcl-lower { font-size: 0.9rem; padding: 0.5rem 1rem; }
+      .hcl-upper{flex-direction:column;gap:0.75rem}
+      .hcl-text{font-size:2rem}
+      .hcl-lower{font-size:0.9rem;padding:0.5rem 1rem}
+      .kiosk-card{grid-template-columns:1fr}
+      .kiosk-visual{display:none}
     }
   </style>
 </head>
@@ -196,6 +221,7 @@
     <div class="nav-links">
       <a onclick="document.getElementById('srv').scrollIntoView({behavior:'smooth'})">Servicios</a>
       <a onclick="document.getElementById('ind').scrollIntoView({behavior:'smooth'})">Industrias</a>
+      <a onclick="document.getElementById('productos').scrollIntoView({behavior:'smooth'})">Productos</a>
       <a onclick="document.getElementById('demo').scrollIntoView({behavior:'smooth'})">Demo en vivo</a>
       <a onclick="document.getElementById('cta').scrollIntoView({behavior:'smooth'})">Contacto</a>
     </div>
@@ -204,17 +230,15 @@
 
   <div class="hero">
     <div class="hero-badge"><div class="pulse"></div>Soluciones de datos</div>
-    
     <div class="hero-central-logo">
-        <div class="hcl-inner">
-            <div class="hcl-upper">
-                <div class="hcl-icon"><span class="hcl-i-char">I</span><span class="hcl-i-dot"></span></div>
-                <div class="hcl-text">Intech<span>Pro</span></div>
-            </div>
-            <div class="hcl-lower">Data · BI · Cloud · Automatización</div>
+      <div class="hcl-inner">
+        <div class="hcl-upper">
+          <div class="hcl-icon"><span class="hcl-i-char">I</span><span class="hcl-i-dot"></span></div>
+          <div class="hcl-text">Intech<span>Pro</span></div>
         </div>
+        <div class="hcl-lower">Data · BI · Cloud · Automatización</div>
+      </div>
     </div>
-
     <h1>Tus datos,<br>convertidos en <em>decisiones</em></h1>
     <p>Diseñamos soluciones de Business Intelligence, automatización y analítica avanzada que transforman datos complejos en ventajas competitivas reales.</p>
     <div class="hero-btns">
@@ -234,12 +258,12 @@
     <h2>Industrias que conocemos</h2>
     <p>Experiencia real trabajando con datos en entornos exigentes y regulados.</p>
     <div class="ind-grid">
-      <div class="ind-card"><div class="srv-ic ic-b"><i class="ti ti-building-bank" aria-hidden="true"></i></div><span>Banca & Finanzas</span></div>
-      <div class="ind-card"><div class="srv-ic ic-o"><i class="ti ti-truck" aria-hidden="true"></i></div><span>Logística</span></div>
-      <div class="ind-card"><div class="srv-ic ic-p"><i class="ti ti-device-desktop" aria-hidden="true"></i></div><span>Tecnología & SaaS</span></div>
-      <div class="ind-card"><div class="srv-ic ic-t"><i class="ti ti-building" aria-hidden="true"></i></div><span>Pymes & Startups</span></div>
-      <div class="ind-card"><div class="srv-ic ic-b"><i class="ti ti-clipboard-check" aria-hidden="true"></i></div><span>Cumplimiento regulatorio</span></div>
-      <div class="ind-card"><div class="srv-ic ic-t"><i class="ti ti-chart-line" aria-hidden="true"></i></div><span>Gestión comercial</span></div>
+      <div class="ind-card"><div class="srv-ic ic-b">🏦</div><span>Banca & Finanzas</span></div>
+      <div class="ind-card"><div class="srv-ic ic-o">🚚</div><span>Logística</span></div>
+      <div class="ind-card"><div class="srv-ic ic-p">💻</div><span>Tecnología & SaaS</span></div>
+      <div class="ind-card"><div class="srv-ic ic-t">🏢</div><span>Pymes & Startups</span></div>
+      <div class="ind-card"><div class="srv-ic ic-b">✅</div><span>Cumplimiento regulatorio</span></div>
+      <div class="ind-card"><div class="srv-ic ic-t">📈</div><span>Gestión comercial</span></div>
     </div>
   </div>
 
@@ -249,22 +273,22 @@
     <p>Desde el dato crudo hasta el dashboard ejecutivo — cubrimos todo el ciclo de vida de tus datos.</p>
     <div class="srv-grid">
       <div class="srv-card">
-        <div class="srv-icon ic-t"><i class="ti ti-chart-bar" aria-hidden="true"></i></div>
+        <div class="srv-icon ic-t">📊</div>
         <h3>Business Intelligence</h3>
         <p>Dashboards ejecutivos y operativos en Power BI y Tableau. KPIs claros conectados a tus fuentes de datos en tiempo real.</p>
       </div>
       <div class="srv-card">
-        <div class="srv-icon ic-b"><i class="ti ti-database" aria-hidden="true"></i></div>
+        <div class="srv-icon ic-b">🗄️</div>
         <h3>Ingeniería de datos & ETL</h3>
         <p>Pipelines, Data Warehouses y modelamiento relacional y NoSQL integrados a tus sistemas con SQL Server, SSIS y Pentaho.</p>
       </div>
       <div class="srv-card">
-        <div class="srv-icon ic-p"><i class="ti ti-bolt" aria-hidden="true"></i></div>
+        <div class="srv-icon ic-p">⚡</div>
         <h3>Automatización de reportes</h3>
         <p>Eliminamos procesos manuales en reportería operativa, regulatoria y comercial. Menos tiempo, cero errores humanos.</p>
       </div>
       <div class="srv-card">
-        <div class="srv-icon ic-o"><i class="ti ti-cloud" aria-hidden="true"></i></div>
+        <div class="srv-icon ic-o">☁️</div>
         <h3>Cloud & plataformas IA</h3>
         <p>Arquitecturas sobre GCP con Firebase e integración de APIs de inteligencia artificial para potenciar tus procesos.</p>
       </div>
@@ -276,28 +300,55 @@
     <h2>Impacto medible</h2>
     <p>Números reales de proyectos implementados en entornos de alta exigencia.</p>
     <div class="res-grid">
-      <div class="res-card">
-        <div class="res-num">−30%</div>
-        <div class="res-desc">Tiempo de generación de reportes</div>
-        <div class="res-context">Automatización de reportería normativa en entorno bancario regulado bajo estándar Basilea III.</div>
+      <div class="res-card"><div class="res-num">−30%</div><div class="res-desc">Tiempo de generación de reportes</div><div class="res-context">Automatización de reportería normativa en entorno bancario regulado bajo estándar Basilea III.</div></div>
+      <div class="res-card"><div class="res-num">−25%</div><div class="res-desc">Tiempos de procesamiento operativo</div><div class="res-context">Automatización de reportes de comisiones y procesos ETL con SQL Server en entorno financiero.</div></div>
+      <div class="res-card"><div class="res-num">0</div><div class="res-desc">Errores manuales en reportes regulatorios</div><div class="res-context">Implementación de procesos de validación de datos con trazabilidad completa y cumplimiento CMF.</div></div>
+      <div class="res-card"><div class="res-num">Real time</div><div class="res-desc">Visibilidad de KPIs de negocio</div><div class="res-context">Dashboards y modelos para monitoreo de funnels y métricas operativas actualizados en tiempo real.</div></div>
+    </div>
+  </div>
+
+  <!-- ── SECCIÓN PRODUCTOS ─────────────────────────────────────────── -->
+  <div class="productos-section" id="productos">
+    <div class="section-label">Nuestros productos</div>
+    <h2>Software propio para el comercio</h2>
+    <p>Soluciones llave en mano desarrolladas por IntechPro para digitalizar la experiencia de tus clientes.</p>
+
+    <div class="kiosk-card">
+      <div>
+        <div class="kiosk-badge">
+          <div class="pulse"></div>
+          Demo disponible
+        </div>
+        <h3>KIOSK<span>·IQ</span></h3>
+        <p>Plataforma de autoatención inteligente para el comercio gastronómico. Tótem digital que conecta directamente con tu POS, permite pedidos autónomos, gestión de menú en tiempo real y estadísticas de venta — sin fricción, sin colas.</p>
+        <div class="kiosk-features">
+          <span class="kiosk-feat">Integración Odoo POS</span>
+          <span class="kiosk-feat">Panel admin en tiempo real</span>
+          <span class="kiosk-feat">Estadísticas de venta</span>
+          <span class="kiosk-feat">Personalización de marca</span>
+          <span class="kiosk-feat">Pago en tótem</span>
+          <span class="kiosk-feat">Multi-terminal</span>
+        </div>
+        <div class="kiosk-btns">
+          <a href="https://esanhuezam.github.io/autoatencicon/" target="_blank" class="btn-kiosk-p">
+            ▶ Ver demo — Nomade Kafe
+          </a>
+          <a href="#cta" onclick="document.getElementById('cta').scrollIntoView({behavior:'smooth'});return false;" class="btn-kiosk-o">
+            Cotizar para mi negocio
+          </a>
+        </div>
       </div>
-      <div class="res-card">
-        <div class="res-num">−25%</div>
-        <div class="res-desc">Tiempos de procesamiento operativo</div>
-        <div class="res-context">Automatización de reportes de comisiones y procesos ETL con SQL Server en entorno financiero.</div>
-      </div>
-      <div class="res-card">
-        <div class="res-num">0</div>
-        <div class="res-desc">Errores manuales en reportes regulatorios</div>
-        <div class="res-context">Implementación de procesos de validación de datos con trazabilidad completa y cumplimiento CMF.</div>
-      </div>
-      <div class="res-card">
-        <div class="res-num">Real time</div>
-        <div class="res-desc">Visibilidad de KPIs de negocio</div>
-        <div class="res-context">Dashboards y modelos para monitoreo de funnels y métricas operativas actualizados en tiempo real.</div>
+      <div class="kiosk-visual">
+        <div class="kiosk-screen-icon">☕</div>
+        <div class="kiosk-screen-line"></div>
+        <div class="kiosk-screen-line short"></div>
+        <div class="kiosk-screen-line"></div>
+        <div class="kiosk-screen-line short"></div>
+        <div class="kiosk-screen-btn"></div>
       </div>
     </div>
   </div>
+  <!-- ── FIN PRODUCTOS ─────────────────────────────────────────────── -->
 
   <div class="demo-section" id="demo">
     <div class="demo-header">
@@ -372,6 +423,7 @@
             <option>Automatización de reportes</option>
             <option>Ingeniería de datos / ETL</option>
             <option>Cloud & plataformas IA</option>
+            <option>KIOSK·IQ — Tótem de autoatención</option>
             <option>No sé, necesito orientación</option>
           </select>
         </div>
@@ -390,106 +442,34 @@
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
-
 <script>
 document.addEventListener("DOMContentLoaded", function() {
   const rnd=(a,b)=>Math.round(a+Math.random()*(b-a));
   const fmt=n=>n>=1000000?'$'+(n/1000000).toFixed(1)+'M':n>=1000?'$'+(n/1000).toFixed(0)+'K':'$'+n;
-  
   let lineChart,donutChart;
   let hist=[];
   for(let i=0;i<14;i++) hist.push(rnd(2800000,5200000));
-  
   const products=[{name:'Categoría A',base:4820000},{name:'Categoría B',base:3640000},{name:'Categoría C',base:2910000},{name:'Categoría D',base:1780000},{name:'Categoría E',base:980000}];
   const funnelSteps=[{label:'Visitas',color:'#3B82F6',base:10000},{label:'Interés',color:'#00D4AA',base:4200},{label:'Cotización',color:'#a78bfa',base:1800},{label:'Cierre',color:'#22C55E',base:620}];
-
-  // Intentamos crear los gráficos de Chart.js
   try {
-    if (typeof Chart !== 'undefined') {
+    if(typeof Chart!=='undefined'){
       const labels=[];
       for(let i=13;i>=0;i--){const d=new Date();d.setDate(d.getDate()-i);labels.push(d.getDate()+'/'+(d.getMonth()+1));}
-      
       const lCtx=document.getElementById('lineChart').getContext('2d');
       lineChart=new Chart(lCtx,{type:'line',data:{labels,datasets:[{data:hist,borderColor:'#00D4AA',borderWidth:2,pointRadius:2,pointBackgroundColor:'#00D4AA',fill:true,backgroundColor:ctx=>{const g=ctx.chart.ctx.createLinearGradient(0,0,0,160);g.addColorStop(0,'rgba(0,212,170,0.18)');g.addColorStop(1,'rgba(0,212,170,0)');return g;},tension:0.4}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{x:{ticks:{color:'#6B7A8F',font:{size:10},maxTicksLimit:7},grid:{color:'rgba(255,255,255,0.04)'},border:{color:'transparent'}},y:{ticks:{color:'#6B7A8F',font:{size:10},callback:v=>fmt(v)},grid:{color:'rgba(255,255,255,0.04)'},border:{color:'transparent'}}}}});
-      
       const dCtx=document.getElementById('donutChart').getContext('2d');
       donutChart=new Chart(dCtx,{type:'doughnut',data:{labels:['Web','App','Presencial'],datasets:[{data:[42,35,23],backgroundColor:['#00D4AA','#3B82F6','#a78bfa'],borderWidth:0,hoverOffset:4}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},cutout:'68%'}});
-    } else {
-      console.warn("Chart.js no cargó, pero el resto del dashboard funcionará.");
     }
-  } catch(e) {
-    console.error("Error al renderizar los gráficos:", e);
-  }
-
-  // Funciones de actualización de datos
-  function updateKPIs(){
-    const v=rnd(38000000,52000000),vp=rnd(35000000,48000000);
-    const tx=rnd(2800,3400),txp=rnd(2600,3200);
-    const ticket=Math.round(v/tx);
-    const conv=+(rnd(58,74)/10).toFixed(1),convp=+(rnd(55,70)/10).toFixed(1);
-    document.getElementById('kpi-ventas').textContent=fmt(v);
-    const vd=Math.round((v-vp)/vp*100);
-    const ve=document.getElementById('kpi-ventas-d');ve.textContent=(vd>=0?'↑ ':'↓ ')+Math.abs(vd)+'% vs mes anterior';ve.className='kpi-delta '+(vd>=0?'delta-up':'delta-dn');
-    document.getElementById('kpi-tx').textContent=tx.toLocaleString();
-    const td=Math.round((tx-txp)/txp*100);
-    const te=document.getElementById('kpi-tx-d');te.textContent=(td>=0?'↑ ':'↓ ')+Math.abs(td)+'% vs mes anterior';te.className='kpi-delta '+(td>=0?'delta-up':'delta-dn');
-    document.getElementById('kpi-ticket').textContent=fmt(ticket);
-    document.getElementById('kpi-ticket-d').textContent='Promedio del período';
-    const cd=+(conv-convp).toFixed(1);
-    const ce=document.getElementById('kpi-conv-d');
-    document.getElementById('kpi-conv').textContent=conv+'%';
-    ce.textContent=(cd>=0?'↑ ':'↓ ')+Math.abs(cd)+'pp vs mes anterior';ce.className='kpi-delta '+(cd>=0?'delta-up':'delta-dn');
-  }
-  
-  function updateLine(){
-    if(lineChart) {
-      hist.shift();hist.push(rnd(2800000,5200000));
-      lineChart.data.datasets[0].data=[...hist];
-      lineChart.update('active');
-    }
-  }
-  
-  function updateDonut(){
-    if(donutChart) {
-      const a=rnd(30,55),b=rnd(20,40),c=100-a-b;
-      donutChart.data.datasets[0].data=[a,b,c];
-      donutChart.update('active');
-    }
-  }
-  
-  function updateTable(){
-    const tb=document.getElementById('prod-table');tb.innerHTML='';
-    const s=[...products].map(p=>({...p,val:rnd(Math.round(p.base*0.8),Math.round(p.base*1.2))})).sort((a,b)=>b.val-a.val);
-    s.forEach(p=>{const chg=rnd(-18,25);const tr=document.createElement('tr');tr.innerHTML=`<td>${p.name}</td><td style="text-align:right">${fmt(p.val)}</td><td style="text-align:right"><span class="pill ${chg>=0?'pill-up':chg>=-5?'pill-mid':'pill-dn'}">${chg>=0?'+':''}${chg}%</span></td>`;tb.appendChild(tr);});
-  }
-  
-  function updateFunnel(){
-    const fn=document.getElementById('funnel');fn.innerHTML='';
-    const vals=funnelSteps.map(s=>({...s,val:Math.round(s.base*(0.85+Math.random()*0.3))}));
-    const max=vals[0].val;
-    vals.forEach((s,i)=>{const pct=Math.round(s.val/max*100);const cp=i>0?Math.round(s.val/vals[i-1].val*100):100;const d=document.createElement('div');d.className='funnel-step';d.innerHTML=`<span class="funnel-label">${s.label}</span><div class="funnel-bar-bg"><div class="funnel-bar-fill" style="width:${pct}%;background:${s.color}">${s.val.toLocaleString()}</div></div><span class="funnel-pct">${cp}%</span>`;fn.appendChild(d);});
-  }
-
-  // Ciclo principal
-  function tick(){
-    updateKPIs();
-    updateLine();
-    updateDonut();
-    updateTable();
-    updateFunnel();
-  }
-  
-  tick(); // Ejecutar inmediatamente
-  setInterval(tick,3000); // Luego cada 3 segundos
-
-  document.getElementById('submitBtn').addEventListener('click',function(){
-    const email=document.querySelector('input[type="email"]').value;
-    if(!email){alert('Por favor ingresa tu correo electrónico.');return;}
-    this.textContent='¡Solicitud enviada! Te contactaremos pronto.';
-    this.style.opacity='0.7';this.disabled=true;
-  });
+  } catch(e){console.error(e);}
+  function updateKPIs(){const v=rnd(38000000,52000000),vp=rnd(35000000,48000000);const tx=rnd(2800,3400),txp=rnd(2600,3200);const ticket=Math.round(v/tx);const conv=+(rnd(58,74)/10).toFixed(1),convp=+(rnd(55,70)/10).toFixed(1);document.getElementById('kpi-ventas').textContent=fmt(v);const vd=Math.round((v-vp)/vp*100);const ve=document.getElementById('kpi-ventas-d');ve.textContent=(vd>=0?'↑ ':'↓ ')+Math.abs(vd)+'% vs mes anterior';ve.className='kpi-delta '+(vd>=0?'delta-up':'delta-dn');document.getElementById('kpi-tx').textContent=tx.toLocaleString();const td=Math.round((tx-txp)/txp*100);const te=document.getElementById('kpi-tx-d');te.textContent=(td>=0?'↑ ':'↓ ')+Math.abs(td)+'% vs mes anterior';te.className='kpi-delta '+(td>=0?'delta-up':'delta-dn');document.getElementById('kpi-ticket').textContent=fmt(ticket);document.getElementById('kpi-ticket-d').textContent='Promedio del período';const cd=+(conv-convp).toFixed(1);const ce=document.getElementById('kpi-conv-d');document.getElementById('kpi-conv').textContent=conv+'%';ce.textContent=(cd>=0?'↑ ':'↓ ')+Math.abs(cd)+'pp vs mes anterior';ce.className='kpi-delta '+(cd>=0?'delta-up':'delta-dn');}
+  function updateLine(){if(lineChart){hist.shift();hist.push(rnd(2800000,5200000));lineChart.data.datasets[0].data=[...hist];lineChart.update('active');}}
+  function updateDonut(){if(donutChart){const a=rnd(30,55),b=rnd(20,40),c=100-a-b;donutChart.data.datasets[0].data=[a,b,c];donutChart.update('active');}}
+  function updateTable(){const tb=document.getElementById('prod-table');tb.innerHTML='';const s=[...products].map(p=>({...p,val:rnd(Math.round(p.base*0.8),Math.round(p.base*1.2))})).sort((a,b)=>b.val-a.val);s.forEach(p=>{const chg=rnd(-18,25);const tr=document.createElement('tr');tr.innerHTML=`<td>${p.name}</td><td style="text-align:right">${fmt(p.val)}</td><td style="text-align:right"><span class="pill ${chg>=0?'pill-up':chg>=-5?'pill-mid':'pill-dn'}">${chg>=0?'+':''}${chg}%</span></td>`;tb.appendChild(tr);});}
+  function updateFunnel(){const fn=document.getElementById('funnel');fn.innerHTML='';const vals=funnelSteps.map(s=>({...s,val:Math.round(s.base*(0.85+Math.random()*0.3))}));const max=vals[0].val;vals.forEach((s,i)=>{const pct=Math.round(s.val/max*100);const cp=i>0?Math.round(s.val/vals[i-1].val*100):100;const d=document.createElement('div');d.className='funnel-step';d.innerHTML=`<span class="funnel-label">${s.label}</span><div class="funnel-bar-bg"><div class="funnel-bar-fill" style="width:${pct}%;background:${s.color}">${s.val.toLocaleString()}</div></div><span class="funnel-pct">${cp}%</span>`;fn.appendChild(d);});}
+  function tick(){updateKPIs();updateLine();updateDonut();updateTable();updateFunnel();}
+  tick();setInterval(tick,3000);
+  document.getElementById('submitBtn').addEventListener('click',function(){const email=document.querySelector('input[type="email"]').value;if(!email){alert('Por favor ingresa tu correo electrónico.');return;}this.textContent='¡Solicitud enviada! Te contactaremos pronto.';this.style.opacity='0.7';this.disabled=true;});
 });
 </script>
-
 </body>
 </html>
