@@ -2,41 +2,65 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Restaurant Minimalist Icons</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Navegación Restaurante - Íconos Minimalistas</title>
   <style>
+    /* Reset básico y centrado en pantalla */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
     body {
-      background-color: #0b0f19;
+      background-color: #0c0f17;
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 100vh;
-      margin: 0;
+      min-height: 100vh;
+      font-family: system-ui, -apple-system, sans-serif;
     }
 
-    .icon-container {
+    /* Contenedor principal de los botones */
+    .nav-icon-bar {
       display: flex;
-      gap: 2rem;
+      align-items: center;
+      justify-content: center;
+      gap: 2.5rem;
+      background-color: #121622;
+      padding: 1.25rem 2.5rem;
+      border-radius: 16px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+      border: 1px solid rgba(255, 255, 255, 0.05);
     }
 
-    .icon-button {
+    /* Estilos de los botones */
+    .icon-btn {
       background: transparent;
       border: none;
-      color: #ffffff;
+      outline: none;
       cursor: pointer;
-      padding: 10px;
+      padding: 0.5rem;
       display: flex;
       align-items: center;
       justify-content: center;
-      transition: opacity 0.2s ease;
+      border-radius: 8px;
+      transition: all 0.2s ease-in-out;
     }
 
-    .icon-button:hover {
-      opacity: 0.7;
+    .icon-btn:hover {
+      background-color: rgba(255, 255, 255, 0.08);
+      transform: translateY(-2px);
     }
 
-    .icon-svg {
-      width: 48px;
-      height: 48px;
+    .icon-btn:active {
+      transform: translateY(0);
+    }
+
+    /* Estilo vectorial uniforme */
+    .menu-icon {
+      width: 32px;
+      height: 32px;
       stroke: #ffffff;
       stroke-width: 2;
       stroke-linecap: round;
@@ -47,35 +71,39 @@
 </head>
 <body>
 
-  <div class="icon-container">
-    <!-- Ícono 1: Campana de Servicio (Gourmet / Platos) -->
-    <button class="icon-button" aria-label="Platos Gourmet">
-      <svg class="icon-svg" viewBox="0 0 24 24">
+  <!-- Barra de navegación con los 3 nuevos íconos -->
+  <nav class="nav-icon-bar">
+
+    <!-- Ícono 1: Campana de Servicio Gourmet (Reemplaza la Hamburguesa) -->
+    <button class="icon-btn" title="Platos Gourmet" aria-label="Platos Gourmet">
+      <svg class="menu-icon" viewBox="0 0 24 24">
         <path d="M2 18h20" />
         <path d="M20 18a8 8 0 0 0-16 0" />
-        <circle cx="12" cy="6" r="1" />
+        <path d="M12 10v.01" />
+        <circle cx="12" cy="6" r="1.5" />
       </svg>
     </button>
 
-    <!-- Ícono 2: Cubertería Cruzada (Restaurante / Menú) -->
-    <button class="icon-button" aria-label="Restaurante">
-      <svg class="icon-svg" viewBox="0 0 24 24">
-        <path d="m16 2-2.3 2.3a3 3 0 0 0 0 4.2l1.8 1.8a3 3 0 0 0 4.2 0L22 8Z" />
-        <path d="M15 15 3.3 3.3a1.2 1.2 0 0 0-1.7 1.7L13.3 16.7" />
-        <path d="m2 22 10-10" />
-        <path d="M6.5 11.5 10 15" />
+    <!-- Ícono 2: Tenedor y Cuchillo / Servicio de Menú (Reemplaza las Papas Fritas) -->
+    <button class="icon-btn" title="Menú / Restaurante" aria-label="Menú / Restaurante">
+      <svg class="menu-icon" viewBox="0 0 24 24">
+        <path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2" />
+        <path d="M7 2v20" />
+        <path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7" />
       </svg>
     </button>
 
-    <!-- Ícono 3: Copa de Vino (Bebidas / Maridaje) -->
-    <button class="icon-button" aria-label="Bebidas">
-      <svg class="icon-svg" viewBox="0 0 24 24">
+    <!-- Ícono 3: Copa de Vino / Barra (Reemplaza la Taza de Café rápida) -->
+    <button class="icon-btn" title="Bebidas y Maridaje" aria-label="Bebidas y Maridaje">
+      <svg class="menu-icon" viewBox="0 0 24 24">
         <path d="M8 22h8" />
         <path d="M12 15v7" />
         <path d="M12 15a7 7 0 0 0 7-7V3H5v5a7 7 0 0 0 7 7Z" />
+        <path d="M6 9h12" />
       </svg>
     </button>
-  </div>
+
+  </nav>
 
 </body>
 </html>
