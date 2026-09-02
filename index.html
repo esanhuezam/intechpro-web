@@ -104,8 +104,8 @@
     .logo-text{font-size:1.15rem;font-weight:800;letter-spacing:-0.02em;color:var(--text)}
     .logo-text span{color:var(--accent)}
 
-    .nav-links{display:flex;gap:2rem}
-    .nav-links a{color:var(--muted);text-decoration:none;font-size:0.88rem;font-weight:500;transition:0.2s}
+    .nav-links{display:flex;gap:1.5rem}
+    .nav-links a{color:var(--muted);text-decoration:none;font-size:0.85rem;font-weight:500;transition:0.2s}
     .nav-links a:hover{color:var(--accent)}
     .btn-primary{background:var(--accent);color:#05070E;padding:0.6rem 1.4rem;border-radius:8px;font-size:0.85rem;font-weight:700;border:none;cursor:pointer;transition:all 0.2s;box-shadow:0 0 20px var(--accent-glow);text-decoration:none;display:inline-block;text-align:center}
     .btn-primary:hover{transform:translateY(-2px);box-shadow:0 0 30px rgba(0,212,170,0.5)}
@@ -509,7 +509,6 @@
       opacity:0.9;
     }
 
-    /* ESTILOS LISTA FORMAL CON PUNTOS */
     .formal-list {
       list-style:none;
       display:grid;
@@ -609,6 +608,17 @@
       fill:none;
     }
 
+    /* ESTILOS WIDGET EVALUADOR TÉCNICO LPDP */
+    .evaluator-wrapper {
+      max-width: 900px;
+      margin: 0 auto;
+      background: #0D121F;
+      border: 1px solid var(--border-accent);
+      border-radius: 20px;
+      padding: 2.5rem;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+    }
+
     /* HEADER BANDEROLA DE SECCIONES */
     .section-header-banner {
       width:100%;
@@ -625,7 +635,6 @@
       text-transform:uppercase;
     }
 
-    /* ESTILOS DE COLUMNAS DE EMPRESAS DEL GRUPO */
     .holding-columns{
       display:grid;
       grid-template-columns:repeat(3, 1fr);
@@ -752,7 +761,6 @@
     .form-group select {
       cursor: pointer;
       appearance: none;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%3C%237E8BA0' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
       background-repeat: no-repeat;
       background-position: right 1rem center;
       padding-right: 2.5rem;
@@ -794,6 +802,29 @@
       margin-top: 1.2rem;
     }
 
+    /* BANNER COOKIES Y PRIVACIDAD LEY 21.719 */
+    #cookie-banner {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(11, 14, 24, 0.98);
+      border-top: 1px solid var(--border-accent);
+      padding: 1.2rem 2rem;
+      z-index: 1000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 2rem;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 -10px 30px rgba(0,0,0,0.5);
+    }
+    #cookie-banner p { font-size: 0.82rem; color: var(--muted); line-height: 1.5; }
+    #cookie-banner p a { color: var(--accent); text-decoration: underline; }
+    .cookie-buttons { display: flex; gap: 0.8rem; flex-shrink: 0; }
+    .btn-cookie-accept { background: var(--accent); color: #05070E; border: none; padding: 0.5rem 1.2rem; border-radius: 6px; font-weight: 700; font-size: 0.8rem; cursor: pointer; }
+    .btn-cookie-reject { background: transparent; color: var(--text); border: 1px solid var(--border); padding: 0.5rem 1.2rem; border-radius: 6px; font-weight: 600; font-size: 0.8rem; cursor: pointer; }
+
     footer{border-top:1px solid var(--border);padding:2rem 3rem;display:flex;justify-content:space-between;align-items:center;font-size:0.82rem;color:var(--muted);background:var(--bg)}
 
     @media(max-width:900px){
@@ -805,7 +836,8 @@
       .nav-links{display:none}
       .boceto-logo-title{font-size:2.2rem}
       .form-row{grid-template-columns:1fr}
-      .contact-card{padding:1.5rem}
+      .contact-card,.evaluator-wrapper{padding:1.5rem}
+      #cookie-banner{flex-direction:column; align-items:flex-start; gap:1rem;}
     }
   </style>
 </head>
@@ -816,7 +848,7 @@
   <div class="glow-2"></div>
 </div>
 
-<!-- BARRA SUPERIOR EMPRESAS DEL GRUPO (ORDEN C - I - J) -->
+<!-- BARRA SUPERIOR EMPRESAS DEL GRUPO -->
 <div class="top-alliance-bar">
   <div class="alliance-container">
     <span class="alliance-label">EMPRESAS DEL GRUPO</span>
@@ -837,18 +869,18 @@
   </div>
 </div>
 
-<!-- NAV PRINCIPAL CON ORDEN ACTUALIZADO -->
+<!-- NAV PRINCIPAL -->
 <nav>
   <a href="#" class="brand-logo">
     <div class="logo-icon">I.</div>
     <div class="logo-text">Intech<span>Pro</span></div>
   </a>
   <div class="nav-links">
-    <a href="#totems">Soluciones Integrales</a>
-    <a href="#ley21719">Cumplimiento Legal Chile</a>
-    <a href="#dashboard-demo">Dashboard BI Demo</a>
-    <a href="#gastronomia">Soluciones Gastronómicas</a>
-    <a href="#ecommerce">e-Commerce</a>
+    <a href="#totems">Soluciones</a>
+    <a href="#ley21719">Ley 21.719 Chile</a>
+    <a href="#evaluador-riesgo">Evaluador de Riesgo</a>
+    <a href="#dashboard-demo">Dashboard BI</a>
+    <a href="#gastronomia">Gastronomía</a>
   </div>
   <a href="#contacto" class="btn-primary">Contacto</a>
 </nav>
@@ -861,15 +893,15 @@
         <div class="boceto-logo-title">Intech<span>Pro</span></div>
       </div>
       <div class="boceto-services-tagline">
-        TÓTEMS · E-COMMERCE · DATA
+        TÓTEMS · E-COMMERCE · DATA & CUMPLIMIENTO LPDP
       </div>
     </div>
 
-    <p class="subtitle">Equipamos restaurantes, cafeterías, locales de comida rápida y tiendas de retail con <strong>totems interactivos de autoservicio</strong>, cartas digitales personalizables y plataformas <strong>e-Commerce de alta conversión</strong> con pagos integrados.</p>
+    <p class="subtitle">Equipamos restaurantes, cafeterías, locales de comida rápida y tiendas de retail con <strong>tótems interactivos de autoservicio</strong>, cartas digitales y plataformas e-Commerce con estricto apego a la <strong>Ley de Protección de Datos Personales</strong>.</p>
     
     <div class="hero-buttons">
       <a href="#contacto" class="btn-primary" style="padding:0.8rem 1.8rem; font-size:0.9rem">Solicitar Cotización</a>
-      <a href="#dashboard-demo" style="background:var(--bg2); color:var(--text); padding:0.8rem 1.8rem; border-radius:8px; text-decoration:none; border:1px solid var(--border); font-size:0.9rem; font-weight:600">Ver Dashboard Demo</a>
+      <a href="#evaluador-riesgo" style="background:var(--bg2); color:var(--text); padding:0.8rem 1.8rem; border-radius:8px; text-decoration:none; border:1px solid var(--border-accent); font-size:0.9rem; font-weight:600">Evaluar Riesgo LPDP</a>
     </div>
   </div>
 
@@ -882,12 +914,11 @@
       <div class="totem-screen-frame">
         <div class="totem-screen-content">
           <div>
-            <div style="font-size:0.65rem; color:var(--accent); font-weight:800; letter-spacing:0.1em; text-transform:uppercase">AUTOSERVICIO</div>
+            <div style="font-size:0.65rem; color:var(--accent); font-weight:800; letter-spacing:0.1em; text-transform:uppercase">AUTOSERVICIO SEGURO</div>
             <div style="font-size:0.95rem; font-weight:800; margin-top:4px">Selecciona tu pedido</div>
           </div>
           
           <div style="display:grid; gap:6px; margin:10px 0">
-            <!-- Ícono 1: Campana Gourmet -->
             <div class="menu-item-row">
               <div class="menu-item-left">
                 <svg class="menu-item-icon" viewBox="0 0 24 24"><path d="M2 18h20" /><path d="M20 18a8 8 0 0 0-16 0" /><path d="M12 10v.01" /><circle cx="12" cy="6" r="1.5" /></svg>
@@ -896,7 +927,6 @@
               <span style="color:var(--accent); font-weight:700">$8.900</span>
             </div>
 
-            <!-- Ícono 2: Cubertería Cruzada -->
             <div class="menu-item-row">
               <div class="menu-item-left">
                 <svg class="menu-item-icon" viewBox="0 0 24 24"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2" /><path d="M7 2v20" /><path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7" /></svg>
@@ -905,7 +935,6 @@
               <span style="color:var(--accent); font-weight:700">$6.500</span>
             </div>
 
-            <!-- Ícono 3: Copa de Vino / Bebidas -->
             <div class="menu-item-row">
               <div class="menu-item-left">
                 <svg class="menu-item-icon" viewBox="0 0 24 24"><path d="M8 22h8" /><path d="M12 15v7" /><path d="M12 15a7 7 0 0 0 7-7V3H5v5a7 7 0 0 0 7 7Z" /><path d="M6 9h12" /></svg>
@@ -940,7 +969,7 @@
   </div>
 </section>
 
-<!-- 1: SECCIÓN SOLUCIONES INTEGRALES -->
+<!-- SECCIÓN SOLUCIONES INTEGRALES -->
 <section class="section" id="totems">
   <div class="section-header">
     <div class="section-label">Soluciones Integrales</div>
@@ -952,8 +981,8 @@
       <div class="card-icon">
         <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
       </div>
-      <h3>Venta de Totems de Autoservicio</h3>
-      <p>Módulos táctiles de alta resistencia para alto flujo de público. Equipados con impresora térmica de tickets, lector QR/código de barras y terminales de pago POS integrados.</p>
+      <h3>Venta de Tótems de Autoservicio</h3>
+      <p>Módulos táctiles con impresora térmica de tickets, lector QR y terminales de pago POS. Diseñados bajo principios de privacidad desde el diseño (Privacy by Design).</p>
     </div>
 
     <div class="glass-card">
@@ -961,15 +990,15 @@
         <svg viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/><path d="M9 7h6M9 11h6M9 14h4"/></svg>
       </div>
       <h3>Menús Digitales Personalizables</h3>
-      <p>Cartas digitales e interactivas para tótems y código QR en mesas. Actualiza tus platos, promociones del día y productos agotados de forma instantánea sin reimprimir.</p>
+      <p>Cartas digitales e interactivas para tótems y código QR. Actualiza platos y promociones al instante garantizando la no recopilación indebida de datos de usuarios.</p>
     </div>
 
     <div class="glass-card" id="ecommerce">
       <div class="card-icon">
         <svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
       </div>
-      <h3>Desarrollo e-Commerce</h3>
-      <p>Diseño e implementación de tiendas virtuales optimizadas para vender online 24/7. Carga ultra rápida, diseño responsivo para móviles y catálogo autogestionable.</p>
+      <h3>Desarrollo e-Commerce Seguro</h3>
+      <p>Tiendas virtuales optimizadas con pasarelas de pago y políticas de consentimiento informado adaptadas a la Ley de Protección de Datos Personales en Chile.</p>
     </div>
 
     <div class="glass-card">
@@ -977,12 +1006,12 @@
         <svg viewBox="0 0 24 24"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/><rect x="4" y="14" width="4" height="2" fill="var(--accent)"/></svg>
       </div>
       <h3>Pasarelas de Pago & Facturación</h3>
-      <p>Integración directa de cobros con Webpay Plus, Mercado Pago, Fpay y Stripe, con emisión automatizada de boleta y factura electrónica legal en Chile.</p>
+      <p>Cobros integrados con Webpay Plus y Mercado Pago, respaldados por protocolos estrictos de cifrado que resguardan la información financiera de los clientes.</p>
     </div>
   </div>
 </section>
 
-<!-- 2: SECCIÓN LEY 21.719 -->
+<!-- SECCIÓN LEY 21.719 -->
 <section class="section" id="ley21719">
   <div class="law-box">
     <div>
@@ -990,33 +1019,101 @@
         <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
         <span>Cumplimiento Legal Chile</span>
       </div>
-      <h2 style="font-size:1.8rem; font-weight:800; margin-bottom:1rem; letter-spacing:-0.01em">Adaptación a la Ley 21.719 en tus sistemas de cobro</h2>
+      <h2 style="font-size:1.8rem; font-weight:800; margin-bottom:1rem; letter-spacing:-0.01em">Adaptación total a la Ley 21.719 en tus sistemas</h2>
       <p style="color:var(--muted); font-size:0.92rem; line-height:1.7;">
-        Tanto en e-Commerce como en Totems interactivos, la captura de datos (RUT, email, tarjetas) exige cumplimiento estricto. Garantizamos el cifrado de datos y los protocolos de privacidad requeridos en Chile.
+        Tanto en e-Commerce como en Tótems interactivos, la captura de datos (RUT, email, preferencias de consumo) exige un estándar riguroso. Garantizamos cifrado avanzado, consentimiento explícito y canales formales para Derechos ARCO.
       </p>
     </div>
     
     <div class="law-card-inner">
-      <div style="font-size:0.75rem; font-weight:800; color:var(--accent); margin-bottom:1.2rem; text-transform:uppercase; letter-spacing:0.1em">Seguridad Garantizada</div>
+      <div style="font-size:0.75rem; font-weight:800; color:var(--accent); margin-bottom:1.2rem; text-transform:uppercase; letter-spacing:0.1em">Garantías de Privacidad</div>
       <ul class="law-list">
         <li>
           <span class="law-check-icon"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>
-          <span>Cifrado de datos de clientes en tránsito y reposo</span>
+          <span>Cifrado de datos personales en tránsito y reposo</span>
         </li>
         <li>
           <span class="law-check-icon"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>
-          <span>Consentimientos explícitos de privacidad</span>
+          <span>Consentimientos inequívocos y verificables</span>
         </li>
         <li>
           <span class="law-check-icon"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>
-          <span>Protocolos alineados a la normativa legal chilena</span>
+          <span>Soporte técnico para el ejercicio de Derechos ARCO</span>
         </li>
       </ul>
     </div>
   </div>
 </section>
 
-<!-- SECCIÓN DASHBOARD DEMO DE NEGOCIO EN VIVO -->
+<!-- NUEVA SECCIÓN: EVALUADOR TÉCNICO DE RIESGO Y CUMPLIMIENTO LPDP -->
+<section class="section" id="evaluador-riesgo" style="padding-top:1rem">
+  <div class="section-header-banner">
+    EVALUADOR TÉCNICO DE RIESGO LPDP
+  </div>
+
+  <div class="evaluator-wrapper">
+    <div style="margin-bottom: 1.5rem; border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 1rem;">
+      <span style="font-size:0.75rem; font-weight:600; letter-spacing:0.1em; color:var(--accent); text-transform:uppercase;">IntechPro — Módulo LPDP</span>
+      <h2 style="font-size:1.75rem; font-weight:800; color:#FFF; margin-top:0.25rem;">Evaluador Técnico de Riesgo y Cumplimiento</h2>
+      <p style="color:var(--muted); font-size:0.88rem; margin-top:0.25rem;">Descubre el nivel de exposición de tu empresa frente a la normativa de datos personales y obtén un diagnóstico inicial automatizado.</p>
+    </div>
+
+    <div style="width:100%; background:rgba(255,255,255,0.08); height:8px; border-radius:9999px; margin-bottom:2rem; overflow:hidden;">
+      <div id="progress-bar" style="background:var(--accent); height:100%; width:0%; transition:width 0.3s ease;"></div>
+    </div>
+
+    <div id="quiz-container">
+      <!-- Dinámico por JS -->
+    </div>
+
+    <div id="result-container" style="display:none;">
+      <div style="text-align:center; padding:1rem 0;">
+        <h3 style="font-size:1.4rem; font-weight:800; color:#FFF; margin-bottom:0.5rem;">Resultado de la Evaluación de Riesgo</h3>
+        <p style="color:var(--muted); font-size:0.85rem; margin-bottom:1.5rem;">Basado en la infraestructura y tratamiento de datos de tu organización:</p>
+        
+        <div style="display:inline-flex; flex-direction:column; align-items:center; justify-content:center; padding:1.5rem; background:rgba(18,23,38,0.8); border-radius:16px; border:1px solid var(--border); margin-bottom:1.5rem; width:100%; max-width:360px;">
+          <span style="color:var(--muted); font-size:0.7rem; text-transform:uppercase; font-weight:700; letter-spacing:0.08em;">Nivel de Riesgo LPDP</span>
+          <span id="risk-score" style="font-size:3rem; font-weight:900; margin:0.4rem 0; color:#EF4444;">0%</span>
+          <span id="risk-label" style="font-size:0.8rem; font-weight:700; padding:0.25rem 0.75rem; border-radius:9999px; background:rgba(239,68,68,0.1); color:#EF4444; border:1px solid rgba(239,68,68,0.2);">Riesgo Alto</span>
+        </div>
+
+        <div style="text-align:left; background:rgba(5,7,14,0.8); padding:1rem; border-radius:12px; border:1px solid var(--border); margin-bottom:1.5rem; font-size:0.85rem; color:var(--text);">
+          <h4 style="font-weight:700; color:#FFF; margin-bottom:0.5rem; border-bottom:1px solid var(--border); padding-bottom:0.25rem;">Perfil Técnico Detectado:</h4>
+          <ul id="tech-summary" style="list-style:disc; list-style-position:inside; display:grid; gap:0.25rem; color:var(--muted);">
+            <!-- Dinámico por JS -->
+          </ul>
+        </div>
+
+        <div style="background:rgba(59,130,246,0.05); border:1px solid rgba(59,130,246,0.2); padding:1.25rem; border-radius:12px; text-align:left;">
+          <h4 style="color:#FFF; font-weight:700; margin-bottom:0.25rem; font-size:0.95rem;">Solicitar Cotización y Roadmap Personalizado</h4>
+          <p style="color:var(--muted); font-size:0.78rem; margin-bottom:1rem;">Tus datos serán tratados bajo estricta confidencialidad de acuerdo con la Ley 21.719 para enviarte el informe detallado.</p>
+          
+          <form id="lead-form" onsubmit="submitLead(event)" style="display:grid; gap:0.75rem;">
+            <div>
+              <label for="eval-nombre" style="display:block; font-size:0.68rem; font-weight:800; color:var(--muted); text-transform:uppercase; letter-spacing:0.08em; margin-bottom:0.25rem;">Nombre y Apellido</label>
+              <input type="text" id="eval-nombre" required placeholder="Tu nombre" style="width:100%; background:var(--input-bg); border:1px solid var(--input-border); border-radius:8px; padding:0.6rem 0.9rem; font-size:0.85rem; color:var(--text); outline:none;">
+            </div>
+            <div>
+              <label for="eval-email" style="display:block; font-size:0.68rem; font-weight:800; color:var(--muted); text-transform:uppercase; letter-spacing:0.08em; margin-bottom:0.25rem;">Correo Corporativo</label>
+              <input type="email" id="eval-email" required placeholder="tu@empresa.cl" style="width:100%; background:var(--input-bg); border:1px solid var(--input-border); border-radius:8px; padding:0.6rem 0.9rem; font-size:0.85rem; color:var(--text); outline:none;">
+            </div>
+            <div>
+              <label for="eval-empresa" style="display:block; font-size:0.68rem; font-weight:800; color:var(--muted); text-transform:uppercase; letter-spacing:0.08em; margin-bottom:0.25rem;">Empresa</label>
+              <input type="text" id="eval-empresa" placeholder="Nombre de la empresa" style="width:100%; background:var(--input-bg); border:1px solid var(--input-border); border-radius:8px; padding:0.6rem 0.9rem; font-size:0.85rem; color:var(--text); outline:none;">
+            </div>
+            <button type="submit" style="width:100%; background:var(--accent); color:#05070E; font-weight:800; padding:0.75rem; border-radius:8px; border:none; cursor:pointer; font-size:0.88rem; margin-top:0.25rem; box-shadow:0 0 15px var(--accent-glow);">
+              Obtener Cotización Fase 1 &rarr;
+            </button>
+          </form>
+        </div>
+
+        <button onclick="restartQuiz()" style="margin-top:1rem; background:none; border:none; font-size:0.75rem; color:var(--muted); text-decoration:underline; cursor:pointer;">Reiniciar evaluación</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECCIÓN DASHBOARD DEMO EN VIVO -->
 <section class="section" id="dashboard-demo" style="padding-top:2rem">
   <div class="dash-container">
     <div class="dash-header">
@@ -1029,7 +1126,7 @@
       </div>
       
       <div class="dash-controls">
-        <label style="font-size:0.75rem; color:var(--muted); font-weight:700; text-transform:uppercase">Sucursal:</label>
+        <label for="sucursalSelect" style="font-size:0.75rem; color:var(--muted); font-weight:700; text-transform:uppercase">Sucursal:</label>
         <select class="dash-select" id="sucursalSelect" onchange="updateDashboard()">
           <option value="todas">Chile - Red Nacional (Todas)</option>
           <option value="santiago">Santiago - Providencia</option>
@@ -1065,9 +1162,7 @@
       </div>
     </div>
 
-    <!-- CHARTS TOP GRID -->
     <div class="charts-grid-top">
-      <!-- LINE CHART -->
       <div class="chart-box">
         <div class="chart-box-header">
           <div class="chart-box-title">Ventas Diarias vs Período Anterior (Últimos 14 Días)</div>
@@ -1081,7 +1176,6 @@
         </div>
       </div>
 
-      <!-- DONUT CHART -->
       <div class="chart-box">
         <div class="chart-box-header">
           <div class="chart-box-title">Ventas por Tipo de Terminal</div>
@@ -1092,9 +1186,7 @@
       </div>
     </div>
 
-    <!-- CHARTS BOTTOM GRID -->
     <div class="charts-grid-bottom">
-      <!-- TOP PRODUCTOS -->
       <div class="chart-box">
         <div class="chart-box-header">
           <div class="chart-box-title">Top Combos / Productos en Tótem</div>
@@ -1107,68 +1199,60 @@
               <th style="text-align:right">VAR.</th>
             </tr>
           </thead>
-          <tbody id="topProductsBody">
-            <!-- JS Populated -->
-          </tbody>
+          <tbody id="topProductsBody"></tbody>
         </table>
       </div>
 
-      <!-- EMBUDO DE CONVERSIÓN EN TÓTEM -->
       <div class="chart-box">
         <div class="chart-box-header">
           <div class="chart-box-title">Embudo de Interacción en Tótem</div>
         </div>
-        <div class="funnel-list" id="funnelContainer">
-          <!-- JS Populated -->
-        </div>
+        <div class="funnel-list" id="funnelContainer"></div>
       </div>
     </div>
   </div>
 </section>
 
+<!-- SECCIÓN GASTRONOMÍA -->
 <section class="section" id="gastronomia">
   <div class="gastro-feature">
     <div>
       <div class="section-label">Especialidad Gastronómica</div>
       <h2 style="font-size:2rem; font-weight:800; margin-bottom:1rem">Soluciones para Comida Rápida, Restaurantes & Cafeterías</h2>
       <p style="color:var(--muted); font-size:0.95rem; margin-bottom:1.5rem">
-        Acelera la toma de pedidos y elimina las filas en caja. Nuestras soluciones gastronómicas permiten a los clientes armar su combo, personalizar ingredientes y pagar directamente en el tótem o desde su smartphone.
+        Acelera la toma de pedidos y elimina las filas en caja mediante tótems seguros que cumplen con los estándares de privacidad vigentes.
       </p>
       <ul class="formal-list">
         <li>
           <span class="formal-bullet-dot"></span>
-          <span><strong>Menús Digitales Interactivos:</strong> Modificación de fotos, precios y combos en tiempo real.</span>
+          <span><strong>Menús Digitales Interactivos:</strong> Modificación de precios y combos en tiempo real.</span>
         </li>
         <li>
           <span class="formal-bullet-dot"></span>
-          <span><strong>Personalización de Pedidos:</strong> Agrega o quita ingredientes, elige tamaños y extras fácil.</span>
+          <span><strong>Personalización de Pedidos:</strong> Opciones flexibles para ingredientes y tamaños.</span>
         </li>
         <li>
           <span class="formal-bullet-dot"></span>
-          <span><strong>Comandera & Pantalla de Cocina (KDS):</strong> Envío automático de órdenes a cocina/barra.</span>
+          <span><strong>Comandera & Pantalla de Cocina (KDS):</strong> Envío automatizado de órdenes sin almacenar datos sensibles innecesarios.</span>
         </li>
       </ul>
     </div>
     
     <div style="background:var(--bg2); border:1px solid var(--border-accent); border-radius:18px; padding:2rem; text-align:center">
-      <!-- ÍCONOS REEMPLAZADOS: CAMPANA, CUBERTERÍA, COPA DE VINO -->
       <div class="gastro-vector-icons">
-        <!-- Ícono 1: Campana Gourmet -->
         <svg viewBox="0 0 24 24"><path d="M2 18h20" /><path d="M20 18a8 8 0 0 0-16 0" /><path d="M12 10v.01" /><circle cx="12" cy="6" r="1.5" /></svg>
-        <!-- Ícono 2: Tenedor y Cuchillo -->
         <svg viewBox="0 0 24 24"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2" /><path d="M7 2v20" /><path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7" /></svg>
-        <!-- Ícono 3: Copa de Vino -->
         <svg viewBox="0 0 24 24"><path d="M8 22h8" /><path d="M12 15v7" /><path d="M12 15a7 7 0 0 0 7-7V3H5v5a7 7 0 0 0 7 7Z" /><path d="M6 9h12" /></svg>
       </div>
 
       <h3 style="font-size:1.3rem; font-weight:800; margin-bottom:0.5rem">Software para Locales Gastronómicos</h3>
-      <p style="color:var(--muted); font-size:0.85rem; margin-bottom:1.5rem">Aumenta el ticket promedio hasta un 30% gracias a las sugerencias automáticas de agregados en pantalla táctil.</p>
+      <p style="color:var(--muted); font-size:0.85rem; margin-bottom:1.5rem">Aumenta el ticket promedio hasta un 30% con sugerencias automatizadas.</p>
       <a href="#contacto" class="btn-primary" style="display:inline-block">Cotizar Menú Digital</a>
     </div>
   </div>
 </section>
 
-<!-- SECCIÓN EMPRESAS DEL GRUPO CON ORDEN C - I - J -->
+<!-- EMPRESAS DEL GRUPO -->
 <section class="section" id="ecosistema">
   <div class="section-header-banner">
     EMPRESAS DEL GRUPO
@@ -1196,7 +1280,7 @@
           IntechPro
         </div>
       </div>
-      <div class="holding-tags">Tótems · e-Commerce · Data</div>
+      <div class="holding-tags">Tótems · e-Commerce · Data & Privacidad</div>
     </div>
 
     <div class="holding-col">
@@ -1214,14 +1298,14 @@
   </div>
 </section>
 
-<!-- SECCIÓN CONTACTO -->
+<!-- SECCIÓN CONTACTO (CON CONSENTIMIENTO EXPLÍCITO LEY 21.719) -->
 <section class="section" id="contacto" style="padding-top:2rem">
   <div class="section-header-banner">
     CONTACTO
   </div>
 
   <div class="contact-card">
-    <form class="contact-form" onsubmit="event.preventDefault();">
+    <form class="contact-form" onsubmit="handleContactSubmit(event)">
       <div class="form-row">
         <div class="form-group">
           <label for="nombre">NOMBRE</label>
@@ -1241,7 +1325,7 @@
       <div class="form-row">
         <div class="form-group">
           <label for="industria">INDUSTRIA / RUBRO</label>
-          <select id="industria">
+          <select id="industria" required>
             <option value="" disabled selected>Seleccionar...</option>
             <option value="gastronomia">Gastronomía / Restaurantes</option>
             <option value="retail">Retail / Comercio</option>
@@ -1251,12 +1335,12 @@
         </div>
         <div class="form-group">
           <label for="necesidad">¿QUÉ NECESITAS?</label>
-          <select id="necesidad">
+          <select id="necesidad" required>
             <option value="" disabled selected>Seleccionar...</option>
             <option value="totems">Tótems de Autoservicio</option>
             <option value="menu">Menú Digital</option>
             <option value="ecommerce">Desarrollo e-Commerce</option>
-            <option value="data">Análisis de Datos / BI</option>
+            <option value="data">Análisis de Datos / BI / LPDP</option>
           </select>
         </div>
       </div>
@@ -1266,12 +1350,20 @@
         <textarea id="mensaje" placeholder="Describe tu situación actual o el problema que quieres resolver..."></textarea>
       </div>
 
+      <!-- CASILLA DE CONSENTIMIENTO EXPLÍCITO (EXIGIDO POR LEY DE DATOS PERSONALES) -->
+      <div style="display: flex; align-items: flex-start; gap: 10px; margin-top: 0.5rem;">
+        <input type="checkbox" id="consent-checkbox" required style="margin-top: 4px; accent-color: var(--accent); cursor: pointer;">
+        <label for="consent-checkbox" style="font-size: 0.78rem; color: var(--muted); text-transform: none; letter-spacing: normal; font-weight: 400; cursor: pointer;">
+          Autorizo de forma expresa e informada el tratamiento de mis datos personales para gestionar esta cotización, conforme a la <a href="#ley21719" style="color: var(--accent); text-decoration: underline;">Política de Privacidad</a> y Ley 21.719.
+        </label>
+      </div>
+
       <button type="submit" class="btn-submit">
         Enviar solicitud &rarr;
       </button>
 
       <div class="contact-footer-note">
-        contacto@intechpro.cl · Respondemos en menos de 24 horas
+        contacto@intechpro.cl · Cumplimiento Ley 21.719 garantizado
       </div>
     </form>
   </div>
@@ -1279,16 +1371,179 @@
 
 <footer>
   <div>
-    <strong>IntechPro Chile</strong>
+    <strong>IntechPro Chile</strong> — Soluciones tecnológicas y cumplimiento normativo.
   </div>
   <div>
-    contacto@intechpro.cl
+    contacto@intechpro.cl | Derechos ARCO habilitados
   </div>
 </footer>
 
-<!-- SCRIPT LÓGICA DEL DASHBOARD EN VIVO Y GRÁFICOS -->
+<!-- BANNER DE COOKIES Y PRIVACIDAD (REQUISITO LEY DE DATOS PERSONALES) -->
+<div id="cookie-banner">
+  <p>Utilizamos cookies propias y de terceros para optimizar tu experiencia y analizar el tráfico web en cumplimiento de la <strong>Ley de Protección de Datos Personales</strong>. Puedes aceptar todas o configurar tus preferencias.</p>
+  <div class="cookie-buttons">
+    <button class="btn-cookie-reject" onclick="rejectCookies()">Rechazar opcionales</button>
+    <button class="btn-cookie-accept" onclick="acceptCookies()">Aceptar todas</button>
+  </div>
+</div>
+
+<!-- SCRIPT DE LÓGICA GENERAL, DASHBOARD Y EVALUADOR TÉCNICO LPDP -->
 <script>
-  // Datos simulados por sucursal
+  // Gestión de Cookies y Privacidad (Ley de Datos Personales)
+  function acceptCookies() {
+    document.getElementById('cookie-banner').style.display = 'none';
+    localStorage.setItem('intech_cookie_consent', 'accepted');
+  }
+  function rejectCookies() {
+    document.getElementById('cookie-banner').style.display = 'none';
+    localStorage.setItem('intech_cookie_consent', 'rejected');
+  }
+  window.addEventListener('DOMContentLoaded', () => {
+    if(localStorage.getItem('intech_cookie_consent')) {
+      document.getElementById('cookie-banner').style.display = 'none';
+    }
+  });
+
+  // Lógica del Evaluador Técnico de Riesgo y Cumplimiento LPDP
+  const questions = [
+    {
+      id: 1,
+      title: "¿Qué tipo de datos personales procesa o almacena tu empresa?",
+      options: [
+        { label: "Básicos (Nombres, correos, teléfonos de contacto/clientes)", risk: 10, infra: "Datos Estándar" },
+        { label: "Sensibles (Salud, biometría, finanzas, datos de menores, rut/rutas)", risk: 30, infra: "Datos Sensibles" },
+        { label: "Gran volumen de datos / Perfilamiento masivo de usuarios", risk: 25, infra: "Procesamiento Masivo" }
+      ]
+    },
+    {
+      id: 2,
+      title: "¿Dónde reside la infraestructura de tus Bases de Datos principales?",
+      options: [
+        { label: "Cloud (AWS, Azure, GCP, Vercel, Firebase, etc.)", risk: 10, infra: "Solución Cloud" },
+        { label: "On-Premise (Servidores propios en oficinas o Data Center local)", risk: 15, infra: "Solución On-Premise" },
+        { label: "Híbrida (Servidores locales conectados con servicios Cloud)", risk: 15, infra: "Solución Híbrida" }
+      ]
+    },
+    {
+      id: 3,
+      title: "¿Cuentan con Mapeo de Datos e Inventario de Sistemas (Fase 1)?",
+      options: [
+        { label: "Sí, tenemos documentado todo flujo de datos e integración de sistemas", risk: 0, infra: "Mapeo OK" },
+        { label: "Parcialmente / Incompleto", risk: 15, infra: "Sin Mapeo Completo" },
+        { label: "No, no sabemos exactamente por dónde transitan todos los datos", risk: 30, infra: "Sin Mapeo" }
+      ]
+    },
+    {
+      id: 4,
+      title: "¿Tienen implementados Controles de Acceso (IAM), Logs de Auditoría y Encriptación?",
+      options: [
+        { label: "Sí, trazabilidad completa, encriptación y roles definidos", risk: 0, infra: "Seguridad Alta" },
+        { label: "Solo controles básicos (contraseñas/permisos simples sin logs)", risk: 15, infra: "Seguridad Media" },
+        { label: "No / Desconocemos si existen logs de acceso a las BBDD", risk: 25, infra: "Brecha de Seguridad" }
+      ]
+    },
+    {
+      id: 5,
+      title: "¿Tienen políticas o mecanismos para responder a derechos ARCO (Acceso, Rectificación, Cancelación, Oposición)?",
+      options: [
+        { label: "Sí, proceso automatizado o canal formal activo", risk: 0, infra: "Atención ARCO OK" },
+        { label: "No, no tenemos un procedimiento técnico/legal configurado", risk: 20, infra: "Sin Proceso ARCO" }
+      ]
+    }
+  ];
+
+  let currentStep = 0;
+  let totalRisk = 0;
+  let selectedInfra = [];
+
+  function renderQuestion() {
+    const q = questions[currentStep];
+    const progress = ((currentStep) / questions.length) * 100;
+    document.getElementById('progress-bar').style.width = `${progress}%`;
+
+    let html = `
+      <div>
+        <span style="font-size:0.75rem; color:var(--accent); font-weight:600;">Pregunta ${currentStep + 1} de ${questions.length}</span>
+        <h3 style="font-size:1.15rem; font-weight:700; color:#FFF; margin-top:0.25rem; margin-bottom:1rem;">${q.title}</h3>
+        <div style="display:grid; gap:0.75rem;">
+    `;
+
+    q.options.forEach((opt) => {
+      html += `
+        <button type="button" onclick="selectOption(${opt.risk}, '${opt.infra}')" style="width:100%; text-align:left; padding:1rem; border-radius:12px; background:rgba(18,23,38,0.6); border:1px solid rgba(255,255,255,0.08); color:var(--text); cursor:pointer; display:flex; align-items:center; justify-content:space-between; transition:all 0.2s ease;" onmouseover="this.style.borderColor='var(--accent)'; this.style.background='rgba(18,23,38,0.9)';" onmouseout="this.style.borderColor='rgba(255,255,255,0.08)'; this.style.background='rgba(18,23,38,0.6)';">
+          <span style="font-size:0.88rem; color:#E2E8F0;">${opt.label}</span>
+          <span style="color:var(--muted); font-size:1rem; font-weight:bold;">&rarr;</span>
+        </button>
+      `;
+    });
+
+    html += `</div></div>`;
+    document.getElementById('quiz-container').innerHTML = html;
+  }
+
+  function selectOption(risk, infra) {
+    totalRisk += risk;
+    selectedInfra.push(infra);
+    currentStep++;
+
+    if (currentStep < questions.length) {
+      renderQuestion();
+    } else {
+      showResults();
+    }
+  }
+
+  function showResults() {
+    document.getElementById('progress-bar').style.width = '100%';
+    document.getElementById('quiz-container').style.display = 'none';
+    document.getElementById('result-container').style.display = 'block';
+
+    const finalRisk = Math.min(totalRisk, 100);
+    const scoreEl = document.getElementById('risk-score');
+    const labelEl = document.getElementById('risk-label');
+    scoreEl.innerText = `${finalRisk}%`;
+
+    if (finalRisk < 30) {
+      scoreEl.style.color = "#34D399";
+      labelEl.style.background = "rgba(52,211,153,0.1)";
+      labelEl.style.color = "#34D399";
+      labelEl.style.borderColor = "rgba(52,211,153,0.2)";
+      labelEl.innerText = "Riesgo Bajo / Fase de Ajuste";
+    } else if (finalRisk < 60) {
+      scoreEl.style.color = "#FBBF24";
+      labelEl.style.background = "rgba(251,191,36,0.1)";
+      labelEl.style.color = "#FBBF24";
+      labelEl.style.borderColor = "rgba(251,191,36,0.2)";
+      labelEl.innerText = "Riesgo Medio / Brechas Detectadas";
+    } else {
+      scoreEl.style.color = "#EF4444";
+      labelEl.style.background = "rgba(239,68,68,0.1)";
+      labelEl.style.color = "#EF4444";
+      labelEl.style.borderColor = "rgba(239,68,68,0.2)";
+      labelEl.innerText = "Riesgo Alto / Vulnerable a Sanciones";
+    }
+
+    const summaryEl = document.getElementById('tech-summary');
+    summaryEl.innerHTML = selectedInfra.map(item => `<li>${item}</li>`).join('');
+  }
+
+  function submitLead(e) {
+    e.preventDefault();
+    const name = document.getElementById('eval-nombre').value;
+    const email = document.getElementById('eval-email').value;
+    alert(`¡Gracias ${name}! Sus datos y perfil de riesgo han sido registrados de forma segura conforme a la Ley 21.719. Le enviaremos el informe a ${email}.`);
+  }
+
+  function restartQuiz() {
+    currentStep = 0;
+    totalRisk = 0;
+    selectedInfra = [];
+    document.getElementById('quiz-container').style.display = 'block';
+    document.getElementById('result-container').style.display = 'none';
+    renderQuestion();
+  }
+
+  // Datos simulados por sucursal para el Dashboard BI
   const sucursalData = {
     todas: {
       ventas: "$41.8M", ventasVar: "↑ 15% vs mes anterior",
@@ -1297,7 +1552,7 @@
       conv: "6.3%", convVar: "↑ 0.5pp vs mes anterior",
       dailyCurrent: [4.8, 3.4, 3.1, 2.9, 3.8, 3.3, 3.6, 3.0, 4.1, 2.8, 5.1, 4.1, 2.8, 3.2],
       dailyPrev: [4.0, 3.0, 2.8, 2.5, 3.2, 3.0, 3.1, 2.7, 3.5, 2.5, 4.2, 3.6, 2.5, 2.9],
-      channels: [65, 22, 13], // Totem Autoservicio, Menú QR, Caja Express
+      channels: [65, 22, 13],
       products: [
         { name: "Combo Hamburguesa Doble", sales: "$8.7M", var: "+12%", up: true },
         { name: "Combo Café & Muffin Morning", sales: "$6.4M", var: "+8%", up: true },
@@ -1425,11 +1680,9 @@
   };
 
   const labels14Days = ['7/8','8/8','9/8','10/8','11/8','12/8','13/8','14/8','15/8','16/8','17/8','18/8','19/8','20/8'];
-
   let salesChart, channelChart;
 
   function initCharts() {
-    // 1. Line Chart
     const ctxSales = document.getElementById('salesChart').getContext('2d');
     salesChart = new Chart(ctxSales, {
       type: 'line',
@@ -1464,23 +1717,12 @@
         maintainAspectRatio: false,
         plugins: { legend: { display: false } },
         scales: {
-          x: {
-            grid: { color: 'rgba(255,255,255,0.05)' },
-            ticks: { color: '#64748B', font: { size: 10 } }
-          },
-          y: {
-            grid: { color: 'rgba(255,255,255,0.05)' },
-            ticks: {
-              color: '#64748B',
-              font: { size: 10 },
-              callback: value => '$' + value + 'M'
-            }
-          }
+          x: { grid: { color: 'rgba(255,255,255,0.05)' }, ticks: { color: '#64748B', font: { size: 10 } } },
+          y: { grid: { color: 'rgba(255,255,255,0.05)' }, ticks: { color: '#64748B', font: { size: 10 }, callback: value => '$' + value + 'M' } }
         }
       }
     });
 
-    // 2. Donut Chart
     const ctxChannel = document.getElementById('channelChart').getContext('2d');
     channelChart = new Chart(ctxChannel, {
       type: 'doughnut',
@@ -1497,10 +1739,7 @@
         responsive: true,
         maintainAspectRatio: false,
         plugins: {
-          legend: {
-            position: 'bottom',
-            labels: { color: '#94A3B8', font: { size: 11 }, usePointStyle: true, boxWidth: 8 }
-          }
+          legend: { position: 'bottom', labels: { color: '#94A3B8', font: { size: 11 }, usePointStyle: true, boxWidth: 8 } }
         },
         cutout: '70%'
       }
@@ -1511,8 +1750,6 @@
 
   function renderTablesAndFunnel(key) {
     const data = sucursalData[key];
-
-    // KPIs
     document.getElementById('kpiVentas').innerText = data.ventas;
     document.getElementById('kpiVentasVar').innerText = data.ventasVar;
     document.getElementById('kpiTrans').innerText = data.trans;
@@ -1521,7 +1758,6 @@
     document.getElementById('kpiConv').innerText = data.conv;
     document.getElementById('kpiConvVar').innerText = data.convVar;
 
-    // Table
     const tbody = document.getElementById('topProductsBody');
     tbody.innerHTML = '';
     data.products.forEach(p => {
@@ -1535,7 +1771,6 @@
       tbody.appendChild(tr);
     });
 
-    // Funnel
     const funnelContainer = document.getElementById('funnelContainer');
     funnelContainer.innerHTML = '';
     data.funnel.forEach(f => {
@@ -1555,34 +1790,27 @@
   function updateDashboard() {
     const key = document.getElementById('sucursalSelect').value;
     const data = sucursalData[key];
-
-    // Actualizar Chart Línea
     salesChart.data.datasets[0].data = data.dailyCurrent;
     salesChart.data.datasets[1].data = data.dailyPrev;
     salesChart.update();
-
-    // Actualizar Chart Dona
     channelChart.data.datasets[0].data = data.channels;
     channelChart.update();
-
     renderTablesAndFunnel(key);
   }
 
-  // Simulación en vivo (pequeñas fluctuaciones cada 3s)
-  setInterval(() => {
-    const key = document.getElementById('sucursalSelect').value;
-    if (salesChart && salesChart.data.datasets[0].data.length > 0) {
-      const lastIndex = salesChart.data.datasets[0].data.length - 1;
-      const currentVal = salesChart.data.datasets[0].data[lastIndex];
-      const delta = (Math.random() - 0.48) * 0.1;
-      const newVal = Math.max(0.1, parseFloat((currentVal + delta).toFixed(2)));
-      
-      salesChart.data.datasets[0].data[lastIndex] = newVal;
-      salesChart.update('none');
+  function handleContactSubmit(e) {
+    e.preventDefault();
+    if(!document.getElementById('consent-checkbox').checked) {
+      alert("Debe aceptar el tratamiento de datos personales para continuar.");
+      return;
     }
-  }, 3000);
+    alert("¡Solicitud enviada con éxito! Sus datos han sido resguardados bajo los estándares de la Ley de Protección de Datos Personales.");
+  }
 
-  window.addEventListener('DOMContentLoaded', initCharts);
+  window.addEventListener('DOMContentLoaded', () => {
+    initCharts();
+    renderQuestion();
+  });
 </script>
 
 </body>
